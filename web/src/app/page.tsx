@@ -6,11 +6,13 @@ import { Header } from "@/components/Header";
 import { FilterBar } from "@/components/FilterBar";
 import { KanjiGrid } from "@/components/KanjiGrid";
 import { KanjiModal } from "@/components/KanjiModal";
+import { FlashcardModal } from "@/components/FlashcardModal";
 
 export default function Home() {
   const [kanjiData, setKanjiData] = useState<Kanji[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedKanji, setSelectedKanji] = useState<Kanji | null>(null);
+  const [showFlashcard, setShowFlashcard] = useState(false);
 
   // 필터 상태
   const [jlptFilter, setJlptFilter] = useState<JlptLevel>("all");
@@ -118,6 +120,7 @@ export default function Home() {
         totalCount={stats.total}
         isDarkMode={isDarkMode}
         onToggleDarkMode={toggleDarkMode}
+        onOpenFlashcard={() => setShowFlashcard(true)}
       />
 
       <FilterBar
@@ -154,6 +157,13 @@ export default function Home() {
         <KanjiModal
           kanji={selectedKanji}
           onClose={() => setSelectedKanji(null)}
+        />
+      )}
+
+      {showFlashcard && (
+        <FlashcardModal
+          kanjiList={kanjiData}
+          onClose={() => setShowFlashcard(false)}
         />
       )}
     </div>

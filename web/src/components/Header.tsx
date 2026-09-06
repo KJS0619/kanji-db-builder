@@ -4,9 +4,10 @@ interface HeaderProps {
   totalCount: number;
   isDarkMode: boolean;
   onToggleDarkMode: () => void;
+  onOpenFlashcard: () => void;
 }
 
-export function Header({ totalCount, isDarkMode, onToggleDarkMode }: HeaderProps) {
+export function Header({ totalCount, isDarkMode, onToggleDarkMode, onOpenFlashcard }: HeaderProps) {
   return (
     <header className="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -21,6 +22,15 @@ export function Header({ totalCount, isDarkMode, onToggleDarkMode }: HeaderProps
         </div>
 
         <div className="flex items-center gap-2">
+          {/* 플래시카드 버튼 */}
+          <button
+            onClick={onOpenFlashcard}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-lg transition-all shadow-md hover:shadow-lg"
+          >
+            <span>🎴</span>
+            <span className="hidden sm:inline">플래시카드</span>
+          </button>
+
           {/* 다크 모드 토글 */}
           <button
             onClick={onToggleDarkMode}
