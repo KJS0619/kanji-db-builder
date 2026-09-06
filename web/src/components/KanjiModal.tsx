@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useCallback } from "react";
-import { Kanji, JLPT_COLORS, JLPT_TEXT_COLORS } from "@/types/kanji";
-import { StrokeRenderer } from "./StrokeRenderer";
+import { useEffect, useCallback, useState } from "react";
+import { Kanji, JLPT_COLORS } from "@/types/kanji";
+import { StrokePlayer } from "./StrokePlayer";
 import { DrawingCanvas } from "./DrawingCanvas";
 import clsx from "clsx";
 
@@ -11,7 +11,11 @@ interface KanjiModalProps {
   onClose: () => void;
 }
 
+type TabType = "stroke" | "draw";
+
 export function KanjiModal({ kanji, onClose }: KanjiModalProps) {
+  const [activeTab, setActiveTab] = useState<TabType>("stroke");
+
   // ESC 키로 닫기
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -151,22 +155,65 @@ export function KanjiModal({ kanji, onClose }: KanjiModalProps) {
           )}
         </div>
 
-        {/* 획순 렌더러 */}
-        {kanji.stroke_paths.length > 0 && (
-          <div className="p-4 border-b border-gray-200 dark:border-gray-700">
-            <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
-              획순 ({kanji.stroke_count}획)
-            </h3>
-            <StrokeRenderer kanji={kanji} />
-          </div>
-        )}
+        {/* 탭 네비게이션 */}
+        <div className="flex border-b border-gray-200 dark:border-gray-700">
+          <button
+            onClick={() => setActiveTab("stroke")}
+            className={clsx(
+              "flex-1 py-3 px-4 text-sm font-semibold transition-colors relative",
+              activeTab === "stroke"
+                ? "text-blue-600 dark:text-blue-400"
+                : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
+            )}
+          >
+            <span className="flex items-center justify-center gap-2">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              획순 보기
+            </span>
+            {activeTab === "stroke" && (
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400" />
+            )}
+          </button>
 
-        {/* 따라쓰기 캔버스 */}
+          <button
+            onClick={() => setActiveTab("draw")}
+            className={clsx(
+              "flex-1 py-3 px-4 text-sm font-semibold transition-colors relative",
+              activeTab === "draw"
+                ? "text-blue-600 dark:text-blue-400"
+                : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
+            )}
+          >
+            <span className="flex items-center justify-center gap-2">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+              </svg>
+              따라 쓰기
+            </span>
+            {activeTab === "draw" && (
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400" />
+            )}
+          </button>
+        </div>
+
+        {/* 탭 콘텐츠 */}
         <div className="p-4">
-          <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
-            따라쓰기
-          </h3>
-          <DrawingCanvas kanji={kanji} />
+          {activeTab === "stroke" && kanji.stroke_paths.length > 0 && (
+            <StrokePlayer kanji={kanji} />
+          )}
+
+          {activeTab === "stroke" && kanji.stroke_paths.length === 0 && (
+            <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+              획순 데이터가 없습니다
+            </div>
+          )}
+
+          {activeTab === "draw" && (
+            <DrawingCanvas kanji={kanji} />
+          )}
         </div>
       </div>
     </div>

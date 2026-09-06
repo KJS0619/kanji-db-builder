@@ -193,20 +193,26 @@ class KanjiVGParser:
             if elem.tag == 'kanji':
                 kanji_id = elem.get('id', '')
 
-                # ID 형식: kanji_XXXXX (5자리 hex)
-                if kanji_id.startswith('kanji_'):
+                # ID 형식: kvg:kanji_XXXXX (5자리 hex) 또는 kanji_XXXXX
+                if kanji_id.startswith('kvg:kanji_'):
+                    hex_code = kanji_id[10:]  # "kvg:kanji_" 제거
+                elif kanji_id.startswith('kanji_'):
                     hex_code = kanji_id[6:]  # "kanji_" 제거
-                    try:
-                        codepoint = int(hex_code, 16)
-                        literal = chr(codepoint)
+                else:
+                    elem.clear()
+                    continue
 
-                        if literal in target_kanji:
-                            strokes = self._parse_strokes(elem, namespaces)
-                            if strokes:
-                                self.stroke_data[literal] = strokes
-                                found_count += 1
-                    except (ValueError, OverflowError):
-                        pass
+                try:
+                    codepoint = int(hex_code, 16)
+                    literal = chr(codepoint)
+
+                    if literal in target_kanji:
+                        strokes = self._parse_strokes(elem, namespaces)
+                        if strokes:
+                            self.stroke_data[literal] = strokes
+                            found_count += 1
+                except (ValueError, OverflowError):
+                    pass
 
                 # 메모리 정리
                 elem.clear()
