@@ -1,0 +1,95 @@
+{
+  "version": "1.0.0",
+  "total_count": 5,
+  "kanji": [
+    {
+      "literal": "一",
+      "unicode_hex": "04e00",
+      "grade": 1,
+      "jlpt_level": "N5",
+      "stroke_count": 1,
+      "radical": 1,
+      "frequency": 2,
+      "korean_hun_eum": "한 일",
+      "ja_on": ["イチ", "イツ"],
+      "ja_kun": ["ひと-", "ひと.つ"],
+      "meanings_en": ["one", "one radical"],
+      "stroke_paths": [
+        {"order": 1, "path": "M15.75,53.25c1.13,0.97,2.25,2.5,2.25,4.38c0,3.29-0.07,24.61-0.07,33.87c0,2.73,0,4.5,0,4.5", "start_x": 15.75, "start_y": 53.25}
+      ]
+    },
+    {
+      "literal": "二",
+      "unicode_hex": "04e8c",
+      "grade": 1,
+      "jlpt_level": "N5",
+      "stroke_count": 2,
+      "radical": 7,
+      "frequency": 9,
+      "korean_hun_eum": "두 이",
+      "ja_on": ["ニ", "ジ"],
+      "ja_kun": ["ふた", "ふた.つ"],
+      "meanings_en": ["two", "two radical"],
+      "stroke_paths": [
+        {"order": 1, "path": "M20.25,33c0.97,0.97,2.25,2.47,2.25,4.12c0,2.5,0,8.25,0,8.25", "start_x": 20.25, "start_y": 33},
+        {"order": 2, "path": "M14.5,73.75c1.12,0.97,2.38,2.47,2.38,4.12c0,2.5-0.07,15.63-0.07,15.63", "start_x": 14.5, "start_y": 73.75}
+      ]
+    },
+    {
+      "literal": "三",
+      "unicode_hex": "04e09",
+      "grade": 1,
+      "jlpt_level": "N5",
+      "stroke_count": 3,
+      "radical": 1,
+      "frequency": 14,
+      "korean_hun_eum": "석 삼",
+      "ja_on": ["サン"],
+      "ja_kun": ["み", "み.つ", "みっ.つ"],
+      "meanings_en": ["three"],
+      "stroke_paths": [
+        {"order": 1, "path": "M25.25,22c0.84,0.84,1.88,2.12,1.88,3.5", "start_x": 25.25, "start_y": 22},
+        {"order": 2, "path": "M19.75,51.25c0.97,0.97,2.13,2.37,2.13,3.88", "start_x": 19.75, "start_y": 51.25},
+        {"order": 3, "path": "M12.5,83c1.12,0.97,2.5,2.47,2.5,4.12", "start_x": 12.5, "start_y": 83}
+      ]
+    },
+    {
+      "literal": "水",
+      "unicode_hex": "06c34",
+      "grade": 1,
+      "jlpt_level": "N5",
+      "stroke_count": 4,
+      "radical": 85,
+      "frequency": 223,
+      "korean_hun_eum": "물 수",
+      "ja_on": ["スイ"],
+      "ja_kun": ["みず"],
+      "meanings_en": ["water"],
+      "stroke_paths": [
+        {"order": 1, "path": "M53.38,14c0,1.62-0.1,2.47-0.19,3.22c-0.89,7.59-3.06,56.72-3.06,70.22c0,6.81,4.19,5.25,7.81,3.53c6.03-2.86,16.97-9.11,22.37-12.24", "start_x": 53.38, "start_y": 14},
+        {"order": 2, "path": "M36.25,37c0.91,0.91,2.13,2.58,2.13,4.3c0,3.69-10.86,22.14-25.88,35.2", "start_x": 36.25, "start_y": 37},
+        {"order": 3, "path": "M51,46.19c4.09,3.67,22.67,24.69,28.88,32.24c2.27,2.76,3.74,4.39,4.75,5.45", "start_x": 51, "start_y": 46.19},
+        {"order": 4, "path": "M17.62,24.25c2.27,0.84,4.75,0.66,7.25,0.34c9.37-1.22,22.88-4.09,32.5-4.97c2.64-0.24,5.44-0.2,7.75,0.38", "start_x": 17.62, "start_y": 24.25}
+      ]
+    },
+    {
+      "literal": "火",
+      "unicode_hex": "0706b",
+      "grade": 1,
+      "jlpt_level": "N5",
+      "stroke_count": 4,
+      "radical": 86,
+      "frequency": 574,
+      "korean_hun_eum": "불 화",
+      "ja_on": ["カ"],
+      "ja_kun": ["ひ", "ほ"],
+      "meanings_en": ["fire"],
+      "stroke_paths": [
+        {"order": 1, "path": "M36.28,27.75c1.03,0.78,1.75,2.19,1.75,3.66c0,2.48-5.06,33.97-12.94,52.59", "start_x": 36.28, "start_y": 27.75},
+        {"order": 2, "path": "M62.97,27.62c-0.34,1.16-0.58,2.33-0.79,3.32c-2.43,11.44-8.37,39.52-10.15,48.74c-0.44,2.31-0.8,3.89-0.86,4.36", "start_x": 62.97, "start_y": 27.62},
+        {"order": 3, "path": "M20.75,58.75c1.58,0.78,3.36,0.55,4.77,0.17c3.23-0.86,7.23-2.42,9.73-3.17", "start_x": 20.75, "start_y": 58.75},
+        {"order": 4, "path": "M68.75,55c1.52,0.65,2.98,0.73,4.5,0.5c3.69-0.56,9.5-2,13.38-2.88", "start_x": 68.75, "start_y": 55}
+      ]
+    }
+  ]
+}
