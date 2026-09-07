@@ -5,9 +5,11 @@ interface HeaderProps {
   isDarkMode: boolean;
   onToggleDarkMode: () => void;
   onOpenFlashcard: () => void;
+  onOpenWordFlashcard: () => void;
+  onOpenMyVocab: () => void;
 }
 
-export function Header({ totalCount, isDarkMode, onToggleDarkMode, onOpenFlashcard }: HeaderProps) {
+export function Header({ totalCount, isDarkMode, onToggleDarkMode, onOpenFlashcard, onOpenWordFlashcard, onOpenMyVocab }: HeaderProps) {
   return (
     <header className="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -22,10 +24,40 @@ export function Header({ totalCount, isDarkMode, onToggleDarkMode, onOpenFlashca
         </div>
 
         <div className="flex items-center gap-2">
+          {/* 나만의 단어장 버튼 */}
+          <button
+            onClick={onOpenMyVocab}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg transition-all shadow-md hover:shadow-lg"
+            style={{
+              background: "linear-gradient(to right, #f59e0b, #f97316)",
+              color: "#ffffff",
+            }}
+          >
+            <span>📚</span>
+            <span className="hidden sm:inline">내 단어장</span>
+          </button>
+
+          {/* 단어 암기장 버튼 */}
+          <button
+            onClick={onOpenWordFlashcard}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg transition-all shadow-md hover:shadow-lg"
+            style={{
+              background: "linear-gradient(to right, #059669, #0d9488)",
+              color: "#ffffff",
+            }}
+          >
+            <span>📖</span>
+            <span className="hidden sm:inline">단어 암기장</span>
+          </button>
+
           {/* 플래시카드 버튼 */}
           <button
             onClick={onOpenFlashcard}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-lg transition-all shadow-md hover:shadow-lg"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg transition-all shadow-md hover:shadow-lg"
+            style={{
+              background: "linear-gradient(to right, #2563eb, #4f46e5)",
+              color: "#ffffff",
+            }}
           >
             <span>🎴</span>
             <span className="hidden sm:inline">플래시카드</span>

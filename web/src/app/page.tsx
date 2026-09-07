@@ -7,12 +7,16 @@ import { FilterBar } from "@/components/FilterBar";
 import { KanjiGrid } from "@/components/KanjiGrid";
 import { KanjiModal } from "@/components/KanjiModal";
 import { FlashcardModal } from "@/components/FlashcardModal";
+import { WordFlashcardModal } from "@/components/WordFlashcardModal";
+import { MyVocabModal } from "@/components/MyVocabModal";
 
 export default function Home() {
   const [kanjiData, setKanjiData] = useState<Kanji[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedKanji, setSelectedKanji] = useState<Kanji | null>(null);
   const [showFlashcard, setShowFlashcard] = useState(false);
+  const [showWordFlashcard, setShowWordFlashcard] = useState(false);
+  const [showMyVocab, setShowMyVocab] = useState(false);
 
   // 필터 상태
   const [jlptFilter, setJlptFilter] = useState<JlptLevel>("all");
@@ -38,10 +42,17 @@ export default function Home() {
 
   // 다크 모드 초기화
   useEffect(() => {
-    const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    // localStorage에서 저장된 설정 확인, 없으면 시스템 설정 사용
+    const savedDarkMode = localStorage.getItem("darkMode");
+    const isDark = savedDarkMode !== null
+      ? savedDarkMode === "true"
+      : window.matchMedia("(prefers-color-scheme: dark)").matches;
+
     setIsDarkMode(isDark);
     if (isDark) {
       document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
     }
   }, []);
 
@@ -49,6 +60,7 @@ export default function Home() {
   const toggleDarkMode = useCallback(() => {
     setIsDarkMode((prev) => {
       const newValue = !prev;
+      localStorage.setItem("darkMode", String(newValue));
       if (newValue) {
         document.documentElement.classList.add("dark");
       } else {
@@ -121,6 +133,8 @@ export default function Home() {
         isDarkMode={isDarkMode}
         onToggleDarkMode={toggleDarkMode}
         onOpenFlashcard={() => setShowFlashcard(true)}
+        onOpenWordFlashcard={() => setShowWordFlashcard(true)}
+        onOpenMyVocab={() => setShowMyVocab(true)}
       />
 
       <FilterBar
@@ -164,6 +178,19 @@ export default function Home() {
         <FlashcardModal
           kanjiList={kanjiData}
           onClose={() => setShowFlashcard(false)}
+        />
+      )}
+
+      {showWordFlashcard && (
+        <WordFlashcardModal
+          onClose={() => setShowWordFlashcard(false)}
+        />
+      )}
+
+      {showMyVocab && (
+        <MyVocabModal
+          kanjiList={kanjiData}
+          onClose={() => setShowMyVocab(false)}
         />
       )}
     </div>
