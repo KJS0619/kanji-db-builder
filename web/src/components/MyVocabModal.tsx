@@ -149,25 +149,20 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
     [formData.word, wordInputQuery]
   );
 
-  // Handle reading input with automatic hiragana conversion
+  // Handle reading input with automatic hiragana conversion (IMEMode for partial input)
   const handleReadingInputChange = useCallback((value: string) => {
-    // Convert romaji to hiragana automatically
-    const converted = wanakana.isRomaji(value)
-      ? wanakana.toHiragana(value, { IMEMode: true })
-      : value;
+    // Convert romaji to hiragana with IMEMode (keeps incomplete romaji like 'n' as-is)
+    const converted = wanakana.toHiragana(value, { IMEMode: true });
     setFormData((prev) => ({ ...prev, reading: converted }));
   }, []);
 
-  // Bind wanakana to reading input
-  useEffect(() => {
-    const input = readingInputRef.current;
-    if (input && viewMode === "add") {
-      wanakana.bind(input, { IMEMode: true });
-      return () => {
-        wanakana.unbind(input);
-      };
-    }
-  }, [viewMode]);
+  // Finalize hiragana conversion on blur (convert any remaining romaji)
+  const handleReadingBlur = useCallback(() => {
+    setFormData((prev) => ({
+      ...prev,
+      reading: wanakana.toHiragana(prev.reading, { IMEMode: false }),
+    }));
+  }, []);
 
   // Close suggestions when clicking outside
   useEffect(() => {
@@ -297,12 +292,6 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [viewMode, selectedKanji, handleFlip, handlePrev, handleNext, handleShuffle, onClose]);
 
-  const handleBackdropClick = useCallback(
-    (e: React.MouseEvent) => {
-      if (e.target === e.currentTarget) onClose();
-    },
-    [onClose]
-  );
 
   const currentWord = deck[currentIndex];
 
@@ -346,7 +335,6 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
     <>
       <div
         className="fixed inset-0 z-50 flex items-center justify-center modal-backdrop bg-black/60"
-        onClick={handleBackdropClick}
       >
         <div
           className={clsx(
@@ -354,7 +342,6 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
             "bg-white dark:bg-gray-900 rounded-2xl",
             "shadow-2xl overflow-hidden"
           )}
-          onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-gray-700">
@@ -597,6 +584,7 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                     type="text"
                     value={formData.reading}
                     onChange={(e) => handleReadingInputChange(e.target.value)}
+                    onBlur={handleReadingBlur}
                     placeholder="영문으로 치면 히라가나 자동 변환 (예: keizai → けいざい)"
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     required
