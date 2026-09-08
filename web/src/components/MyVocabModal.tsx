@@ -151,12 +151,12 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
   );
 
   // Handle reading input with automatic hiragana conversion (IMEMode for partial input)
-  // Only allow romaji (a-z) input, which gets converted to hiragana
+  // Allow romaji (a-z) and existing hiragana/katakana, filter out Korean and other scripts
   const handleReadingInputChange = useCallback((value: string) => {
-    // Filter to only allow romaji letters (a-z, A-Z) - remove any other characters
-    const romajiOnly = value.replace(/[^a-zA-Z]/g, "");
+    // Filter to allow: romaji (a-z), hiragana (ぁ-ん), katakana (ァ-ン), and long vowel mark (ー)
+    const filtered = value.replace(/[^a-zA-Zぁ-んァ-ンー]/g, "");
     // Convert romaji to hiragana with IMEMode (keeps incomplete romaji like 'n' as-is)
-    const converted = wanakana.toHiragana(romajiOnly, { IMEMode: true });
+    const converted = wanakana.toHiragana(filtered, { IMEMode: true });
     setFormData((prev) => ({ ...prev, reading: converted }));
   }, []);
 
@@ -166,14 +166,6 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
       ...prev,
       reading: wanakana.toHiragana(prev.reading, { IMEMode: false }),
     }));
-  }, []);
-
-  // Handle meaning input - only allow Korean characters and spaces
-  const handleMeaningInputChange = useCallback((value: string) => {
-    // Filter to only allow Korean (Hangul) characters, spaces, and basic punctuation
-    // Hangul syllables: 가-힣, Hangul jamo: ㄱ-ㅎ, ㅏ-ㅣ
-    const koreanOnly = value.replace(/[^가-힣ㄱ-ㅎㅏ-ㅣ\s,.~\-()]/g, "");
-    setFormData((prev) => ({ ...prev, meaning: koreanOnly }));
   }, []);
 
   // Close suggestions when clicking outside
@@ -678,7 +670,7 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                   <input
                     type="text"
                     value={formData.meaning}
-                    onChange={(e) => handleMeaningInputChange(e.target.value)}
+                    onChange={(e) => setFormData((prev) => ({ ...prev, meaning: e.target.value }))}
                     placeholder="例: 안내, 먹다"
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     required
