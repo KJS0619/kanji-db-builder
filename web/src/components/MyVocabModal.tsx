@@ -3,7 +3,7 @@
 import { useEffect, useCallback, useState, useMemo, useRef } from "react";
 import { Kanji, JLPT_COLORS } from "@/types/kanji";
 import { CustomWord, WordFormData, POS_OPTIONS, WordPOS } from "@/types/word";
-import { fetchWords, addWord, deleteWord } from "@/services/vocabService";
+import { fetchWords, addWord, deleteWord, updateWord } from "@/services/vocabService";
 import { extractKanji, createKanjiMap, getKanjiDetails } from "@/utils/kanjiParser";
 import { KanjiModal } from "./KanjiModal";
 import clsx from "clsx";
@@ -42,6 +42,7 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
     memo: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [editingWordId, setEditingWordId] = useState<string | null>(null);
 
   // Kanji suggestion state
   const [kanjiSuggestions, setKanjiSuggestions] = useState<Kanji[]>([]);
@@ -208,23 +209,55 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
     }
   };
 
-  // Handle form submit
+  // Handle form submit (add or update)
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.word || !formData.reading || !formData.meaning) return;
 
     try {
       setIsSubmitting(true);
-      const newWord = await addWord(formData);
-      setWords((prev) => [newWord, ...prev]);
+
+      if (editingWordId) {
+        // Update existing word
+        const updatedWord = await updateWord(editingWordId, formData);
+        setWords((prev) =>
+          prev.map((w) => (w.id === editingWordId ? updatedWord : w))
+        );
+        setEditingWordId(null);
+      } else {
+        // Add new word
+        const newWord = await addWord(formData);
+        setWords((prev) => [newWord, ...prev]);
+      }
+
       setFormData({ word: "", reading: "", meaning: "", pos: "명사", memo: "" });
       setViewMode("list");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "단어 추가에 실패했습니다.");
+      setError(err instanceof Error ? err.message : editingWordId ? "단어 수정에 실패했습니다." : "단어 추가에 실패했습니다.");
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  // Start editing a word
+  const startEdit = useCallback((word: CustomWord) => {
+    setFormData({
+      word: word.word,
+      reading: word.reading,
+      meaning: word.meaning,
+      pos: word.pos as WordPOS,
+      memo: word.memo || "",
+    });
+    setEditingWordId(word.id);
+    setViewMode("add");
+  }, []);
+
+  // Cancel editing
+  const cancelEdit = useCallback(() => {
+    setFormData({ word: "", reading: "", meaning: "", pos: "명사", memo: "" });
+    setEditingWordId(null);
+    setViewMode("list");
+  }, []);
 
   // Handle delete
   const handleDelete = async (id: string) => {
@@ -402,17 +435,28 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
               )}
             </button>
             <button
-              onClick={() => setViewMode("add")}
+              onClick={() => {
+                if (editingWordId) {
+                  setEditingWordId(null);
+                  setFormData({ word: "", reading: "", meaning: "", pos: "명사", memo: "" });
+                }
+                setViewMode("add");
+              }}
               className={clsx(
                 "flex-1 py-2.5 text-sm font-semibold transition-all relative",
-                viewMode === "add"
+                viewMode === "add" && !editingWordId
                   ? "text-green-600 dark:text-green-400"
+                  : viewMode === "add" && editingWordId
+                  ? "text-amber-600 dark:text-amber-400"
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-700"
               )}
             >
-              + 추가
+              {viewMode === "add" && editingWordId ? "✏️ 수정" : "+ 추가"}
               {viewMode === "add" && (
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-green-600" />
+                <div className={clsx(
+                  "absolute bottom-0 left-0 right-0 h-0.5",
+                  editingWordId ? "bg-amber-600" : "bg-green-600"
+                )} />
               )}
             </button>
             <button
@@ -501,14 +545,26 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                             {renderKanjiChips(word.word)}
                           </div>
                         </div>
-                        <button
-                          onClick={() => handleDelete(word.id)}
-                          className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors"
-                        >
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                          </svg>
-                        </button>
+                        <div className="flex flex-col gap-1">
+                          <button
+                            onClick={() => startEdit(word)}
+                            className="p-1.5 text-gray-400 hover:text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded transition-colors"
+                            title="수정"
+                          >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            </svg>
+                          </button>
+                          <button
+                            onClick={() => handleDelete(word.id)}
+                            className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors"
+                            title="삭제"
+                          >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   ))
@@ -516,9 +572,19 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
               </div>
             )}
 
-            {/* Add form */}
+            {/* Add/Edit form */}
             {!isLoading && viewMode === "add" && (
               <form onSubmit={handleSubmit} className="p-4 space-y-4">
+                {/* Editing mode banner */}
+                {editingWordId && (
+                  <div className="p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg">
+                    <p className="text-xs text-amber-700 dark:text-amber-300 flex items-center gap-1.5">
+                      <span className="text-lg">✏️</span>
+                      수정 모드 - 변경 후 저장 버튼을 눌러주세요
+                    </p>
+                  </div>
+                )}
+
                 {/* Helper info banner */}
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
                   <p className="text-xs text-blue-700 dark:text-blue-300 flex items-center gap-1.5">
@@ -653,18 +719,31 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting || !formData.word || !formData.reading || !formData.meaning}
-                  className={clsx(
-                    "w-full py-2.5 rounded-lg font-medium transition-all",
-                    isSubmitting || !formData.word || !formData.reading || !formData.meaning
-                      ? "bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed"
-                      : "bg-green-600 text-white hover:bg-green-700 shadow-lg"
+                <div className="flex gap-2">
+                  {editingWordId && (
+                    <button
+                      type="button"
+                      onClick={cancelEdit}
+                      className="flex-1 py-2.5 rounded-lg font-medium transition-all bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
+                    >
+                      취소
+                    </button>
                   )}
-                >
-                  {isSubmitting ? "저장 중..." : "단어 저장"}
-                </button>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting || !formData.word || !formData.reading || !formData.meaning}
+                    className={clsx(
+                      "flex-1 py-2.5 rounded-lg font-medium transition-all",
+                      isSubmitting || !formData.word || !formData.reading || !formData.meaning
+                        ? "bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed"
+                        : editingWordId
+                        ? "bg-amber-600 text-white hover:bg-amber-700 shadow-lg"
+                        : "bg-green-600 text-white hover:bg-green-700 shadow-lg"
+                    )}
+                  >
+                    {isSubmitting ? "저장 중..." : editingWordId ? "수정 완료" : "단어 저장"}
+                  </button>
+                </div>
               </form>
             )}
 
