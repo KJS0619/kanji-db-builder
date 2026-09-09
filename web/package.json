@@ -19,6 +19,7 @@
     "react-dom": "^18.3.1",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
+    "tesseract.js": "^7.0.0",
     "wanakana": "^5.3.1"
   },
   "devDependencies": {

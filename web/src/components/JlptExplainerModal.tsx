@@ -28,49 +28,101 @@ const EXAMPLE_INPUT = `[1번 문항]
 - 보기: ① わけではない ② もの ③ はずがない ④ まま
 - 정답: ①`;
 
-// PDF text extraction function with timeout
-async function extractTextFromPdf(file: File): Promise<string> {
-  const timeoutMs = 30000; // 30 second timeout
+// PDF text extraction result type
+interface PdfExtractionResult {
+  text: string;
+  usedOcr: boolean;
+}
 
-  const extractionPromise = (async () => {
-    console.log("Loading pdfjs-dist...");
-    const pdfjsLib = await import("pdfjs-dist");
-    console.log("pdfjs-dist loaded, version:", pdfjsLib.version);
+// PDF text extraction function (tries text layer first, then OCR)
+async function extractTextFromPdf(
+  file: File,
+  onProgress?: (message: string) => void
+): Promise<PdfExtractionResult> {
+  const report = (msg: string) => {
+    console.log(msg);
+    onProgress?.(msg);
+  };
 
-    // Set worker source for pdfjs-dist v4+
-    // Using unpkg CDN which is more reliable
-    const version = pdfjsLib.version;
-    pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${version}/build/pdf.worker.min.mjs`;
-    console.log("Worker source set");
+  report("PDF 라이브러리 로딩 중...");
+  const pdfjsLib = await import("pdfjs-dist");
 
-    const arrayBuffer = await file.arrayBuffer();
-    console.log("File read, size:", arrayBuffer.byteLength);
+  const version = pdfjsLib.version;
+  pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${version}/build/pdf.worker.min.mjs`;
 
-    const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-    console.log("PDF loaded, pages:", pdf.numPages);
+  const arrayBuffer = await file.arrayBuffer();
+  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  report(`PDF 로드 완료 (${pdf.numPages}페이지)`);
 
-    let fullText = "";
+  // First, try to extract text directly
+  let fullText = "";
+  for (let i = 1; i <= pdf.numPages; i++) {
+    report(`텍스트 추출 중... (${i}/${pdf.numPages})`);
+    const page = await pdf.getPage(i);
+    const textContent = await page.getTextContent();
+    const pageText = textContent.items
+      .map((item) => ("str" in item ? (item as { str: string }).str : ""))
+      .filter(Boolean)
+      .join(" ");
+    fullText += pageText + "\n\n";
+  }
 
-    for (let i = 1; i <= pdf.numPages; i++) {
-      console.log("Processing page", i);
-      const page = await pdf.getPage(i);
-      const textContent = await page.getTextContent();
-      const pageText = textContent.items
-        .map((item) => ("str" in item ? (item as { str: string }).str : ""))
-        .filter(Boolean)
-        .join(" ");
-      fullText += pageText + "\n\n";
-    }
+  fullText = fullText.trim();
 
-    return fullText.trim();
-  })();
+  // If text extraction worked, return it
+  if (fullText.length > 0) {
+    return { text: fullText, usedOcr: false };
+  }
 
-  // Add timeout
-  const timeoutPromise = new Promise<never>((_, reject) => {
-    setTimeout(() => reject(new Error("PDF 추출 시간 초과 (30초)")), timeoutMs);
+  // Text extraction failed - use OCR
+  report("텍스트 레이어 없음. OCR 시작...");
+  report("일본어 OCR 모델 로딩 중... (최초 실행 시 약 10MB 다운로드)");
+
+  const Tesseract = await import("tesseract.js");
+
+  // Create worker with Japanese language
+  const worker = await Tesseract.createWorker("jpn", 1, {
+    logger: (m) => {
+      if (m.status === "recognizing text") {
+        report(`OCR 진행 중... ${Math.round((m.progress || 0) * 100)}%`);
+      }
+    },
   });
 
-  return Promise.race([extractionPromise, timeoutPromise]);
+  let ocrText = "";
+
+  // Process each page
+  for (let i = 1; i <= pdf.numPages; i++) {
+    report(`페이지 ${i}/${pdf.numPages} OCR 처리 중...`);
+
+    const page = await pdf.getPage(i);
+    const scale = 2; // Higher scale for better OCR
+    const viewport = page.getViewport({ scale });
+
+    // Create canvas
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d")!;
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+
+    // Render page to canvas
+    await page.render({
+      canvasContext: context,
+      viewport: viewport,
+    }).promise;
+
+    // Get image data
+    const imageData = canvas.toDataURL("image/png");
+
+    // Run OCR
+    const { data } = await worker.recognize(imageData);
+    ocrText += data.text + "\n\n";
+  }
+
+  await worker.terminate();
+  report("OCR 완료!");
+
+  return { text: ocrText.trim(), usedOcr: true };
 }
 
 export function JlptExplainerModal({ onClose }: JlptExplainerModalProps) {
@@ -87,6 +139,7 @@ export function JlptExplainerModal({ onClose }: JlptExplainerModalProps) {
   const [isSaving, setIsSaving] = useState(false);
   const [selectedExplanation, setSelectedExplanation] = useState<JlptExplanation | null>(null);
   const [isPdfLoading, setIsPdfLoading] = useState(false);
+  const [pdfProgress, setPdfProgress] = useState<string>("");
   const [isDragOver, setIsDragOver] = useState(false);
   const printRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -129,29 +182,31 @@ export function JlptExplainerModal({ onClose }: JlptExplainerModalProps) {
     }
 
     setIsPdfLoading(true);
+    setPdfProgress("PDF 처리 시작...");
     setError(null);
 
     try {
-      console.log("Starting PDF extraction...");
-      const text = await extractTextFromPdf(file);
-      console.log("PDF extraction complete, text length:", text.length);
+      const result = await extractTextFromPdf(file, (progress) => {
+        setPdfProgress(progress);
+      });
 
-      if (text.length === 0) {
-        setError(
-          "PDF에서 텍스트를 추출할 수 없습니다. 이 PDF는 스캔된 이미지일 수 있습니다.\n\n" +
-          "해결 방법:\n" +
-          "1. 텍스트 선택이 가능한 PDF를 사용하세요\n" +
-          "2. 또는 문제를 직접 입력해 주세요"
-        );
+      console.log("PDF extraction complete, text length:", result.text.length, "OCR used:", result.usedOcr);
+
+      if (result.text.length === 0) {
+        setError("PDF에서 텍스트를 추출할 수 없습니다. OCR도 실패했습니다.");
         return;
       }
 
-      setQuestions(text);
+      setQuestions(result.text);
 
       // Set title from filename if empty
       if (!title) {
         const fileName = file.name.replace(/\.pdf$/i, "");
-        setTitle(fileName);
+        setTitle(fileName + (result.usedOcr ? " (OCR)" : ""));
+      }
+
+      if (result.usedOcr) {
+        setPdfProgress("OCR로 텍스트 추출 완료! 결과를 확인해 주세요.");
       }
     } catch (err) {
       console.error("PDF extraction error:", err);
@@ -598,7 +653,10 @@ export function JlptExplainerModal({ onClose }: JlptExplainerModalProps) {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                     </svg>
-                    <span className="text-sm text-gray-600 dark:text-gray-400">PDF 텍스트 추출 중...</span>
+                    <span className="text-sm text-gray-600 dark:text-gray-400 text-center">{pdfProgress || "PDF 처리 중..."}</span>
+                    {pdfProgress.includes("OCR") && (
+                      <span className="text-xs text-amber-600 dark:text-amber-400">OCR은 시간이 걸릴 수 있습니다</span>
+                    )}
                   </div>
                 ) : (
                   <div className="flex flex-col items-center gap-2">
