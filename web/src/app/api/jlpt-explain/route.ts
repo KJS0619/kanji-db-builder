@@ -71,7 +71,7 @@ ${questions}`;
         },
         body: JSON.stringify({
           model: "claude-sonnet-4-20250514",
-          max_tokens: 8192,
+          max_tokens: 16384,
           system: SYSTEM_PROMPT,
           messages: [
             {
@@ -112,7 +112,7 @@ ${questions}`;
           ],
           generationConfig: {
             temperature: 0.7,
-            maxOutputTokens: 8192,
+            maxOutputTokens: 32768,
           },
         }),
       });
@@ -146,7 +146,7 @@ ${questions}`;
               content: userMessage,
             },
           ],
-          max_tokens: 8192,
+          max_tokens: 16384,
           temperature: 0.7,
         }),
       });
