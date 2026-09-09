@@ -28,6 +28,30 @@ const EXAMPLE_INPUT = `[1번 문항]
 - 보기: ① わけではない ② もの ③ はずがない ④ まま
 - 정답: ①`;
 
+// PDF text extraction function
+async function extractTextFromPdf(file: File): Promise<string> {
+  const pdfjsLib = await import("pdfjs-dist");
+
+  // Set worker source
+  pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
+
+  const arrayBuffer = await file.arrayBuffer();
+  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+
+  let fullText = "";
+
+  for (let i = 1; i <= pdf.numPages; i++) {
+    const page = await pdf.getPage(i);
+    const textContent = await page.getTextContent();
+    const pageText = textContent.items
+      .map((item: { str?: string }) => item.str || "")
+      .join(" ");
+    fullText += pageText + "\n\n";
+  }
+
+  return fullText.trim();
+}
+
 export function JlptExplainerModal({ onClose }: JlptExplainerModalProps) {
   const [viewMode, setViewMode] = useState<ViewMode>("input");
   const [title, setTitle] = useState("");
@@ -41,7 +65,10 @@ export function JlptExplainerModal({ onClose }: JlptExplainerModalProps) {
   const [savedExplanations, setSavedExplanations] = useState<JlptExplanation[]>([]);
   const [isSaving, setIsSaving] = useState(false);
   const [selectedExplanation, setSelectedExplanation] = useState<JlptExplanation | null>(null);
+  const [isPdfLoading, setIsPdfLoading] = useState(false);
+  const [isDragOver, setIsDragOver] = useState(false);
   const printRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Load saved API key from localStorage
   useEffect(() => {
@@ -70,6 +97,64 @@ export function JlptExplainerModal({ onClose }: JlptExplainerModalProps) {
     localStorage.setItem("jlpt_api_key", apiKey);
     localStorage.setItem("jlpt_api_provider", apiProvider);
   }, [apiKey, apiProvider]);
+
+  // Handle PDF file upload
+  const handlePdfUpload = async (file: File) => {
+    if (!file.type.includes("pdf")) {
+      setError("PDF 파일만 업로드 가능합니다.");
+      return;
+    }
+
+    setIsPdfLoading(true);
+    setError(null);
+
+    try {
+      const text = await extractTextFromPdf(file);
+      setQuestions(text);
+
+      // Set title from filename if empty
+      if (!title) {
+        const fileName = file.name.replace(/\.pdf$/i, "");
+        setTitle(fileName);
+      }
+    } catch (err) {
+      console.error("PDF extraction error:", err);
+      setError("PDF 텍스트 추출에 실패했습니다. 다른 PDF를 시도해주세요.");
+    } finally {
+      setIsPdfLoading(false);
+    }
+  };
+
+  // Handle file input change
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      handlePdfUpload(file);
+    }
+    // Reset input so same file can be selected again
+    e.target.value = "";
+  };
+
+  // Handle drag and drop
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragOver(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragOver(false);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragOver(false);
+
+    const file = e.dataTransfer.files?.[0];
+    if (file) {
+      handlePdfUpload(file);
+    }
+  };
 
   // Generate explanation
   const handleGenerate = async () => {
@@ -448,6 +533,50 @@ export function JlptExplainerModal({ onClose }: JlptExplainerModalProps) {
                     </p>
                   </div>
                 </div>
+              </div>
+
+              {/* PDF Upload Zone */}
+              <div
+                onDragOver={handleDragOver}
+                onDragLeave={handleDragLeave}
+                onDrop={handleDrop}
+                onClick={() => fileInputRef.current?.click()}
+                className={clsx(
+                  "border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-all",
+                  isDragOver
+                    ? "border-purple-500 bg-purple-50 dark:bg-purple-900/20"
+                    : "border-gray-300 dark:border-gray-600 hover:border-purple-400 hover:bg-gray-50 dark:hover:bg-gray-800"
+                )}
+              >
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept=".pdf"
+                  onChange={handleFileChange}
+                  className="hidden"
+                />
+                {isPdfLoading ? (
+                  <div className="flex flex-col items-center gap-2">
+                    <svg className="animate-spin h-8 w-8 text-purple-600" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    </svg>
+                    <span className="text-sm text-gray-600 dark:text-gray-400">PDF 텍스트 추출 중...</span>
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center gap-2">
+                    <svg className="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v6a1 1 0 001 1h6" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 13h6m-6 4h6" />
+                    </svg>
+                    <div className="text-sm">
+                      <span className="text-purple-600 font-medium">PDF 파일 업로드</span>
+                      <span className="text-gray-500 dark:text-gray-400"> 또는 드래그 앤 드롭</span>
+                    </div>
+                    <span className="text-xs text-gray-400">JLPT 문제지 PDF에서 텍스트를 자동 추출합니다</span>
+                  </div>
+                )}
               </div>
 
               {/* Question Input */}
