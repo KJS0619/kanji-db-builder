@@ -176,18 +176,18 @@ export function StrokePlayer({ kanji }: StrokePlayerProps) {
                 <circle
                   cx={stroke.start_x}
                   cy={stroke.start_y}
-                  r="7"
+                  r="3.5"
                   fill={isCompleted ? "#2563eb" : isCurrent ? "#dc2626" : "#9ca3af"}
                   stroke="white"
-                  strokeWidth="1.5"
+                  strokeWidth="1"
                 />
                 <text
                   x={stroke.start_x}
-                  y={stroke.start_y + 0.5}
+                  y={stroke.start_y + 0.3}
                   textAnchor="middle"
                   dominantBaseline="central"
                   fill="white"
-                  fontSize="8"
+                  fontSize="4"
                   fontWeight="bold"
                 >
                   {i + 1}
