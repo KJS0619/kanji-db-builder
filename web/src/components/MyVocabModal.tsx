@@ -603,14 +603,13 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                   <input
                     ref={wordInputRef}
                     type="text"
-                    inputMode="latin"
                     value={formData.word}
                     onChange={(e) => handleWordInputChange(e.target.value)}
                     onFocus={() => {
                       if (kanjiSuggestions.length > 0) setShowSuggestions(true);
                     }}
                     onBlur={handleWordBlur}
-                    placeholder="예: keizai→けいざい, 한자 선택 가능"
+                    placeholder="한자/히라가나 직접입력 또는 romaji→히라가나"
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     required
                   />
