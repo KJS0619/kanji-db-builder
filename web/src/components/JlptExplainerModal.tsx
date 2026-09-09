@@ -135,6 +135,17 @@ export function JlptExplainerModal({ onClose }: JlptExplainerModalProps) {
       console.log("Starting PDF extraction...");
       const text = await extractTextFromPdf(file);
       console.log("PDF extraction complete, text length:", text.length);
+
+      if (text.length === 0) {
+        setError(
+          "PDF에서 텍스트를 추출할 수 없습니다. 이 PDF는 스캔된 이미지일 수 있습니다.\n\n" +
+          "해결 방법:\n" +
+          "1. 텍스트 선택이 가능한 PDF를 사용하세요\n" +
+          "2. 또는 문제를 직접 입력해 주세요"
+        );
+        return;
+      }
+
       setQuestions(text);
 
       // Set title from filename if empty
