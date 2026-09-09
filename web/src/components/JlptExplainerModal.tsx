@@ -109,6 +109,7 @@ async function extractTextFromPdf(
     await page.render({
       canvasContext: context,
       viewport: viewport,
+      canvas: canvas,
     }).promise;
 
     // Get image data
