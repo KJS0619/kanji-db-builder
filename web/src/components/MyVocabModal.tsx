@@ -681,7 +681,10 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                           <button
                             key={kanji.literal}
                             type="button"
-                            onClick={() => insertKanji(kanji)}
+                            onMouseDown={(e) => {
+                              e.preventDefault(); // Prevent blur from firing
+                              insertKanji(kanji);
+                            }}
                             className="inline-flex items-center gap-1 px-2 py-1 bg-amber-50 dark:bg-amber-900/30 hover:bg-amber-100 dark:hover:bg-amber-800/50 border border-amber-300 dark:border-amber-700 rounded-lg transition-colors"
                           >
                             <span className="text-lg font-bold text-amber-800 dark:text-amber-200">
