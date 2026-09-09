@@ -9,6 +9,7 @@ import { KanjiModal } from "@/components/KanjiModal";
 import { FlashcardModal } from "@/components/FlashcardModal";
 import { WordFlashcardModal } from "@/components/WordFlashcardModal";
 import { MyVocabModal } from "@/components/MyVocabModal";
+import { JlptExplainerModal } from "@/components/JlptExplainerModal";
 
 export default function Home() {
   const [kanjiData, setKanjiData] = useState<Kanji[]>([]);
@@ -17,6 +18,7 @@ export default function Home() {
   const [showFlashcard, setShowFlashcard] = useState(false);
   const [showWordFlashcard, setShowWordFlashcard] = useState(false);
   const [showMyVocab, setShowMyVocab] = useState(false);
+  const [showJlptExplainer, setShowJlptExplainer] = useState(false);
 
   // 필터 상태
   const [jlptFilter, setJlptFilter] = useState<JlptLevel>("all");
@@ -135,6 +137,7 @@ export default function Home() {
         onOpenFlashcard={() => setShowFlashcard(true)}
         onOpenWordFlashcard={() => setShowWordFlashcard(true)}
         onOpenMyVocab={() => setShowMyVocab(true)}
+        onOpenJlptExplainer={() => setShowJlptExplainer(true)}
       />
 
       <FilterBar
@@ -191,6 +194,12 @@ export default function Home() {
         <MyVocabModal
           kanjiList={kanjiData}
           onClose={() => setShowMyVocab(false)}
+        />
+      )}
+
+      {showJlptExplainer && (
+        <JlptExplainerModal
+          onClose={() => setShowJlptExplainer(false)}
         />
       )}
     </div>

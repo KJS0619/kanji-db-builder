@@ -7,9 +7,10 @@ interface HeaderProps {
   onOpenFlashcard: () => void;
   onOpenWordFlashcard: () => void;
   onOpenMyVocab: () => void;
+  onOpenJlptExplainer: () => void;
 }
 
-export function Header({ totalCount, isDarkMode, onToggleDarkMode, onOpenFlashcard, onOpenWordFlashcard, onOpenMyVocab }: HeaderProps) {
+export function Header({ totalCount, isDarkMode, onToggleDarkMode, onOpenFlashcard, onOpenWordFlashcard, onOpenMyVocab, onOpenJlptExplainer }: HeaderProps) {
   return (
     <header className="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -24,6 +25,19 @@ export function Header({ totalCount, isDarkMode, onToggleDarkMode, onOpenFlashca
         </div>
 
         <div className="flex items-center gap-2">
+          {/* JLPT 해설 생성기 버튼 */}
+          <button
+            onClick={onOpenJlptExplainer}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg transition-all shadow-md hover:shadow-lg"
+            style={{
+              background: "linear-gradient(to right, #8b5cf6, #6366f1)",
+              color: "#ffffff",
+            }}
+          >
+            <span>📝</span>
+            <span className="hidden sm:inline">JLPT 해설</span>
+          </button>
+
           {/* 나만의 단어장 버튼 */}
           <button
             onClick={onOpenMyVocab}
