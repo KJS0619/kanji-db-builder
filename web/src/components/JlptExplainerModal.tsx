@@ -9,7 +9,7 @@ interface JlptExplainerModalProps {
   onClose: () => void;
 }
 
-type ApiProvider = "openai" | "anthropic";
+type ApiProvider = "openai" | "anthropic" | "gemini";
 
 const EXAMPLE_INPUT = `[1번 문항]
 - 본문: 初めて作る料理はレシピがなければ ( )。
@@ -24,7 +24,7 @@ const EXAMPLE_INPUT = `[1번 문항]
 export function JlptExplainerModal({ onClose }: JlptExplainerModalProps) {
   const [questions, setQuestions] = useState("");
   const [apiKey, setApiKey] = useState("");
-  const [apiProvider, setApiProvider] = useState<ApiProvider>("openai");
+  const [apiProvider, setApiProvider] = useState<ApiProvider>("gemini");
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -163,6 +163,7 @@ export function JlptExplainerModal({ onClose }: JlptExplainerModalProps) {
                       onChange={(e) => setApiProvider(e.target.value as ApiProvider)}
                       className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
                     >
+                      <option value="gemini">Google Gemini (무료)</option>
                       <option value="openai">OpenAI (GPT-4o)</option>
                       <option value="anthropic">Anthropic (Claude)</option>
                     </select>
@@ -174,7 +175,7 @@ export function JlptExplainerModal({ onClose }: JlptExplainerModalProps) {
                         type={showApiKey ? "text" : "password"}
                         value={apiKey}
                         onChange={(e) => setApiKey(e.target.value)}
-                        placeholder={apiProvider === "openai" ? "sk-..." : "sk-ant-..."}
+                        placeholder={apiProvider === "openai" ? "sk-..." : apiProvider === "anthropic" ? "sk-ant-..." : "AIza..."}
                         className="w-full px-3 py-2 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
                       />
                       <button

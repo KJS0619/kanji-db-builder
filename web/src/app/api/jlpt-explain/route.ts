@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
+type ApiProvider = "openai" | "anthropic" | "gemini";
+
 const SYSTEM_PROMPT = `# Role & Purpose
 당신은 최고의 JLPT 전문 출제 위원이자 어학 교재 수석 편집자입니다.
 사용자가 [학습 데이터]에 문제 원문, 보기, 정답을 입력하면, 사전 정의된 [표준 출력 서식]에 맞추어 완벽하게 구조화된 인쇄용 시험지 및 해설집을 생성합니다.
@@ -87,6 +89,41 @@ ${questions}`;
 
       const data = await response.json();
       const content = data.content[0]?.text || "";
+
+      return NextResponse.json({ result: content });
+    } else if (apiProvider === "gemini") {
+      // Google Gemini API
+      const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+      response = await fetch(geminiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          contents: [
+            {
+              parts: [
+                {
+                  text: `${SYSTEM_PROMPT}\n\n${userMessage}`,
+                },
+              ],
+            },
+          ],
+          generationConfig: {
+            temperature: 0.7,
+            maxOutputTokens: 8192,
+          },
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error?.message || "Gemini API 요청 실패");
+      }
+
+      const data = await response.json();
+      const content = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
 
       return NextResponse.json({ result: content });
     } else {
