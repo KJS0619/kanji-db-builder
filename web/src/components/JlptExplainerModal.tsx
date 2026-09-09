@@ -28,31 +28,49 @@ const EXAMPLE_INPUT = `[1번 문항]
 - 보기: ① わけではない ② もの ③ はずがない ④ まま
 - 정답: ①`;
 
-// PDF text extraction function
+// PDF text extraction function with timeout
 async function extractTextFromPdf(file: File): Promise<string> {
-  const pdfjsLib = await import("pdfjs-dist");
+  const timeoutMs = 30000; // 30 second timeout
 
-  // Set worker source for pdfjs-dist v4+
-  // Using unpkg CDN which is more reliable
-  const version = pdfjsLib.version;
-  pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${version}/build/pdf.worker.min.mjs`;
+  const extractionPromise = (async () => {
+    console.log("Loading pdfjs-dist...");
+    const pdfjsLib = await import("pdfjs-dist");
+    console.log("pdfjs-dist loaded, version:", pdfjsLib.version);
 
-  const arrayBuffer = await file.arrayBuffer();
-  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+    // Set worker source for pdfjs-dist v4+
+    // Using unpkg CDN which is more reliable
+    const version = pdfjsLib.version;
+    pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${version}/build/pdf.worker.min.mjs`;
+    console.log("Worker source set");
 
-  let fullText = "";
+    const arrayBuffer = await file.arrayBuffer();
+    console.log("File read, size:", arrayBuffer.byteLength);
 
-  for (let i = 1; i <= pdf.numPages; i++) {
-    const page = await pdf.getPage(i);
-    const textContent = await page.getTextContent();
-    const pageText = textContent.items
-      .map((item) => ("str" in item ? (item as { str: string }).str : ""))
-      .filter(Boolean)
-      .join(" ");
-    fullText += pageText + "\n\n";
-  }
+    const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+    console.log("PDF loaded, pages:", pdf.numPages);
 
-  return fullText.trim();
+    let fullText = "";
+
+    for (let i = 1; i <= pdf.numPages; i++) {
+      console.log("Processing page", i);
+      const page = await pdf.getPage(i);
+      const textContent = await page.getTextContent();
+      const pageText = textContent.items
+        .map((item) => ("str" in item ? (item as { str: string }).str : ""))
+        .filter(Boolean)
+        .join(" ");
+      fullText += pageText + "\n\n";
+    }
+
+    return fullText.trim();
+  })();
+
+  // Add timeout
+  const timeoutPromise = new Promise<never>((_, reject) => {
+    setTimeout(() => reject(new Error("PDF 추출 시간 초과 (30초)")), timeoutMs);
+  });
+
+  return Promise.race([extractionPromise, timeoutPromise]);
 }
 
 export function JlptExplainerModal({ onClose }: JlptExplainerModalProps) {
@@ -103,6 +121,8 @@ export function JlptExplainerModal({ onClose }: JlptExplainerModalProps) {
 
   // Handle PDF file upload
   const handlePdfUpload = async (file: File) => {
+    console.log("PDF upload started:", file.name, file.size, file.type);
+
     if (!file.type.includes("pdf")) {
       setError("PDF 파일만 업로드 가능합니다.");
       return;
@@ -112,7 +132,9 @@ export function JlptExplainerModal({ onClose }: JlptExplainerModalProps) {
     setError(null);
 
     try {
+      console.log("Starting PDF extraction...");
       const text = await extractTextFromPdf(file);
+      console.log("PDF extraction complete, text length:", text.length);
       setQuestions(text);
 
       // Set title from filename if empty
