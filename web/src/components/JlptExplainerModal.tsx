@@ -175,7 +175,7 @@ export function JlptExplainerModal({ onClose }: JlptExplainerModalProps) {
                         type={showApiKey ? "text" : "password"}
                         value={apiKey}
                         onChange={(e) => setApiKey(e.target.value)}
-                        placeholder={apiProvider === "openai" ? "sk-..." : apiProvider === "anthropic" ? "sk-ant-..." : "AIza..."}
+                        placeholder={apiProvider === "openai" ? "sk-..." : apiProvider === "anthropic" ? "sk-ant-..." : "Google AI API Key"}
                         className="w-full px-3 py-2 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
                       />
                       <button
