@@ -32,8 +32,10 @@ const EXAMPLE_INPUT = `[1번 문항]
 async function extractTextFromPdf(file: File): Promise<string> {
   const pdfjsLib = await import("pdfjs-dist");
 
-  // Set worker source
-  pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
+  // Set worker source for pdfjs-dist v4+
+  // Using unpkg CDN which is more reliable
+  const version = pdfjsLib.version;
+  pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${version}/build/pdf.worker.min.mjs`;
 
   const arrayBuffer = await file.arrayBuffer();
   const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
@@ -120,7 +122,8 @@ export function JlptExplainerModal({ onClose }: JlptExplainerModalProps) {
       }
     } catch (err) {
       console.error("PDF extraction error:", err);
-      setError("PDF 텍스트 추출에 실패했습니다. 다른 PDF를 시도해주세요.");
+      const errorMessage = err instanceof Error ? err.message : String(err);
+      setError(`PDF 텍스트 추출 실패: ${errorMessage}`);
     } finally {
       setIsPdfLoading(false);
     }
