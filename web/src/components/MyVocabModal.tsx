@@ -112,13 +112,16 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
     [kanjiList]
   );
 
-  // Handle word input change with kanji suggestions
+  // Handle word input change with kanji suggestions AND hiragana conversion
   const handleWordInputChange = useCallback(
     (value: string) => {
-      setFormData((prev) => ({ ...prev, word: value }));
+      // Convert romaji to hiragana (IMEMode keeps partial romaji like 'n' as-is)
+      // This allows typing verbs like "taberu" → "たべる"
+      const converted = wanakana.toHiragana(value, { IMEMode: true });
+      setFormData((prev) => ({ ...prev, word: converted }));
 
       // Extract the last segment after any kanji for suggestion
-      const lastSegment = value.match(/[a-zA-Zぁ-んァ-ン가-힣]+$/)?.[0] || "";
+      const lastSegment = converted.match(/[a-zA-Zぁ-んァ-ン가-힣]+$/)?.[0] || "";
       setWordInputQuery(lastSegment);
 
       if (lastSegment.length >= 1) {
@@ -132,6 +135,15 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
     },
     [searchKanjiByReading]
   );
+
+  // Finalize word hiragana conversion on blur
+  const handleWordBlur = useCallback(() => {
+    setFormData((prev) => ({
+      ...prev,
+      word: wanakana.toHiragana(prev.word, { IMEMode: false }),
+    }));
+    setShowSuggestions(false);
+  }, []);
 
   // Insert kanji into word field
   const insertKanji = useCallback(
@@ -151,12 +163,10 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
   );
 
   // Handle reading input with automatic hiragana conversion (IMEMode for partial input)
-  // Allow romaji (a-z) and existing hiragana/katakana, filter out Korean and other scripts
+  // No longer filters Korean - instead use inputMode="latin" hint on the input
   const handleReadingInputChange = useCallback((value: string) => {
-    // Filter to allow: romaji (a-z), hiragana (ぁ-ん), katakana (ァ-ン), and long vowel mark (ー)
-    const filtered = value.replace(/[^a-zA-Zぁ-んァ-ンー]/g, "");
-    // Convert romaji to hiragana with IMEMode (keeps incomplete romaji like 'n' as-is)
-    const converted = wanakana.toHiragana(filtered, { IMEMode: true });
+    // Convert romaji to hiragana (non-romaji characters pass through)
+    const converted = wanakana.toHiragana(value, { IMEMode: true });
     setFormData((prev) => ({ ...prev, reading: converted }));
   }, []);
 
@@ -581,7 +591,7 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
                   <p className="text-xs text-blue-700 dark:text-blue-300 flex items-center gap-1.5">
                     <span className="text-lg">💡</span>
-                    영문으로 입력하면 자동으로 히라가나 변환! (예: keizai → けいざい)
+                    단어/읽기: 영문 입력 → 히라가나 변환 (taberu → たべる)
                   </p>
                 </div>
 
@@ -593,12 +603,14 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                   <input
                     ref={wordInputRef}
                     type="text"
+                    inputMode="latin"
                     value={formData.word}
                     onChange={(e) => handleWordInputChange(e.target.value)}
                     onFocus={() => {
                       if (kanjiSuggestions.length > 0) setShowSuggestions(true);
                     }}
-                    placeholder="예: 経済, 食べる (직접 입력 또는 발음으로 한자 선택)"
+                    onBlur={handleWordBlur}
+                    placeholder="예: keizai→けいざい, 한자 선택 가능"
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     required
                   />
@@ -651,10 +663,11 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                   <input
                     ref={readingInputRef}
                     type="text"
+                    inputMode="latin"
                     value={formData.reading}
                     onChange={(e) => handleReadingInputChange(e.target.value)}
                     onBlur={handleReadingBlur}
-                    placeholder="영문으로 치면 히라가나 자동 변환 (예: keizai → けいざい)"
+                    placeholder="영문으로 입력 → 히라가나 자동 변환"
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     required
                   />
@@ -669,9 +682,10 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                   </label>
                   <input
                     type="text"
+                    lang="ko"
                     value={formData.meaning}
                     onChange={(e) => setFormData((prev) => ({ ...prev, meaning: e.target.value }))}
-                    placeholder="例: 안내, 먹다"
+                    placeholder="한국어로 뜻 입력"
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     required
                   />
