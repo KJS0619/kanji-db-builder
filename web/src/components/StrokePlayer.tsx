@@ -176,7 +176,7 @@ export function StrokePlayer({ kanji }: StrokePlayerProps) {
                 <circle
                   cx={stroke.start_x}
                   cy={stroke.start_y}
-                  r="3.5"
+                  r="4.5"
                   fill={isCompleted ? "#2563eb" : isCurrent ? "#dc2626" : "#9ca3af"}
                   stroke="white"
                   strokeWidth="1"
@@ -187,7 +187,7 @@ export function StrokePlayer({ kanji }: StrokePlayerProps) {
                   textAnchor="middle"
                   dominantBaseline="central"
                   fill="white"
-                  fontSize="4"
+                  fontSize="5"
                   fontWeight="bold"
                 >
                   {i + 1}
