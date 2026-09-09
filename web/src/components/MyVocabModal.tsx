@@ -2,7 +2,7 @@
 
 import { useEffect, useCallback, useState, useMemo, useRef } from "react";
 import { Kanji, JLPT_COLORS } from "@/types/kanji";
-import { CustomWord, WordFormData, POS_OPTIONS, WordPOS } from "@/types/word";
+import { CustomWord, WordFormData, POS_OPTIONS, WordPOS, JlptLevel, JLPT_LEVEL_OPTIONS } from "@/types/word";
 import { fetchWords, addWord, deleteWord, updateWord } from "@/services/vocabService";
 import { extractKanji, createKanjiMap, getKanjiDetails } from "@/utils/kanjiParser";
 import { KanjiModal } from "./KanjiModal";
@@ -33,12 +33,17 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
   const [viewMode, setViewMode] = useState<ViewMode>("list");
   const [selectedKanji, setSelectedKanji] = useState<Kanji | null>(null);
 
+  // Filter state
+  const [jlptFilter, setJlptFilter] = useState<JlptLevel | "all" | "none">("all");
+
   // Form state
   const [formData, setFormData] = useState<WordFormData>({
     word: "",
     reading: "",
     meaning: "",
     pos: "명사",
+    jlpt_level: null,
+    source: "",
     memo: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -232,7 +237,7 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
         setWords((prev) => [newWord, ...prev]);
       }
 
-      setFormData({ word: "", reading: "", meaning: "", pos: "명사", memo: "" });
+      setFormData({ word: "", reading: "", meaning: "", pos: "명사", jlpt_level: null, source: "", memo: "" });
       setViewMode("list");
     } catch (err) {
       setError(err instanceof Error ? err.message : editingWordId ? "단어 수정에 실패했습니다." : "단어 추가에 실패했습니다.");
@@ -248,6 +253,8 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
       reading: word.reading,
       meaning: word.meaning,
       pos: word.pos as WordPOS,
+      jlpt_level: word.jlpt_level || null,
+      source: word.source || "",
       memo: word.memo || "",
     });
     setEditingWordId(word.id);
@@ -256,7 +263,7 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
 
   // Cancel editing
   const cancelEdit = useCallback(() => {
-    setFormData({ word: "", reading: "", meaning: "", pos: "명사", memo: "" });
+    setFormData({ word: "", reading: "", meaning: "", pos: "명사", jlpt_level: null, source: "", memo: "" });
     setEditingWordId(null);
     setViewMode("list");
   }, []);
@@ -440,7 +447,7 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
               onClick={() => {
                 if (editingWordId) {
                   setEditingWordId(null);
-                  setFormData({ word: "", reading: "", meaning: "", pos: "명사", memo: "" });
+                  setFormData({ word: "", reading: "", meaning: "", pos: "명사", jlpt_level: null, source: "", memo: "" });
                 }
                 setViewMode("add");
               }}
@@ -505,6 +512,31 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
             {/* List view */}
             {!isLoading && viewMode === "list" && (
               <div className="p-4 space-y-3">
+                {/* Filter bar */}
+                {words.length > 0 && (
+                  <div className="flex items-center gap-2 pb-3 border-b border-gray-200 dark:border-gray-700">
+                    <label className="text-sm text-gray-600 dark:text-gray-400">JLPT:</label>
+                    <select
+                      value={jlptFilter}
+                      onChange={(e) => setJlptFilter(e.target.value as JlptLevel | "all" | "none")}
+                      className="px-2 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+                    >
+                      <option value="all">전체</option>
+                      {JLPT_LEVEL_OPTIONS.map((level) => (
+                        <option key={level} value={level}>{level}</option>
+                      ))}
+                      <option value="none">미지정</option>
+                    </select>
+                    <span className="text-xs text-gray-400 ml-auto">
+                      {jlptFilter === "all"
+                        ? `${words.length}개`
+                        : jlptFilter === "none"
+                        ? `${words.filter(w => !w.jlpt_level).length}개`
+                        : `${words.filter(w => w.jlpt_level === jlptFilter).length}개`}
+                    </span>
+                  </div>
+                )}
+
                 {words.length === 0 ? (
                   <div className="text-center py-12 text-gray-500 dark:text-gray-400">
                     <p className="text-lg mb-2">아직 저장된 단어가 없습니다</p>
@@ -516,20 +548,34 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                     </button>
                   </div>
                 ) : (
-                  words.map((word) => (
+                  words
+                    .filter((word) => {
+                      if (jlptFilter === "all") return true;
+                      if (jlptFilter === "none") return !word.jlpt_level;
+                      return word.jlpt_level === jlptFilter;
+                    })
+                    .map((word) => (
                     <div
                       key={word.id}
                       className="p-3 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700"
                     >
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2 mb-1">
+                          <div className="flex items-center gap-2 mb-1 flex-wrap">
                             <span className="text-lg font-bold text-gray-900 dark:text-white">
                               {word.word}
                             </span>
                             <span className="px-1.5 py-0.5 text-xs bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">
                               {word.pos}
                             </span>
+                            {word.jlpt_level && (
+                              <span
+                                className="px-1.5 py-0.5 text-xs font-semibold rounded text-white"
+                                style={{ backgroundColor: JLPT_COLORS[word.jlpt_level] }}
+                              >
+                                {word.jlpt_level}
+                              </span>
+                            )}
                           </div>
                           <p className="text-sm text-blue-600 dark:text-blue-400 mb-1">
                             {word.reading}
@@ -537,6 +583,11 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                           <p className="text-sm text-gray-700 dark:text-gray-300">
                             {word.meaning}
                           </p>
+                          {word.source && (
+                            <p className="text-xs text-indigo-500 dark:text-indigo-400 mt-1">
+                              📖 {word.source}
+                            </p>
+                          )}
                           {word.memo && (
                             <p className="text-xs text-gray-500 mt-1 italic">
                               {word.memo}
@@ -689,23 +740,63 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                   />
                 </div>
 
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      품사
+                    </label>
+                    <select
+                      value={formData.pos}
+                      onChange={(e) =>
+                        setFormData((prev) => ({ ...prev, pos: e.target.value as WordPOS }))
+                      }
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    >
+                      {POS_OPTIONS.map((pos) => (
+                        <option key={pos} value={pos}>
+                          {pos}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      JLPT 레벨
+                    </label>
+                    <select
+                      value={formData.jlpt_level || ""}
+                      onChange={(e) =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          jlpt_level: e.target.value ? (e.target.value as JlptLevel) : null,
+                        }))
+                      }
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    >
+                      <option value="">선택 안함</option>
+                      {JLPT_LEVEL_OPTIONS.map((level) => (
+                        <option key={level} value={level}>
+                          {level}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    품사
+                    출처 (선택)
                   </label>
-                  <select
-                    value={formData.pos}
+                  <input
+                    type="text"
+                    value={formData.source || ""}
                     onChange={(e) =>
-                      setFormData((prev) => ({ ...prev, pos: e.target.value as WordPOS }))
+                      setFormData((prev) => ({ ...prev, source: e.target.value }))
                     }
+                    placeholder="예: 2024 N1 기출, 교재 p.45"
                     className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  >
-                    {POS_OPTIONS.map((pos) => (
-                      <option key={pos} value={pos}>
-                        {pos}
-                      </option>
-                    ))}
-                  </select>
+                  />
                 </div>
 
                 <div>
