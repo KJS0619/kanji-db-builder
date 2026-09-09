@@ -662,7 +662,6 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                   <input
                     ref={readingInputRef}
                     type="text"
-                    inputMode="latin"
                     value={formData.reading}
                     onChange={(e) => handleReadingInputChange(e.target.value)}
                     onBlur={handleReadingBlur}
