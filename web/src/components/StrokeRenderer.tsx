@@ -141,7 +141,7 @@ export function StrokeRenderer({ kanji }: StrokeRendererProps) {
                 <circle
                   cx={stroke.start_x}
                   cy={stroke.start_y}
-                  r="4.5"
+                  r="3.5"
                   className={clsx(
                     completedStrokes.includes(i)
                       ? "fill-blue-500"
@@ -155,7 +155,7 @@ export function StrokeRenderer({ kanji }: StrokeRendererProps) {
                   y={stroke.start_y}
                   textAnchor="middle"
                   dominantBaseline="central"
-                  className="fill-white text-[5px] font-bold"
+                  className="fill-white text-[4px] font-bold"
                 >
                   {i + 1}
                 </text>
