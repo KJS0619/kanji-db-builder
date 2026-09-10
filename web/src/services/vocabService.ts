@@ -117,3 +117,33 @@ export async function updateWord(
   }
   throw new Error("단어를 찾을 수 없습니다.");
 }
+
+// Bulk add words
+export async function addWords(wordDataList: WordFormData[]): Promise<CustomWord[]> {
+  if (wordDataList.length === 0) return [];
+
+  if (isSupabaseConfigured() && supabase) {
+    const { data, error } = await supabase
+      .from("custom_words")
+      .insert(wordDataList)
+      .select();
+
+    if (error) {
+      console.error("Supabase bulk insert error:", error);
+      throw new Error("단어 일괄 추가에 실패했습니다.");
+    }
+
+    return data || [];
+  }
+
+  // Fallback to localStorage
+  const words = getLocalWords();
+  const newWords: CustomWord[] = wordDataList.map((wordData) => ({
+    id: crypto.randomUUID(),
+    ...wordData,
+    created_at: new Date().toISOString(),
+  }));
+  words.unshift(...newWords);
+  saveLocalWords(words);
+  return newWords;
+}

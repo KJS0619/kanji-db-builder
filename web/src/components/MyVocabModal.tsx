@@ -6,6 +6,7 @@ import { CustomWord, WordFormData, POS_OPTIONS, WordPOS, JlptLevel, JLPT_LEVEL_O
 import { fetchWords, addWord, deleteWord, updateWord } from "@/services/vocabService";
 import { extractKanji, createKanjiMap, getKanjiDetails } from "@/utils/kanjiParser";
 import { KanjiModal } from "./KanjiModal";
+import { BulkImportModal } from "./BulkImportModal";
 import clsx from "clsx";
 import * as wanakana from "wanakana";
 
@@ -35,6 +36,9 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
 
   // Filter state
   const [jlptFilter, setJlptFilter] = useState<JlptLevel | "all" | "none">("all");
+
+  // Bulk import modal state
+  const [showBulkImport, setShowBulkImport] = useState(false);
 
   // Form state
   const [formData, setFormData] = useState<WordFormData>({
@@ -628,6 +632,31 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
             {/* Add/Edit form */}
             {!isLoading && viewMode === "add" && (
               <form onSubmit={handleSubmit} className="p-4 space-y-4">
+                {/* PDF Import Button */}
+                {!editingWordId && (
+                  <button
+                    type="button"
+                    onClick={() => setShowBulkImport(true)}
+                    className="w-full py-3 rounded-xl font-medium text-white transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+                    style={{
+                      background: "linear-gradient(to right, #f97316, #f59e0b)",
+                    }}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                    PDF에서 일괄 가져오기
+                  </button>
+                )}
+
+                {!editingWordId && (
+                  <div className="relative flex items-center py-2">
+                    <div className="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+                    <span className="flex-shrink mx-3 text-xs text-gray-400">또는 직접 입력</span>
+                    <div className="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+                  </div>
+                )}
+
                 {/* Editing mode banner */}
                 {editingWordId && (
                   <div className="p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg">
@@ -965,6 +994,16 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
       {/* Kanji Modal */}
       {selectedKanji && (
         <KanjiModal kanji={selectedKanji} onClose={() => setSelectedKanji(null)} />
+      )}
+
+      {/* Bulk Import Modal */}
+      {showBulkImport && (
+        <BulkImportModal
+          onClose={() => setShowBulkImport(false)}
+          onImportComplete={() => {
+            loadWords();
+          }}
+        />
       )}
     </>
   );
