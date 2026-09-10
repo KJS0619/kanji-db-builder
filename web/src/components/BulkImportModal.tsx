@@ -114,71 +114,36 @@ async function extractTextFromPdf(
   return { text: ocrText.trim(), usedOcr: true };
 }
 
-// Parse text to extract word + reading pairs
-function parseWordList(text: string): { word: string; reading: string }[] {
+// Simple regex parse - tries to extract obvious patterns
+function parseWordListSimple(text: string): { word: string; reading: string }[] {
   const results: { word: string; reading: string }[] = [];
 
-  // Normalize whitespace and split by various delimiters
-  const normalizedText = text
+  // Pre-process: remove spaces within hiragana sequences (OCR artifact)
+  // e.g., "じ っ こう" → "じっこう"
+  let processed = text
     .replace(/\r\n/g, "\n")
-    .replace(/\t+/g, " ")
+    .replace(/([ぁ-んー])\s+([ぁ-んー])/g, "$1$2")
+    .replace(/([ぁ-んー])\s+([ぁ-んー])/g, "$1$2") // Run twice for overlapping matches
+    .replace(/([ぁ-んー])\s+([ぁ-んー])/g, "$1$2");
+
+  // Remove common OCR noise
+  processed = processed
+    .replace(/[。、．，]/g, "")
+    .replace(/[|｜│┃]/g, " ")
+    .replace(/[ーー]{2,}/g, " ")
     .replace(/\s{2,}/g, " ");
 
-  // Global pattern to find all word+reading pairs anywhere in text
-  // Matches: kanji/mixed word followed by hiragana reading
-  // Examples: 実行 じっこう, 47 実行 じっこう (する), 実行じっこう
-
-  // Pattern 1: Number + Kanji + Hiragana (most common in word lists)
-  const pattern1 = /(\d+)\s*([々〇〻\u3400-\u9FFF\uF900-\uFAFF]+)\s+([ぁ-んー]+)/g;
-
-  // Pattern 2: Kanji + space + Hiragana (without number)
-  const pattern2 = /([々〇〻\u3400-\u9FFF\uF900-\uFAFF][々〇〻\u3400-\u9FFF\uF900-\uFAFFぁ-んァ-ヶー]*)\s+([ぁ-んー]+)/g;
-
-  // Pattern 3: Kanji immediately followed by hiragana in parentheses
-  const pattern3 = /([々〇〻\u3400-\u9FFF\uF900-\uFAFF]+)[（(]([ぁ-んー]+)[）)]/g;
+  // Pattern: Number + Kanji + Hiragana
+  const pattern = /(\d+)\s*([々〇〻\u3400-\u9FFF\uF900-\uFAFF]+)\s+([ぁ-んー]+)/g;
 
   const seen = new Set<string>();
-
-  // Try pattern 1 first (number + kanji + reading)
   let match;
-  while ((match = pattern1.exec(normalizedText)) !== null) {
+
+  while ((match = pattern.exec(processed)) !== null) {
     const word = match[2];
     const reading = match[3];
     const key = `${word}|${reading}`;
-    if (word.length >= 1 && reading.length >= 1 && !seen.has(key)) {
-      seen.add(key);
-      results.push({ word, reading });
-    }
-  }
-
-  // If pattern 1 found results, return them
-  if (results.length > 0) {
-    return results;
-  }
-
-  // Try pattern 2 (kanji + reading without number)
-  while ((match = pattern2.exec(normalizedText)) !== null) {
-    const word = match[1];
-    const reading = match[2];
-    const key = `${word}|${reading}`;
-    // Filter out pure hiragana words
-    const hasKanji = /[々〇〻\u3400-\u9FFF\uF900-\uFAFF]/.test(word);
-    if (hasKanji && word.length >= 1 && reading.length >= 1 && !seen.has(key)) {
-      seen.add(key);
-      results.push({ word, reading });
-    }
-  }
-
-  if (results.length > 0) {
-    return results;
-  }
-
-  // Try pattern 3 (kanji with reading in parentheses)
-  while ((match = pattern3.exec(normalizedText)) !== null) {
-    const word = match[1];
-    const reading = match[2];
-    const key = `${word}|${reading}`;
-    if (word.length >= 1 && reading.length >= 1 && !seen.has(key)) {
+    if (word.length >= 1 && reading.length >= 2 && !seen.has(key)) {
       seen.add(key);
       results.push({ word, reading });
     }
@@ -304,20 +269,45 @@ export function BulkImportModal({ onClose, onImportComplete }: BulkImportModalPr
     setError(null);
 
     try {
-      // Parse word list
+      // Try simple regex parsing first
       console.log("Parsing text:", extractedText.substring(0, 500));
-      const wordList = parseWordList(extractedText);
-      console.log("Parsed words:", wordList);
+      let wordList = parseWordListSimple(extractedText);
+      console.log("Simple parse result:", wordList.length, "words");
+
+      // If simple parsing failed or got too few results, use AI parsing
+      if (wordList.length < 5) {
+        console.log("Using AI parsing...");
+        setError(null);
+
+        // Call AI parsing API
+        const parseResponse = await fetch("/api/parse-words", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            text: extractedText,
+            apiKey: apiKey.trim(),
+            apiProvider,
+          }),
+        });
+
+        const parseData = await parseResponse.json();
+
+        if (!parseResponse.ok) {
+          throw new Error(parseData.error || "AI 파싱 실패");
+        }
+
+        wordList = parseData.result || [];
+        console.log("AI parse result:", wordList.length, "words");
+      }
 
       if (wordList.length === 0) {
-        // Show first 200 chars of extracted text for debugging
         const sample = extractedText.substring(0, 200).replace(/\n/g, "↵");
-        setError(`단어를 파싱할 수 없습니다.\n\n추출된 텍스트 샘플:\n"${sample}..."\n\n지원 형식:\n• 47 実行 じっこう\n• 実行 じっこう\n• 実行(じっこう)`);
+        setError(`단어를 파싱할 수 없습니다.\n\n추출된 텍스트 샘플:\n"${sample}..."`);
         setIsTranslating(false);
         return;
       }
 
-      // Call translation API
+      // Call translation API to get Korean meanings
       const response = await fetch("/api/translate-words", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
