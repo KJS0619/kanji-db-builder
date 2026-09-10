@@ -117,36 +117,70 @@ async function extractTextFromPdf(
 // Parse text to extract word + reading pairs
 function parseWordList(text: string): { word: string; reading: string }[] {
   const results: { word: string; reading: string }[] = [];
-  const lines = text.split(/\n+/);
 
-  // Pattern: number + word + reading (various formats)
-  // Examples:
-  // 47 実行 じっこう
-  // 47 実行	じっこう
-  // 47	実行	じっこう (する)
-  // 実行 じっこう
-  const patterns = [
-    // Number + word + reading (with optional (する))
-    /^\s*\d+\s+([一-龯ぁ-んァ-ン\u4E00-\u9FFF]+)\s+([ぁ-んァ-ン]+)(?:\s*[\(（][^\)）]*[\)）])?\s*$/,
-    // Word + reading only
-    /^\s*([一-龯\u4E00-\u9FFF]+)\s+([ぁ-んァ-ン]+)(?:\s*[\(（][^\)）]*[\)）])?\s*$/,
-  ];
+  // Normalize whitespace and split by various delimiters
+  const normalizedText = text
+    .replace(/\r\n/g, "\n")
+    .replace(/\t+/g, " ")
+    .replace(/\s{2,}/g, " ");
 
-  for (const line of lines) {
-    const trimmed = line.trim();
-    if (!trimmed) continue;
+  // Global pattern to find all word+reading pairs anywhere in text
+  // Matches: kanji/mixed word followed by hiragana reading
+  // Examples: 実行 じっこう, 47 実行 じっこう (する), 実行じっこう
 
-    for (const pattern of patterns) {
-      const match = trimmed.match(pattern);
-      if (match) {
-        const word = match[1];
-        const reading = match[2];
-        // Skip if already exists
-        if (!results.some((r) => r.word === word && r.reading === reading)) {
-          results.push({ word, reading });
-        }
-        break;
-      }
+  // Pattern 1: Number + Kanji + Hiragana (most common in word lists)
+  const pattern1 = /(\d+)\s*([々〇〻\u3400-\u9FFF\uF900-\uFAFF]+)\s+([ぁ-んー]+)/g;
+
+  // Pattern 2: Kanji + space + Hiragana (without number)
+  const pattern2 = /([々〇〻\u3400-\u9FFF\uF900-\uFAFF][々〇〻\u3400-\u9FFF\uF900-\uFAFFぁ-んァ-ヶー]*)\s+([ぁ-んー]+)/g;
+
+  // Pattern 3: Kanji immediately followed by hiragana in parentheses
+  const pattern3 = /([々〇〻\u3400-\u9FFF\uF900-\uFAFF]+)[（(]([ぁ-んー]+)[）)]/g;
+
+  const seen = new Set<string>();
+
+  // Try pattern 1 first (number + kanji + reading)
+  let match;
+  while ((match = pattern1.exec(normalizedText)) !== null) {
+    const word = match[2];
+    const reading = match[3];
+    const key = `${word}|${reading}`;
+    if (word.length >= 1 && reading.length >= 1 && !seen.has(key)) {
+      seen.add(key);
+      results.push({ word, reading });
+    }
+  }
+
+  // If pattern 1 found results, return them
+  if (results.length > 0) {
+    return results;
+  }
+
+  // Try pattern 2 (kanji + reading without number)
+  while ((match = pattern2.exec(normalizedText)) !== null) {
+    const word = match[1];
+    const reading = match[2];
+    const key = `${word}|${reading}`;
+    // Filter out pure hiragana words
+    const hasKanji = /[々〇〻\u3400-\u9FFF\uF900-\uFAFF]/.test(word);
+    if (hasKanji && word.length >= 1 && reading.length >= 1 && !seen.has(key)) {
+      seen.add(key);
+      results.push({ word, reading });
+    }
+  }
+
+  if (results.length > 0) {
+    return results;
+  }
+
+  // Try pattern 3 (kanji with reading in parentheses)
+  while ((match = pattern3.exec(normalizedText)) !== null) {
+    const word = match[1];
+    const reading = match[2];
+    const key = `${word}|${reading}`;
+    if (word.length >= 1 && reading.length >= 1 && !seen.has(key)) {
+      seen.add(key);
+      results.push({ word, reading });
     }
   }
 
@@ -271,10 +305,14 @@ export function BulkImportModal({ onClose, onImportComplete }: BulkImportModalPr
 
     try {
       // Parse word list
+      console.log("Parsing text:", extractedText.substring(0, 500));
       const wordList = parseWordList(extractedText);
+      console.log("Parsed words:", wordList);
 
       if (wordList.length === 0) {
-        setError("단어를 파싱할 수 없습니다. 형식을 확인해주세요.\n예: \"47 実行 じっこう\" 또는 \"実行 じっこう\"");
+        // Show first 200 chars of extracted text for debugging
+        const sample = extractedText.substring(0, 200).replace(/\n/g, "↵");
+        setError(`단어를 파싱할 수 없습니다.\n\n추출된 텍스트 샘플:\n"${sample}..."\n\n지원 형식:\n• 47 実行 じっこう\n• 実行 じっこう\n• 実行(じっこう)`);
         setIsTranslating(false);
         return;
       }
