@@ -7,6 +7,7 @@ import { fetchWords, addWord, deleteWord, updateWord } from "@/services/vocabSer
 import { extractKanji, createKanjiMap, getKanjiDetails } from "@/utils/kanjiParser";
 import { KanjiModal } from "./KanjiModal";
 import { BulkImportModal } from "./BulkImportModal";
+import { FlashcardPrintModal } from "./FlashcardPrintModal";
 import clsx from "clsx";
 import * as wanakana from "wanakana";
 
@@ -39,6 +40,10 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
 
   // Bulk import modal state
   const [showBulkImport, setShowBulkImport] = useState(false);
+
+  // Selection state for flashcard printing
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
+  const [showPrintModal, setShowPrintModal] = useState(false);
 
   // Form state
   const [formData, setFormData] = useState<WordFormData>({
@@ -313,6 +318,36 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
     setIsFlipped(false);
   }, [words]);
 
+  // Selection handlers for flashcard printing
+  const toggleSelectWord = useCallback((id: string) => {
+    setSelectedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  }, []);
+
+  const selectAllFiltered = useCallback(() => {
+    const filteredWords = words.filter((word) => {
+      if (jlptFilter === "all") return true;
+      if (jlptFilter === "none") return !word.jlpt_level;
+      return word.jlpt_level === jlptFilter;
+    });
+    setSelectedIds(new Set(filteredWords.map((w) => w.id)));
+  }, [words, jlptFilter]);
+
+  const deselectAll = useCallback(() => {
+    setSelectedIds(new Set());
+  }, []);
+
+  const selectedWords = useMemo(() => {
+    return words.filter((w) => selectedIds.has(w.id));
+  }, [words, selectedIds]);
+
   // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -518,26 +553,66 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
               <div className="p-4 space-y-3">
                 {/* Filter bar */}
                 {words.length > 0 && (
-                  <div className="flex items-center gap-2 pb-3 border-b border-gray-200 dark:border-gray-700">
-                    <label className="text-sm text-gray-600 dark:text-gray-400">JLPT:</label>
-                    <select
-                      value={jlptFilter}
-                      onChange={(e) => setJlptFilter(e.target.value as JlptLevel | "all" | "none")}
-                      className="px-2 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
-                    >
-                      <option value="all">전체</option>
-                      {JLPT_LEVEL_OPTIONS.map((level) => (
-                        <option key={level} value={level}>{level}</option>
-                      ))}
-                      <option value="none">미지정</option>
-                    </select>
-                    <span className="text-xs text-gray-400 ml-auto">
-                      {jlptFilter === "all"
-                        ? `${words.length}개`
-                        : jlptFilter === "none"
-                        ? `${words.filter(w => !w.jlpt_level).length}개`
-                        : `${words.filter(w => w.jlpt_level === jlptFilter).length}개`}
-                    </span>
+                  <div className="space-y-2 pb-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="flex items-center gap-2">
+                      <label className="text-sm text-gray-600 dark:text-gray-400">JLPT:</label>
+                      <select
+                        value={jlptFilter}
+                        onChange={(e) => setJlptFilter(e.target.value as JlptLevel | "all" | "none")}
+                        className="px-2 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+                      >
+                        <option value="all">전체</option>
+                        {JLPT_LEVEL_OPTIONS.map((level) => (
+                          <option key={level} value={level}>{level}</option>
+                        ))}
+                        <option value="none">미지정</option>
+                      </select>
+                      <span className="text-xs text-gray-400 ml-auto">
+                        {jlptFilter === "all"
+                          ? `${words.length}개`
+                          : jlptFilter === "none"
+                          ? `${words.filter(w => !w.jlpt_level).length}개`
+                          : `${words.filter(w => w.jlpt_level === jlptFilter).length}개`}
+                      </span>
+                    </div>
+                    {/* Selection controls */}
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <button
+                        type="button"
+                        onClick={selectAllFiltered}
+                        className="px-2 py-1 text-xs font-medium text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded transition-colors"
+                      >
+                        전체 선택
+                      </button>
+                      <button
+                        type="button"
+                        onClick={deselectAll}
+                        className="px-2 py-1 text-xs font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded transition-colors"
+                      >
+                        선택 해제
+                      </button>
+                      {selectedIds.size > 0 && (
+                        <>
+                          <span className="text-xs text-gray-400">|</span>
+                          <span className="text-xs text-green-600 dark:text-green-400 font-medium">
+                            {selectedIds.size}개 선택됨
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => setShowPrintModal(true)}
+                            className="ml-auto px-3 py-1.5 text-xs font-medium text-white rounded-lg transition-all flex items-center gap-1.5 shadow-md hover:shadow-lg"
+                            style={{
+                              background: "linear-gradient(to right, #3b82f6, #8b5cf6)",
+                            }}
+                          >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                            </svg>
+                            플래시카드 인쇄
+                          </button>
+                        </>
+                      )}
+                    </div>
                   </div>
                 )}
 
@@ -561,9 +636,31 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                     .map((word) => (
                     <div
                       key={word.id}
-                      className="p-3 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700"
+                      className={clsx(
+                        "p-3 rounded-xl border transition-colors",
+                        selectedIds.has(word.id)
+                          ? "bg-blue-50 dark:bg-blue-900/20 border-blue-300 dark:border-blue-700"
+                          : "bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+                      )}
                     >
                       <div className="flex items-start justify-between gap-2">
+                        {/* Checkbox */}
+                        <button
+                          type="button"
+                          onClick={() => toggleSelectWord(word.id)}
+                          className={clsx(
+                            "flex-shrink-0 w-5 h-5 mt-0.5 rounded border-2 flex items-center justify-center transition-colors",
+                            selectedIds.has(word.id)
+                              ? "bg-blue-600 border-blue-600 text-white"
+                              : "border-gray-300 dark:border-gray-600 hover:border-blue-400"
+                          )}
+                        >
+                          {selectedIds.has(word.id) && (
+                            <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                          )}
+                        </button>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 mb-1 flex-wrap">
                             <span className="text-lg font-bold text-gray-900 dark:text-white">
@@ -1003,6 +1100,15 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
           onImportComplete={() => {
             loadWords();
           }}
+        />
+      )}
+
+      {/* Flashcard Print Modal */}
+      {showPrintModal && selectedWords.length > 0 && (
+        <FlashcardPrintModal
+          words={selectedWords}
+          kanjiList={kanjiList}
+          onClose={() => setShowPrintModal(false)}
         />
       )}
     </>
