@@ -28,6 +28,14 @@ function shuffleArray<T>(array: T[]): T[] {
   return shuffled;
 }
 
+type PageSize = 8 | 16 | 32 | "all";
+const PAGE_SIZE_OPTIONS: { value: PageSize; label: string }[] = [
+  { value: 8, label: "8" },
+  { value: 16, label: "16" },
+  { value: 32, label: "32" },
+  { value: "all", label: "전체" },
+];
+
 export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
   const [words, setWords] = useState<CustomWord[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -37,6 +45,17 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
 
   // Filter state
   const [jlptFilter, setJlptFilter] = useState<JlptLevel | "all" | "none">("all");
+
+  // Pagination state
+  const [pageSize, setPageSize] = useState<PageSize>(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("vocabPageSize");
+      if (saved === "8" || saved === "16" || saved === "32") return parseInt(saved) as 8 | 16 | 32;
+      if (saved === "all") return "all";
+    }
+    return 16;
+  });
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Bulk import modal state
   const [showBulkImport, setShowBulkImport] = useState(false);
@@ -348,6 +367,87 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
     return words.filter((w) => selectedIds.has(w.id));
   }, [words, selectedIds]);
 
+  // Filtered words by JLPT
+  const filteredWords = useMemo(() => {
+    return words.filter((word) => {
+      if (jlptFilter === "all") return true;
+      if (jlptFilter === "none") return !word.jlpt_level;
+      return word.jlpt_level === jlptFilter;
+    });
+  }, [words, jlptFilter]);
+
+  // Pagination calculations
+  const totalPages = useMemo(() => {
+    if (pageSize === "all") return 1;
+    return Math.max(1, Math.ceil(filteredWords.length / pageSize));
+  }, [filteredWords.length, pageSize]);
+
+  // Reset to page 1 when filter or pageSize changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [jlptFilter, pageSize]);
+
+  // Ensure currentPage is valid
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [currentPage, totalPages]);
+
+  // Paginated words for current page
+  const paginatedWords = useMemo(() => {
+    if (pageSize === "all") return filteredWords;
+    const startIndex = (currentPage - 1) * pageSize;
+    return filteredWords.slice(startIndex, startIndex + pageSize);
+  }, [filteredWords, currentPage, pageSize]);
+
+  // Current page range display (e.g., "17-32 / 45개")
+  const pageRangeDisplay = useMemo(() => {
+    if (filteredWords.length === 0) return "0개";
+    if (pageSize === "all") return `${filteredWords.length}개`;
+    const start = (currentPage - 1) * pageSize + 1;
+    const end = Math.min(currentPage * pageSize, filteredWords.length);
+    return `${start}-${end} / ${filteredWords.length}개`;
+  }, [filteredWords.length, currentPage, pageSize]);
+
+  // Check if all items on current page are selected
+  const currentPageAllSelected = useMemo(() => {
+    if (paginatedWords.length === 0) return false;
+    return paginatedWords.every((w) => selectedIds.has(w.id));
+  }, [paginatedWords, selectedIds]);
+
+  // Check if some (but not all) items on current page are selected
+  const currentPageSomeSelected = useMemo(() => {
+    if (paginatedWords.length === 0) return false;
+    const selectedCount = paginatedWords.filter((w) => selectedIds.has(w.id)).length;
+    return selectedCount > 0 && selectedCount < paginatedWords.length;
+  }, [paginatedWords, selectedIds]);
+
+  // Handle page size change and save to localStorage
+  const handlePageSizeChange = useCallback((newSize: PageSize) => {
+    setPageSize(newSize);
+    localStorage.setItem("vocabPageSize", String(newSize));
+  }, []);
+
+  // Toggle select all on current page
+  const toggleCurrentPageSelection = useCallback(() => {
+    if (currentPageAllSelected) {
+      // Deselect all on current page
+      setSelectedIds((prev) => {
+        const next = new Set(prev);
+        paginatedWords.forEach((w) => next.delete(w.id));
+        return next;
+      });
+    } else {
+      // Select all on current page
+      setSelectedIds((prev) => {
+        const next = new Set(prev);
+        paginatedWords.forEach((w) => next.add(w.id));
+        return next;
+      });
+    }
+  }, [currentPageAllSelected, paginatedWords]);
+
   // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -554,35 +654,84 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                 {/* Filter bar */}
                 {words.length > 0 && (
                   <div className="space-y-2 pb-3 border-b border-gray-200 dark:border-gray-700">
-                    <div className="flex items-center gap-2">
-                      <label className="text-sm text-gray-600 dark:text-gray-400">JLPT:</label>
-                      <select
-                        value={jlptFilter}
-                        onChange={(e) => setJlptFilter(e.target.value as JlptLevel | "all" | "none")}
-                        className="px-2 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
-                      >
-                        <option value="all">전체</option>
-                        {JLPT_LEVEL_OPTIONS.map((level) => (
-                          <option key={level} value={level}>{level}</option>
-                        ))}
-                        <option value="none">미지정</option>
-                      </select>
-                      <span className="text-xs text-gray-400 ml-auto">
-                        {jlptFilter === "all"
-                          ? `${words.length}개`
-                          : jlptFilter === "none"
-                          ? `${words.filter(w => !w.jlpt_level).length}개`
-                          : `${words.filter(w => w.jlpt_level === jlptFilter).length}개`}
+                    {/* Row 1: Filters and page info */}
+                    <div className="flex items-center gap-3 flex-wrap">
+                      <div className="flex items-center gap-1.5">
+                        <label className="text-xs text-gray-500 dark:text-gray-400">JLPT:</label>
+                        <select
+                          value={jlptFilter}
+                          onChange={(e) => setJlptFilter(e.target.value as JlptLevel | "all" | "none")}
+                          className="px-2 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+                        >
+                          <option value="all">전체</option>
+                          {JLPT_LEVEL_OPTIONS.map((level) => (
+                            <option key={level} value={level}>{level}</option>
+                          ))}
+                          <option value="none">미지정</option>
+                        </select>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <label className="text-xs text-gray-500 dark:text-gray-400">페이지당:</label>
+                        <select
+                          value={pageSize}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            handlePageSizeChange(val === "all" ? "all" : parseInt(val) as 8 | 16 | 32);
+                          }}
+                          className="px-2 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+                        >
+                          {PAGE_SIZE_OPTIONS.map((opt) => (
+                            <option key={opt.value} value={opt.value}>{opt.label}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <span className="text-xs text-gray-500 dark:text-gray-400 ml-auto">
+                        {pageRangeDisplay}
                       </span>
                     </div>
-                    {/* Selection controls */}
+                    {/* Row 2: Selection controls */}
                     <div className="flex items-center gap-2 flex-wrap">
+                      {/* Page select checkbox */}
+                      <button
+                        type="button"
+                        onClick={toggleCurrentPageSelection}
+                        className={clsx(
+                          "flex items-center gap-1.5 px-2 py-1 text-xs font-medium rounded transition-colors",
+                          currentPageAllSelected
+                            ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30"
+                            : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+                        )}
+                      >
+                        <span
+                          className={clsx(
+                            "w-4 h-4 rounded border-2 flex items-center justify-center transition-colors",
+                            currentPageAllSelected
+                              ? "bg-blue-600 border-blue-600 text-white"
+                              : currentPageSomeSelected
+                              ? "bg-blue-200 border-blue-400 dark:bg-blue-800 dark:border-blue-600"
+                              : "border-gray-300 dark:border-gray-600"
+                          )}
+                        >
+                          {currentPageAllSelected && (
+                            <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                          )}
+                          {currentPageSomeSelected && !currentPageAllSelected && (
+                            <svg className="w-3 h-3 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
+                            </svg>
+                          )}
+                        </span>
+                        이 페이지 선택
+                      </button>
+                      <span className="text-gray-300 dark:text-gray-600">|</span>
                       <button
                         type="button"
                         onClick={selectAllFiltered}
-                        className="px-2 py-1 text-xs font-medium text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded transition-colors"
+                        className="px-2 py-1 text-xs font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded transition-colors"
                       >
-                        전체 선택
+                        필터 전체 선택
                       </button>
                       <button
                         type="button"
@@ -593,7 +742,7 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                       </button>
                       {selectedIds.size > 0 && (
                         <>
-                          <span className="text-xs text-gray-400">|</span>
+                          <span className="text-gray-300 dark:text-gray-600">|</span>
                           <span className="text-xs text-green-600 dark:text-green-400 font-medium">
                             {selectedIds.size}개 선택됨
                           </span>
@@ -626,14 +775,18 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                       첫 단어 추가하기
                     </button>
                   </div>
+                ) : filteredWords.length === 0 ? (
+                  <div className="text-center py-12 text-gray-500 dark:text-gray-400">
+                    <p className="text-lg mb-2">해당 필터에 맞는 단어가 없습니다</p>
+                    <button
+                      onClick={() => setJlptFilter("all")}
+                      className="text-blue-600 hover:underline"
+                    >
+                      전체 보기
+                    </button>
+                  </div>
                 ) : (
-                  words
-                    .filter((word) => {
-                      if (jlptFilter === "all") return true;
-                      if (jlptFilter === "none") return !word.jlpt_level;
-                      return word.jlpt_level === jlptFilter;
-                    })
-                    .map((word) => (
+                  paginatedWords.map((word) => (
                     <div
                       key={word.id}
                       className={clsx(
@@ -722,6 +875,78 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                       </div>
                     </div>
                   ))
+                )}
+
+                {/* Pagination controls */}
+                {filteredWords.length > 0 && pageSize !== "all" && totalPages > 1 && (
+                  <div className="flex items-center justify-center gap-1 pt-3 border-t border-gray-200 dark:border-gray-700">
+                    <button
+                      type="button"
+                      onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                      disabled={currentPage === 1}
+                      className={clsx(
+                        "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors",
+                        currentPage === 1
+                          ? "text-gray-300 dark:text-gray-600 cursor-not-allowed"
+                          : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                      )}
+                    >
+                      ◀ 이전
+                    </button>
+
+                    {/* Page numbers */}
+                    <div className="flex items-center gap-1 mx-2">
+                      {Array.from({ length: totalPages }, (_, i) => i + 1)
+                        .filter((page) => {
+                          // Show first, last, current, and neighbors
+                          if (page === 1 || page === totalPages) return true;
+                          if (Math.abs(page - currentPage) <= 1) return true;
+                          return false;
+                        })
+                        .reduce<(number | "...")[]>((acc, page, idx, arr) => {
+                          if (idx > 0 && page - (arr[idx - 1] as number) > 1) {
+                            acc.push("...");
+                          }
+                          acc.push(page);
+                          return acc;
+                        }, [])
+                        .map((item, idx) =>
+                          item === "..." ? (
+                            <span key={`ellipsis-${idx}`} className="px-2 text-gray-400">
+                              ...
+                            </span>
+                          ) : (
+                            <button
+                              key={item}
+                              type="button"
+                              onClick={() => setCurrentPage(item)}
+                              className={clsx(
+                                "w-8 h-8 text-sm font-medium rounded-lg transition-colors",
+                                currentPage === item
+                                  ? "bg-blue-600 text-white"
+                                  : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                              )}
+                            >
+                              {item}
+                            </button>
+                          )
+                        )}
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                      disabled={currentPage === totalPages}
+                      className={clsx(
+                        "px-3 py-1.5 text-sm font-medium rounded-lg transition-colors",
+                        currentPage === totalPages
+                          ? "text-gray-300 dark:text-gray-600 cursor-not-allowed"
+                          : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                      )}
+                    >
+                      다음 ▶
+                    </button>
+                  </div>
                 )}
               </div>
             )}
