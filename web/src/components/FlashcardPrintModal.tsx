@@ -18,7 +18,7 @@ interface CardData {
   kanjiDetails: Kanji[];
 }
 
-const CARDS_PER_PAGE = 8;
+const CARDS_PER_PAGE = 12;
 
 export function FlashcardPrintModal({
   words,
@@ -34,13 +34,24 @@ export function FlashcardPrintModal({
 
   // Prepare card data with kanji details
   const cardData: CardData[] = useMemo(() => {
-    return words.map((word) => ({
+    const data = words.map((word) => ({
       word,
       kanjiDetails: getKanjiDetails(word.word, kanjiMap),
     }));
+
+    // Pad to multiple of 12 (12, 24, 36, 48, ...)
+    const remainder = data.length % CARDS_PER_PAGE;
+    if (remainder !== 0) {
+      const paddingCount = CARDS_PER_PAGE - remainder;
+      for (let i = 0; i < paddingCount; i++) {
+        data.push({} as CardData); // Empty card
+      }
+    }
+
+    return data;
   }, [words, kanjiMap]);
 
-  // Split into pages (8 cards per page)
+  // Split into pages (12 cards per page)
   const pages = useMemo(() => {
     const result: CardData[][] = [];
     for (let i = 0; i < cardData.length; i += CARDS_PER_PAGE) {
@@ -53,12 +64,14 @@ export function FlashcardPrintModal({
   // When flipping upward, top becomes bottom, so we reverse row order
   const reverseRowsForDuplex = useCallback((cards: CardData[]): CardData[] => {
     const result: CardData[] = [];
-    // Original: row 0 (0,1), row 1 (2,3), row 2 (4,5), row 3 (6,7)
-    // Reversed: row 3 (6,7), row 2 (4,5), row 1 (2,3), row 0 (0,1)
+    // Original: row 0 (0,1,2), row 1 (3,4,5), row 2 (6,7,8), row 3 (9,10,11)
+    // Reversed: row 3 (9,10,11), row 2 (6,7,8), row 1 (3,4,5), row 0 (0,1,2)
     for (let row = 3; row >= 0; row--) {
-      const leftIdx = row * 2;
-      const rightIdx = row * 2 + 1;
+      const leftIdx = row * 3;
+      const middleIdx = row * 3 + 1;
+      const rightIdx = row * 3 + 2;
       result.push(cards[leftIdx] || ({} as CardData));
+      result.push(cards[middleIdx] || ({} as CardData));
       result.push(cards[rightIdx] || ({} as CardData));
     }
     return result;
@@ -124,7 +137,7 @@ export function FlashcardPrintModal({
         padding: 10mm;
         box-sizing: border-box;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(4, 1fr);
         gap: 0;
         background: #ffffff !important;
@@ -136,7 +149,7 @@ export function FlashcardPrintModal({
       // reverse rows so cards align when paper is flipped upward
       const orderedCards = side === "back" ? reverseRowsForDuplex(pageCards) : pageCards;
 
-      // Fill with cards (pad with empty if less than 8)
+      // Fill with cards (pad with empty if less than 12)
       for (let i = 0; i < CARDS_PER_PAGE; i++) {
         const cardData = orderedCards[i];
         const card = document.createElement("div");
@@ -149,9 +162,9 @@ export function FlashcardPrintModal({
           }
         }
 
-        // Calculate position for cut lines
-        const isLeftColumn = i % 2 === 0;
-        const isNotLastRow = i < 6;
+        // Calculate position for cut lines (3 columns x 4 rows)
+        const isNotRightColumn = (i % 3) !== 2;
+        const isNotLastRow = i < 9;
 
         card.style.cssText = `
           display: flex;
@@ -163,7 +176,7 @@ export function FlashcardPrintModal({
           background-color: ${side === "front" ? "#ffffff" : "#f8f5ff"} !important;
           color: #000000 !important;
           overflow: hidden;
-          ${isLeftColumn ? "border-right: 1px dashed #999;" : ""}
+          ${isNotRightColumn ? "border-right: 1px dashed #999;" : ""}
           ${isNotLastRow ? "border-bottom: 1px dashed #999;" : ""}
         `;
 
@@ -260,7 +273,7 @@ export function FlashcardPrintModal({
             <span>🖨️</span>
             플래시카드 인쇄
             <span className="text-sm font-normal text-gray-500">
-              ({words.length}개 선택)
+              ({words.length}개 선택 → {cardData.length}장 생성)
             </span>
           </h2>
           <button
@@ -286,8 +299,10 @@ export function FlashcardPrintModal({
         {/* Info */}
         <div className="px-4 py-3 bg-blue-50 dark:bg-blue-900/20 border-b border-blue-100 dark:border-blue-800">
           <p className="text-sm text-blue-700 dark:text-blue-300">
-            📄 A4 용지 기준, 한 페이지에 <strong>8장</strong>의 카드가
-            배치됩니다.
+            📄 A4 용지 기준, 한 페이지에 <strong>12장</strong>의 카드가
+            배치됩니다 (3열 × 4행).
+            <br />
+            📦 전체 카드는 12의 배수로 패딩됩니다 (12, 24, 36, 48...).
             <br />
             🔄 양면 인쇄 시 <strong>&quot;짧은 면으로 뒤집기&quot;</strong> (위로 넘김)
             설정을 사용하세요.
@@ -340,14 +355,14 @@ export function FlashcardPrintModal({
                 {previewMode === "back" && " (뒷면 - 인쇄 순서)"}
               </p>
               <div
-                className="grid grid-cols-2 grid-rows-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-xl"
+                className="grid grid-cols-3 grid-rows-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-xl"
                 style={{
                   aspectRatio: "210/297",
                 }}
               >
                 {displayCards.map((card, cardIndex) => {
-                  const isLeftColumn = cardIndex % 2 === 0;
-                  const isNotLastRow = cardIndex < 6;
+                  const isNotRightColumn = (cardIndex % 3) !== 2;
+                  const isNotLastRow = cardIndex < 9;
                   return (
                   <div
                     key={cardIndex}
@@ -358,7 +373,7 @@ export function FlashcardPrintModal({
                         : "bg-purple-50 dark:bg-purple-900/30"
                     )}
                     style={{
-                      borderRight: isLeftColumn ? "1px dashed #999" : "none",
+                      borderRight: isNotRightColumn ? "1px dashed #999" : "none",
                       borderBottom: isNotLastRow ? "1px dashed #999" : "none",
                     }}
                   >

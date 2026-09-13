@@ -28,11 +28,11 @@ function shuffleArray<T>(array: T[]): T[] {
   return shuffled;
 }
 
-type PageSize = 8 | 16 | 32 | "all";
+type PageSize = 12 | 24 | 48 | "all";
 const PAGE_SIZE_OPTIONS: { value: PageSize; label: string }[] = [
-  { value: 8, label: "8" },
-  { value: 16, label: "16" },
-  { value: 32, label: "32" },
+  { value: 12, label: "12" },
+  { value: 24, label: "24" },
+  { value: 48, label: "48" },
   { value: "all", label: "전체" },
 ];
 
@@ -45,15 +45,17 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
 
   // Filter state
   const [jlptFilter, setJlptFilter] = useState<JlptLevel | "all" | "none">("all");
+  const [posFilter, setPosFilter] = useState<WordPOS | "all">("all");
+  const [sourceFilter, setSourceFilter] = useState<string>("all");
 
   // Pagination state
   const [pageSize, setPageSize] = useState<PageSize>(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("vocabPageSize");
-      if (saved === "8" || saved === "16" || saved === "32") return parseInt(saved) as 8 | 16 | 32;
+      if (saved === "12" || saved === "24" || saved === "48") return parseInt(saved) as 12 | 24 | 48;
       if (saved === "all") return "all";
     }
-    return 16;
+    return 24;
   });
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -350,14 +352,30 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
     });
   }, []);
 
+  // Extract unique sources from words
+  const sourceOptions = useMemo(() => {
+    const sources = new Set<string>();
+    words.forEach((word) => {
+      if (word.source) sources.add(word.source);
+    });
+    return Array.from(sources).sort();
+  }, [words]);
+
   const selectAllFiltered = useCallback(() => {
     const filteredWords = words.filter((word) => {
-      if (jlptFilter === "all") return true;
-      if (jlptFilter === "none") return !word.jlpt_level;
-      return word.jlpt_level === jlptFilter;
+      // JLPT filter
+      if (jlptFilter !== "all") {
+        if (jlptFilter === "none" && word.jlpt_level) return false;
+        if (jlptFilter !== "none" && word.jlpt_level !== jlptFilter) return false;
+      }
+      // POS filter
+      if (posFilter !== "all" && word.pos !== posFilter) return false;
+      // Source filter
+      if (sourceFilter !== "all" && word.source !== sourceFilter) return false;
+      return true;
     });
     setSelectedIds(new Set(filteredWords.map((w) => w.id)));
-  }, [words, jlptFilter]);
+  }, [words, jlptFilter, posFilter, sourceFilter]);
 
   const deselectAll = useCallback(() => {
     setSelectedIds(new Set());
@@ -367,14 +385,21 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
     return words.filter((w) => selectedIds.has(w.id));
   }, [words, selectedIds]);
 
-  // Filtered words by JLPT
+  // Filtered words by JLPT, POS, and Source
   const filteredWords = useMemo(() => {
     return words.filter((word) => {
-      if (jlptFilter === "all") return true;
-      if (jlptFilter === "none") return !word.jlpt_level;
-      return word.jlpt_level === jlptFilter;
+      // JLPT filter
+      if (jlptFilter !== "all") {
+        if (jlptFilter === "none" && word.jlpt_level) return false;
+        if (jlptFilter !== "none" && word.jlpt_level !== jlptFilter) return false;
+      }
+      // POS filter
+      if (posFilter !== "all" && word.pos !== posFilter) return false;
+      // Source filter
+      if (sourceFilter !== "all" && word.source !== sourceFilter) return false;
+      return true;
     });
-  }, [words, jlptFilter]);
+  }, [words, jlptFilter, posFilter, sourceFilter]);
 
   // Pagination calculations
   const totalPages = useMemo(() => {
@@ -385,7 +410,7 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
   // Reset to page 1 when filter or pageSize changes
   useEffect(() => {
     setCurrentPage(1);
-  }, [jlptFilter, pageSize]);
+  }, [jlptFilter, posFilter, sourceFilter, pageSize]);
 
   // Ensure currentPage is valid
   useEffect(() => {
@@ -671,12 +696,41 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                         </select>
                       </div>
                       <div className="flex items-center gap-1.5">
+                        <label className="text-xs text-gray-500 dark:text-gray-400">품사:</label>
+                        <select
+                          value={posFilter}
+                          onChange={(e) => setPosFilter(e.target.value as WordPOS | "all")}
+                          className="px-2 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+                        >
+                          <option value="all">전체</option>
+                          {POS_OPTIONS.map((pos) => (
+                            <option key={pos} value={pos}>{pos}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <label className="text-xs text-gray-500 dark:text-gray-400">출처:</label>
+                        <select
+                          value={sourceFilter}
+                          onChange={(e) => setSourceFilter(e.target.value)}
+                          className="px-2 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+                        >
+                          <option value="all">전체</option>
+                          {sourceOptions.map((source) => (
+                            <option key={source} value={source}>{source}</option>
+                          ))}
+                          {sourceOptions.length === 0 && (
+                            <option value="" disabled>출처 없음</option>
+                          )}
+                        </select>
+                      </div>
+                      <div className="flex items-center gap-1.5">
                         <label className="text-xs text-gray-500 dark:text-gray-400">페이지당:</label>
                         <select
                           value={pageSize}
                           onChange={(e) => {
                             const val = e.target.value;
-                            handlePageSizeChange(val === "all" ? "all" : parseInt(val) as 8 | 16 | 32);
+                            handlePageSizeChange(val === "all" ? "all" : parseInt(val) as 12 | 24 | 48);
                           }}
                           className="px-2 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
                         >
@@ -685,6 +739,19 @@ export function MyVocabModal({ kanjiList, onClose }: MyVocabModalProps) {
                           ))}
                         </select>
                       </div>
+                      {/* Reset filters button */}
+                      {(jlptFilter !== "all" || posFilter !== "all" || sourceFilter !== "all") && (
+                        <button
+                          onClick={() => {
+                            setJlptFilter("all");
+                            setPosFilter("all");
+                            setSourceFilter("all");
+                          }}
+                          className="px-2 py-1 text-xs text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 underline"
+                        >
+                          필터 초기화
+                        </button>
+                      )}
                       <span className="text-xs text-gray-500 dark:text-gray-400 ml-auto">
                         {pageRangeDisplay}
                       </span>
