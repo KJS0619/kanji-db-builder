@@ -273,7 +273,7 @@ export function FlashcardPrintModal({
             <span>🖨️</span>
             플래시카드 인쇄
             <span className="text-sm font-normal text-gray-500">
-              ({words.length}개 선택 → {cardData.length}장 생성)
+              ({words.length}개 선택 → {cardData.length}장 / {pages.length}페이지)
             </span>
           </h2>
           <button
