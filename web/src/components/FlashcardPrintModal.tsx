@@ -81,10 +81,10 @@ export function FlashcardPrintModal({
   const createFrontCardHTML = useCallback((data: CardData): string => {
     return `
       <div style="text-align: center;">
-        <div style="font-size: 32pt; font-weight: 900; color: #000000; margin-bottom: 8px; font-family: 'Noto Sans JP', sans-serif;">
+        <div style="font-size: 32pt; font-weight: 900 !important; color: #000000 !important; margin-bottom: 8px; font-family: 'Noto Sans JP', 'Arial Black', sans-serif; -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision;">
           ${data.word.word}
         </div>
-        <div style="font-size: 11pt; font-weight: 600; color: #000000; background: #d4d4d4; padding: 2px 10px; border-radius: 10px; display: inline-block;">
+        <div style="font-size: 11pt; font-weight: 900 !important; color: #000000 !important; -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision;">
           ${data.word.pos}
         </div>
       </div>
@@ -100,22 +100,22 @@ export function FlashcardPrintModal({
 
     return `
       <div style="text-align: center; width: 100%;">
-        <div style="font-size: 18pt; color: #1e1b4b; font-weight: 800; margin-bottom: 4px; font-family: 'Noto Sans JP', sans-serif;">
+        <div style="font-size: 20pt; color: #000000 !important; font-weight: 900 !important; margin-bottom: 6px; font-family: 'Noto Sans JP', 'Arial Black', sans-serif; -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision;">
           ${data.word.reading}
         </div>
-        <div style="font-size: 14pt; color: #000000; font-weight: 700; margin-bottom: 6px;">
+        <div style="font-size: 16pt; color: #000000 !important; font-weight: 900 !important; margin-bottom: 8px; font-family: 'Arial Black', sans-serif; -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision;">
           ${data.word.meaning}
         </div>
         ${
           kanjiHunEum
-            ? `<div style="font-size: 9pt; color: #000000; font-weight: 500; margin-bottom: 4px; padding: 0 4px;">
+            ? `<div style="font-size: 11pt; color: #000000 !important; font-weight: 900 !important; margin-bottom: 4px; padding: 0 4px; font-family: 'Noto Sans JP', sans-serif; -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision;">
             ${kanjiHunEum}
           </div>`
             : ""
         }
         ${
           data.word.memo
-            ? `<div style="font-size: 9pt; color: #000000; font-weight: 500; border-top: 1px dashed #999; padding-top: 4px; margin-top: 4px; font-style: italic;">
+            ? `<div style="font-size: 11pt; color: #000000 !important; font-weight: 900 !important; border-top: 2px solid #000 !important; padding-top: 6px; margin-top: 6px; font-family: sans-serif; -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision;">
             ${data.word.memo}
           </div>`
             : ""
@@ -172,10 +172,12 @@ export function FlashcardPrintModal({
           align-items: center;
           justify-content: center;
           padding: 3mm;
-          background: ${side === "front" ? "#ffffff" : "#f8f5ff"} !important;
-          background-color: ${side === "front" ? "#ffffff" : "#f8f5ff"} !important;
+          background: #ffffff !important;
+          background-color: #ffffff !important;
           color: #000000 !important;
           overflow: hidden;
+          filter: none !important;
+          -webkit-filter: none !important;
           ${isNotRightColumn ? "border-right: 1px dashed #999;" : ""}
           ${isNotLastRow ? "border-bottom: 1px dashed #999;" : ""}
         `;
@@ -228,13 +230,19 @@ export function FlashcardPrintModal({
           background-color: #ffffff !important;
           color: #000000 !important;
           color-scheme: light;
+          filter: none !important;
         `;
+        // Force light mode on pageDiv to prevent dark mode override
+        pageDiv.style.setProperty("filter", "none", "important");
+        pageDiv.style.setProperty("color", "#000000", "important");
+        pageDiv.style.setProperty("background", "#ffffff", "important");
+
         wrapper.appendChild(pageDiv);
         document.body.appendChild(wrapper);
 
-        // Render to canvas with explicit white background
+        // Render to canvas with high quality settings
         const canvas = await html2canvas(pageDiv, {
-          scale: 2,
+          scale: 3,
           useCORS: true,
           logging: false,
           backgroundColor: "#ffffff",
@@ -244,14 +252,14 @@ export function FlashcardPrintModal({
         // Remove from DOM
         document.body.removeChild(wrapper);
 
-        // Add to PDF
-        const imgData = canvas.toDataURL("image/jpeg", 0.98);
+        // Add to PDF (use PNG for better text quality)
+        const imgData = canvas.toDataURL("image/png");
 
         if (i > 0) {
           pdf.addPage();
         }
 
-        pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight);
+        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
       }
 
       // Save PDF
