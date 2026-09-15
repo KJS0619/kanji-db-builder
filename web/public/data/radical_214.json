@@ -1,0 +1,306 @@
+{
+  "version": "1.0.0",
+  "total_count": 214,
+  "description": "강희자전 214 부수",
+  "radicals": [
+    {
+      "stroke_count": 1,
+      "radicals": [
+        {"radical": "一", "korean_name": "한 일", "japanese_name": "いち", "representative": "一生(일생)"},
+        {"radical": "丨", "korean_name": "뚫을 곤", "japanese_name": "ぼう", "representative": "中(가운데 중)"},
+        {"radical": "丶", "korean_name": "점 주", "japanese_name": "てん", "representative": "丸(둥글 환)"},
+        {"radical": "丿", "korean_name": "삐침 별", "japanese_name": "の", "representative": "乃(이에 내)"},
+        {"radical": "乙", "korean_name": "새 을", "japanese_name": "おつ", "representative": "乾(하늘 건)"},
+        {"radical": "亅", "korean_name": "갈고리 궐", "japanese_name": "はねぼう", "representative": "了(마칠 료)"}
+      ]
+    },
+    {
+      "stroke_count": 2,
+      "radicals": [
+        {"radical": "二", "korean_name": "두 이", "japanese_name": "に", "representative": "互(서로 호)"},
+        {"radical": "亠", "korean_name": "돼지해머리", "japanese_name": "なべぶた", "representative": "京(서울 경)"},
+        {"radical": "人", "korean_name": "사람 인", "japanese_name": "ひと", "representative": "人間(인간)"},
+        {"radical": "亻", "korean_name": "사람인변", "japanese_name": "にんべん", "representative": "休(쉴 휴)"},
+        {"radical": "儿", "korean_name": "어진사람", "japanese_name": "ひとあし", "representative": "兄(형 형)"},
+        {"radical": "入", "korean_name": "들 입", "japanese_name": "いる", "representative": "入口(입구)"},
+        {"radical": "八", "korean_name": "여덟 팔", "japanese_name": "はち", "representative": "公(공변될 공)"},
+        {"radical": "冂", "korean_name": "멀 경", "japanese_name": "けいがまえ", "representative": "内(안 내)"},
+        {"radical": "冖", "korean_name": "덮을 멱", "japanese_name": "わかんむり", "representative": "写(베낄 사)"},
+        {"radical": "冫", "korean_name": "얼음 빙", "japanese_name": "にすい", "representative": "冬(겨울 동)"},
+        {"radical": "几", "korean_name": "안석 궤", "japanese_name": "つくえ", "representative": "凡(무릇 범)"},
+        {"radical": "凵", "korean_name": "받침 감", "japanese_name": "かんにょう", "representative": "出(날 출)"},
+        {"radical": "刀", "korean_name": "칼 도", "japanese_name": "かたな", "representative": "切(끊을 절)"},
+        {"radical": "刂", "korean_name": "선칼방", "japanese_name": "りっとう", "representative": "別(나눌 별)"},
+        {"radical": "力", "korean_name": "힘 력", "japanese_name": "ちから", "representative": "動(움직일 동)"},
+        {"radical": "勹", "korean_name": "쌀 포", "japanese_name": "つつみがまえ", "representative": "包(쌀 포)"},
+        {"radical": "匕", "korean_name": "비수 비", "japanese_name": "さじ", "representative": "化(될 화)"},
+        {"radical": "匚", "korean_name": "상자 방", "japanese_name": "はこがまえ", "representative": "医(의원 의)"},
+        {"radical": "匸", "korean_name": "감출 혜", "japanese_name": "かくしがまえ", "representative": "匹(짝 필)"},
+        {"radical": "十", "korean_name": "열 십", "japanese_name": "じゅう", "representative": "十分(십분)"},
+        {"radical": "卜", "korean_name": "점 복", "japanese_name": "ぼく", "representative": "占(점 점)"},
+        {"radical": "卩", "korean_name": "병부 절", "japanese_name": "ふしづくり", "representative": "印(도장 인)"},
+        {"radical": "厂", "korean_name": "언덕 한", "japanese_name": "がんだれ", "representative": "原(언덕 원)"}
+      ]
+    },
+    {
+      "stroke_count": 3,
+      "radicals": [
+        {"radical": "口", "korean_name": "입 구", "japanese_name": "くち", "representative": "口語(구어)"},
+        {"radical": "囗", "korean_name": "에울 위", "japanese_name": "くにがまえ", "representative": "国(나라 국)"},
+        {"radical": "土", "korean_name": "흙 토", "japanese_name": "つち", "representative": "地(땅 지)"},
+        {"radical": "士", "korean_name": "선비 사", "japanese_name": "さむらい", "representative": "士官(사관)"},
+        {"radical": "夂", "korean_name": "뒤져올 치", "japanese_name": "ふゆがしら", "representative": "夏(여름 하)"},
+        {"radical": "夊", "korean_name": "천천히걸을 쇠", "japanese_name": "すいにょう", "representative": "夏(여름 하)"},
+        {"radical": "夕", "korean_name": "저녁 석", "japanese_name": "ゆうべ", "representative": "外(바깥 외)"},
+        {"radical": "大", "korean_name": "큰 대", "japanese_name": "だい", "representative": "大学(대학)"},
+        {"radical": "女", "korean_name": "계집 녀", "japanese_name": "おんな", "representative": "女性(여성)"},
+        {"radical": "子", "korean_name": "아들 자", "japanese_name": "こ", "representative": "子供(자식)"},
+        {"radical": "宀", "korean_name": "집 면", "japanese_name": "うかんむり", "representative": "家(집 가)"},
+        {"radical": "寸", "korean_name": "마디 촌", "japanese_name": "すん", "representative": "寸法(촌법)"},
+        {"radical": "小", "korean_name": "작을 소", "japanese_name": "しょう", "representative": "小説(소설)"},
+        {"radical": "尢", "korean_name": "절름발이 왕", "japanese_name": "だいのまげあし", "representative": "尤(더욱 우)"},
+        {"radical": "尸", "korean_name": "주검 시", "japanese_name": "しかばね", "representative": "屋(집 옥)"},
+        {"radical": "屮", "korean_name": "싹 철", "japanese_name": "てつ", "representative": "屯(진칠 둔)"},
+        {"radical": "山", "korean_name": "메 산", "japanese_name": "やま", "representative": "山脈(산맥)"},
+        {"radical": "巛", "korean_name": "내 천", "japanese_name": "かわ", "representative": "川(내 천)"},
+        {"radical": "工", "korean_name": "장인 공", "japanese_name": "こう", "representative": "工場(공장)"},
+        {"radical": "己", "korean_name": "몸 기", "japanese_name": "おのれ", "representative": "自己(자기)"},
+        {"radical": "巾", "korean_name": "수건 건", "japanese_name": "はば", "representative": "帳(장부 장)"},
+        {"radical": "干", "korean_name": "방패 간", "japanese_name": "かん", "representative": "干渉(간섭)"},
+        {"radical": "幺", "korean_name": "작을 요", "japanese_name": "いとがしら", "representative": "幻(허깨비 환)"},
+        {"radical": "广", "korean_name": "집 엄", "japanese_name": "まだれ", "representative": "広(넓을 광)"},
+        {"radical": "廴", "korean_name": "끌 인", "japanese_name": "えんにょう", "representative": "建(세울 건)"},
+        {"radical": "廾", "korean_name": "두손 공", "japanese_name": "にじゅうあし", "representative": "弁(판별 변)"},
+        {"radical": "弋", "korean_name": "주살 익", "japanese_name": "しきがまえ", "representative": "式(법 식)"},
+        {"radical": "弓", "korean_name": "활 궁", "japanese_name": "ゆみ", "representative": "強(강할 강)"},
+        {"radical": "彐", "korean_name": "돼지머리 계", "japanese_name": "けいがしら", "representative": "当(마땅 당)"},
+        {"radical": "彡", "korean_name": "터럭 삼", "japanese_name": "さんづくり", "representative": "形(모양 형)"},
+        {"radical": "彳", "korean_name": "조금걸을 척", "japanese_name": "ぎょうにんべん", "representative": "行(다닐 행)"}
+      ]
+    },
+    {
+      "stroke_count": 4,
+      "radicals": [
+        {"radical": "心", "korean_name": "마음 심", "japanese_name": "こころ", "representative": "心理(심리)"},
+        {"radical": "忄", "korean_name": "마음심변", "japanese_name": "りっしんべん", "representative": "情(뜻 정)"},
+        {"radical": "戈", "korean_name": "창 과", "japanese_name": "ほこ", "representative": "戦(싸움 전)"},
+        {"radical": "戶", "korean_name": "지게 호", "japanese_name": "と", "representative": "戸籍(호적)"},
+        {"radical": "手", "korean_name": "손 수", "japanese_name": "て", "representative": "手術(수술)"},
+        {"radical": "扌", "korean_name": "손수변", "japanese_name": "てへん", "representative": "持(가질 지)"},
+        {"radical": "支", "korean_name": "지탱할 지", "japanese_name": "しにょう", "representative": "支持(지지)"},
+        {"radical": "攴", "korean_name": "칠 복", "japanese_name": "ぼくにょう", "representative": "教(가르칠 교)"},
+        {"radical": "文", "korean_name": "글월 문", "japanese_name": "ぶん", "representative": "文化(문화)"},
+        {"radical": "斗", "korean_name": "말 두", "japanese_name": "とます", "representative": "料(헤아릴 료)"},
+        {"radical": "斤", "korean_name": "도끼 근", "japanese_name": "おの", "representative": "新(새 신)"},
+        {"radical": "方", "korean_name": "모 방", "japanese_name": "ほう", "representative": "方法(방법)"},
+        {"radical": "无", "korean_name": "없을 무", "japanese_name": "む", "representative": "無(없을 무)"},
+        {"radical": "日", "korean_name": "날 일", "japanese_name": "にち", "representative": "日記(일기)"},
+        {"radical": "曰", "korean_name": "가로 왈", "japanese_name": "いわく", "representative": "曰く(왈)"},
+        {"radical": "月", "korean_name": "달 월", "japanese_name": "つき", "representative": "月給(월급)"},
+        {"radical": "木", "korean_name": "나무 목", "japanese_name": "き", "representative": "木材(목재)"},
+        {"radical": "欠", "korean_name": "하품 흠", "japanese_name": "あくび", "representative": "欲(하고자할 욕)"},
+        {"radical": "止", "korean_name": "그칠 지", "japanese_name": "とめる", "representative": "止(그칠 지)"},
+        {"radical": "歹", "korean_name": "부서질뼈 알", "japanese_name": "がつへん", "representative": "死(죽을 사)"},
+        {"radical": "殳", "korean_name": "몽둥이 수", "japanese_name": "るまた", "representative": "段(층계 단)"},
+        {"radical": "毋", "korean_name": "말 무", "japanese_name": "なかれ", "representative": "毎(매양 매)"},
+        {"radical": "比", "korean_name": "견줄 비", "japanese_name": "くらべる", "representative": "比較(비교)"},
+        {"radical": "毛", "korean_name": "터럭 모", "japanese_name": "け", "representative": "毛髪(모발)"},
+        {"radical": "氏", "korean_name": "성씨 씨", "japanese_name": "うじ", "representative": "氏名(씨명)"},
+        {"radical": "气", "korean_name": "기운 기", "japanese_name": "きがまえ", "representative": "気(기운 기)"},
+        {"radical": "水", "korean_name": "물 수", "japanese_name": "みず", "representative": "水道(수도)"},
+        {"radical": "氵", "korean_name": "삼수변", "japanese_name": "さんずい", "representative": "海(바다 해)"},
+        {"radical": "火", "korean_name": "불 화", "japanese_name": "ひ", "representative": "火災(화재)"},
+        {"radical": "灬", "korean_name": "연화발", "japanese_name": "れんが", "representative": "熱(더울 열)"},
+        {"radical": "爪", "korean_name": "손톱 조", "japanese_name": "つめ", "representative": "爪(손톱 조)"},
+        {"radical": "父", "korean_name": "아비 부", "japanese_name": "ちち", "representative": "父母(부모)"},
+        {"radical": "爻", "korean_name": "사귈 효", "japanese_name": "こう", "representative": "爻(효)"},
+        {"radical": "爿", "korean_name": "조각 장", "japanese_name": "しょうへん", "representative": "状(형상 상)"}
+      ]
+    },
+    {
+      "stroke_count": 5,
+      "radicals": [
+        {"radical": "玄", "korean_name": "검을 현", "japanese_name": "げん", "representative": "玄関(현관)"},
+        {"radical": "玉", "korean_name": "구슬 옥", "japanese_name": "たま", "representative": "玉(구슬 옥)"},
+        {"radical": "王", "korean_name": "임금 왕", "japanese_name": "おう", "representative": "王国(왕국)"},
+        {"radical": "瓜", "korean_name": "오이 과", "japanese_name": "うり", "representative": "瓜(오이 과)"},
+        {"radical": "瓦", "korean_name": "기와 와", "japanese_name": "かわら", "representative": "瓦(기와 와)"},
+        {"radical": "甘", "korean_name": "달 감", "japanese_name": "あまい", "representative": "甘味(감미)"},
+        {"radical": "生", "korean_name": "날 생", "japanese_name": "せい", "representative": "生活(생활)"},
+        {"radical": "用", "korean_name": "쓸 용", "japanese_name": "もちいる", "representative": "使用(사용)"},
+        {"radical": "田", "korean_name": "밭 전", "japanese_name": "た", "representative": "田園(전원)"},
+        {"radical": "疋", "korean_name": "필 필", "japanese_name": "ひき", "representative": "疋(필 필)"},
+        {"radical": "疒", "korean_name": "병질 녁", "japanese_name": "やまいだれ", "representative": "病(병 병)"},
+        {"radical": "癶", "korean_name": "필 발", "japanese_name": "はつがしら", "representative": "発(필 발)"},
+        {"radical": "白", "korean_name": "흰 백", "japanese_name": "しろ", "representative": "白色(백색)"},
+        {"radical": "皮", "korean_name": "가죽 피", "japanese_name": "かわ", "representative": "皮膚(피부)"},
+        {"radical": "皿", "korean_name": "그릇 명", "japanese_name": "さら", "representative": "皿(접시 명)"},
+        {"radical": "目", "korean_name": "눈 목", "japanese_name": "め", "representative": "目的(목적)"},
+        {"radical": "矛", "korean_name": "창 모", "japanese_name": "ほこ", "representative": "矛盾(모순)"},
+        {"radical": "矢", "korean_name": "화살 시", "japanese_name": "や", "representative": "矢印(시인)"},
+        {"radical": "石", "korean_name": "돌 석", "japanese_name": "いし", "representative": "石油(석유)"},
+        {"radical": "示", "korean_name": "보일 시", "japanese_name": "しめす", "representative": "示(보일 시)"},
+        {"radical": "礻", "korean_name": "보일시변", "japanese_name": "しめすへん", "representative": "神(신 신)"},
+        {"radical": "禸", "korean_name": "발없는벌레 유", "japanese_name": "ぐうのあし", "representative": "禹(우 우)"},
+        {"radical": "禾", "korean_name": "벼 화", "japanese_name": "のぎ", "representative": "私(사사 사)"}
+      ]
+    },
+    {
+      "stroke_count": 6,
+      "radicals": [
+        {"radical": "竹", "korean_name": "대 죽", "japanese_name": "たけ", "representative": "竹(대 죽)"},
+        {"radical": "米", "korean_name": "쌀 미", "japanese_name": "こめ", "representative": "米(쌀 미)"},
+        {"radical": "糸", "korean_name": "실 사", "japanese_name": "いと", "representative": "紙(종이 지)"},
+        {"radical": "缶", "korean_name": "장군 부", "japanese_name": "ほとぎ", "representative": "缶(통 관)"},
+        {"radical": "网", "korean_name": "그물 망", "japanese_name": "あみがしら", "representative": "網(그물 망)"},
+        {"radical": "羊", "korean_name": "양 양", "japanese_name": "ひつじ", "representative": "羊毛(양모)"},
+        {"radical": "羽", "korean_name": "깃 우", "japanese_name": "はね", "representative": "羽(깃 우)"},
+        {"radical": "老", "korean_name": "늙을 로", "japanese_name": "おい", "representative": "老人(노인)"},
+        {"radical": "而", "korean_name": "말이을 이", "japanese_name": "しこうして", "representative": "而(이 이)"},
+        {"radical": "耒", "korean_name": "쟁기 뢰", "japanese_name": "すきへん", "representative": "耕(밭갈 경)"},
+        {"radical": "耳", "korean_name": "귀 이", "japanese_name": "みみ", "representative": "耳鼻(이비)"},
+        {"radical": "聿", "korean_name": "붓 율", "japanese_name": "ふでづくり", "representative": "書(글 서)"},
+        {"radical": "肉", "korean_name": "고기 육", "japanese_name": "にく", "representative": "肉体(육체)"},
+        {"radical": "臣", "korean_name": "신하 신", "japanese_name": "しん", "representative": "臣下(신하)"},
+        {"radical": "自", "korean_name": "스스로 자", "japanese_name": "みずから", "representative": "自分(자분)"},
+        {"radical": "至", "korean_name": "이를 지", "japanese_name": "いたる", "representative": "至急(지급)"},
+        {"radical": "臼", "korean_name": "절구 구", "japanese_name": "うす", "representative": "臼(절구 구)"},
+        {"radical": "舌", "korean_name": "혀 설", "japanese_name": "した", "representative": "舌(혀 설)"},
+        {"radical": "舛", "korean_name": "어긋날 천", "japanese_name": "まいあし", "representative": "舞(춤출 무)"},
+        {"radical": "舟", "korean_name": "배 주", "japanese_name": "ふね", "representative": "船(배 선)"},
+        {"radical": "艮", "korean_name": "그칠 간", "japanese_name": "こん", "representative": "艮(그칠 간)"},
+        {"radical": "色", "korean_name": "빛 색", "japanese_name": "いろ", "representative": "色彩(색채)"},
+        {"radical": "艸", "korean_name": "풀 초", "japanese_name": "くさかんむり", "representative": "草(풀 초)"},
+        {"radical": "虍", "korean_name": "범호피무늬", "japanese_name": "とらがしら", "representative": "虎(범 호)"},
+        {"radical": "虫", "korean_name": "벌레 충", "japanese_name": "むし", "representative": "虫(벌레 충)"},
+        {"radical": "血", "korean_name": "피 혈", "japanese_name": "ち", "representative": "血液(혈액)"},
+        {"radical": "行", "korean_name": "다닐 행", "japanese_name": "ゆく", "representative": "行動(행동)"},
+        {"radical": "衣", "korean_name": "옷 의", "japanese_name": "ころも", "representative": "衣服(의복)"},
+        {"radical": "襾", "korean_name": "덮을 아", "japanese_name": "にし", "representative": "西(서녁 서)"}
+      ]
+    },
+    {
+      "stroke_count": 7,
+      "radicals": [
+        {"radical": "見", "korean_name": "볼 견", "japanese_name": "みる", "representative": "見学(견학)"},
+        {"radical": "角", "korean_name": "뿔 각", "japanese_name": "つの", "representative": "角度(각도)"},
+        {"radical": "言", "korean_name": "말씀 언", "japanese_name": "ことば", "representative": "言語(언어)"},
+        {"radical": "谷", "korean_name": "골 곡", "japanese_name": "たに", "representative": "渓谷(계곡)"},
+        {"radical": "豆", "korean_name": "콩 두", "japanese_name": "まめ", "representative": "豆腐(두부)"},
+        {"radical": "豕", "korean_name": "돼지 시", "japanese_name": "いのこ", "representative": "豚(돼지 돈)"},
+        {"radical": "豸", "korean_name": "벌레 치", "japanese_name": "むじなへん", "representative": "貌(모양 모)"},
+        {"radical": "貝", "korean_name": "조개 패", "japanese_name": "かい", "representative": "貝(조개 패)"},
+        {"radical": "赤", "korean_name": "붉을 적", "japanese_name": "あか", "representative": "赤色(적색)"},
+        {"radical": "走", "korean_name": "달릴 주", "japanese_name": "はしる", "representative": "走行(주행)"},
+        {"radical": "足", "korean_name": "발 족", "japanese_name": "あし", "representative": "足跡(족적)"},
+        {"radical": "身", "korean_name": "몸 신", "japanese_name": "み", "representative": "身体(신체)"},
+        {"radical": "車", "korean_name": "수레 차", "japanese_name": "くるま", "representative": "車両(차량)"},
+        {"radical": "辛", "korean_name": "매울 신", "japanese_name": "からい", "representative": "辛味(신미)"},
+        {"radical": "辰", "korean_name": "별 진", "japanese_name": "しんのたつ", "representative": "辰(별 진)"},
+        {"radical": "辵", "korean_name": "갈 착", "japanese_name": "しんにょう", "representative": "道(길 도)"},
+        {"radical": "邑", "korean_name": "고을 읍", "japanese_name": "おおざと", "representative": "部(떼 부)"},
+        {"radical": "酉", "korean_name": "닭 유", "japanese_name": "とり", "representative": "酒(술 주)"},
+        {"radical": "釆", "korean_name": "분별할 변", "japanese_name": "のごめ", "representative": "釈(풀 석)"},
+        {"radical": "里", "korean_name": "마을 리", "japanese_name": "さと", "representative": "理(다스릴 리)"}
+      ]
+    },
+    {
+      "stroke_count": 8,
+      "radicals": [
+        {"radical": "金", "korean_name": "쇠 금", "japanese_name": "かね", "representative": "金額(금액)"},
+        {"radical": "長", "korean_name": "길 장", "japanese_name": "ながい", "representative": "社長(사장)"},
+        {"radical": "門", "korean_name": "문 문", "japanese_name": "もん", "representative": "門(문 문)"},
+        {"radical": "阜", "korean_name": "언덕 부", "japanese_name": "こざとへん", "representative": "阪(비탈 판)"},
+        {"radical": "隶", "korean_name": "미칠 이", "japanese_name": "れいづくり", "representative": "隷(종 예)"},
+        {"radical": "隹", "korean_name": "새 추", "japanese_name": "ふるとり", "representative": "集(모을 집)"},
+        {"radical": "雨", "korean_name": "비 우", "japanese_name": "あめ", "representative": "雨季(우기)"},
+        {"radical": "靑", "korean_name": "푸를 청", "japanese_name": "あお", "representative": "青年(청년)"},
+        {"radical": "非", "korean_name": "아닐 비", "japanese_name": "あらず", "representative": "非常(비상)"}
+      ]
+    },
+    {
+      "stroke_count": 9,
+      "radicals": [
+        {"radical": "面", "korean_name": "얼굴 면", "japanese_name": "めん", "representative": "面接(면접)"},
+        {"radical": "革", "korean_name": "가죽 혁", "japanese_name": "かわ", "representative": "革命(혁명)"},
+        {"radical": "韋", "korean_name": "가죽 위", "japanese_name": "なめしがわ", "representative": "韋(가죽 위)"},
+        {"radical": "韭", "korean_name": "부추 구", "japanese_name": "にら", "representative": "韭(부추 구)"},
+        {"radical": "音", "korean_name": "소리 음", "japanese_name": "おと", "representative": "音楽(음악)"},
+        {"radical": "頁", "korean_name": "머리 혈", "japanese_name": "おおがい", "representative": "頭(머리 두)"},
+        {"radical": "風", "korean_name": "바람 풍", "japanese_name": "かぜ", "representative": "風景(풍경)"},
+        {"radical": "飛", "korean_name": "날 비", "japanese_name": "とぶ", "representative": "飛行(비행)"},
+        {"radical": "食", "korean_name": "먹을 식", "japanese_name": "しょく", "representative": "食事(식사)"},
+        {"radical": "首", "korean_name": "머리 수", "japanese_name": "くび", "representative": "首都(수도)"},
+        {"radical": "香", "korean_name": "향기 향", "japanese_name": "かおり", "representative": "香水(향수)"}
+      ]
+    },
+    {
+      "stroke_count": 10,
+      "radicals": [
+        {"radical": "馬", "korean_name": "말 마", "japanese_name": "うま", "representative": "競馬(경마)"},
+        {"radical": "骨", "korean_name": "뼈 골", "japanese_name": "ほね", "representative": "骨格(골격)"},
+        {"radical": "高", "korean_name": "높을 고", "japanese_name": "たかい", "representative": "高級(고급)"},
+        {"radical": "髟", "korean_name": "터럭 표", "japanese_name": "かみがしら", "representative": "髪(터럭 발)"},
+        {"radical": "鬥", "korean_name": "싸울 투", "japanese_name": "とうがまえ", "representative": "闘(싸울 투)"},
+        {"radical": "鬯", "korean_name": "울창주 창", "japanese_name": "ちょう", "representative": "鬯(울창주 창)"},
+        {"radical": "鬲", "korean_name": "솥 력", "japanese_name": "れき", "representative": "融(녹을 융)"},
+        {"radical": "鬼", "korean_name": "귀신 귀", "japanese_name": "おに", "representative": "鬼(귀신 귀)"}
+      ]
+    },
+    {
+      "stroke_count": 11,
+      "radicals": [
+        {"radical": "魚", "korean_name": "물고기 어", "japanese_name": "うお", "representative": "魚類(어류)"},
+        {"radical": "鳥", "korean_name": "새 조", "japanese_name": "とり", "representative": "野鳥(야조)"},
+        {"radical": "鹵", "korean_name": "소금 로", "japanese_name": "しお", "representative": "鹵(소금 로)"},
+        {"radical": "鹿", "korean_name": "사슴 록", "japanese_name": "しか", "representative": "鹿(사슴 록)"},
+        {"radical": "麥", "korean_name": "보리 맥", "japanese_name": "むぎ", "representative": "麦(보리 맥)"}
+      ]
+    },
+    {
+      "stroke_count": 12,
+      "radicals": [
+        {"radical": "麻", "korean_name": "삼 마", "japanese_name": "あさ", "representative": "麻(삼 마)"},
+        {"radical": "黃", "korean_name": "누를 황", "japanese_name": "き", "representative": "黄金(황금)"}
+      ]
+    },
+    {
+      "stroke_count": 13,
+      "radicals": [
+        {"radical": "黍", "korean_name": "기장 서", "japanese_name": "きび", "representative": "黍(기장 서)"},
+        {"radical": "黑", "korean_name": "검을 흑", "japanese_name": "くろ", "representative": "黒色(흑색)"},
+        {"radical": "黹", "korean_name": "바느질 치", "japanese_name": "ふつへん", "representative": "黹(바느질 치)"}
+      ]
+    },
+    {
+      "stroke_count": 14,
+      "radicals": [
+        {"radical": "黽", "korean_name": "맹꽁이 맹", "japanese_name": "べんあし", "representative": "黽(맹꽁이 맹)"},
+        {"radical": "鼎", "korean_name": "솥 정", "japanese_name": "かなえ", "representative": "鼎(솥 정)"},
+        {"radical": "鼓", "korean_name": "북 고", "japanese_name": "つづみ", "representative": "鼓(북 고)"},
+        {"radical": "鼠", "korean_name": "쥐 서", "japanese_name": "ねずみ", "representative": "鼠(쥐 서)"}
+      ]
+    },
+    {
+      "stroke_count": 15,
+      "radicals": [
+        {"radical": "鼻", "korean_name": "코 비", "japanese_name": "はな", "representative": "鼻(코 비)"},
+        {"radical": "齊", "korean_name": "가지런할 제", "japanese_name": "せい", "representative": "斉(가지런할 제)"}
+      ]
+    },
+    {
+      "stroke_count": 16,
+      "radicals": [
+        {"radical": "齒", "korean_name": "이 치", "japanese_name": "は", "representative": "歯(이 치)"},
+        {"radical": "龍", "korean_name": "용 룡", "japanese_name": "りゅう", "representative": "竜(용 룡)"}
+      ]
+    },
+    {
+      "stroke_count": 17,
+      "radicals": [
+        {"radical": "龜", "korean_name": "거북 귀", "japanese_name": "かめ", "representative": "亀(거북 귀)"},
+        {"radical": "龠", "korean_name": "피리 약", "japanese_name": "やく", "representative": "龠(피리 약)"}
+      ]
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+/* Google Fonts는 layout.tsx에서 로드 (Noto Sans/Serif KR, JP) */
 
 :root {
   --background: #ffffff;
@@ -10,6 +10,56 @@
   --card: #f8fafc;
   --card-hover: #f1f5f9;
   --border: #e2e8f0;
+}
+
+/* ========================================
+   로케일 기반 폰트 클래스 (한·일 자형 차이)
+   ======================================== */
+
+/* 한국어 정자체 (KS X 1001 규범) */
+.font-ko,
+[lang="ko"] .font-locale {
+  font-family: 'Noto Serif KR', 'Noto Sans KR', 'Malgun Gothic', '맑은 고딕', sans-serif !important;
+}
+
+/* 일본어 신자체 (JIS X 0213 규범) */
+.font-ja,
+[lang="ja"] .font-locale {
+  font-family: 'Noto Sans JP', 'Noto Serif JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif !important;
+}
+
+/* 한자 대조 뷰 전용 스타일 */
+.kanji-kr {
+  font-family: 'Noto Serif KR', 'Noto Sans KR', serif !important;
+  font-feature-settings: normal;
+  -webkit-font-feature-settings: normal;
+}
+
+.kanji-jp {
+  font-family: 'Noto Sans JP', 'Noto Serif JP', sans-serif !important;
+  font-feature-settings: normal;
+  -webkit-font-feature-settings: normal;
+}
+
+/* 미세 획 차이 강조 효과 */
+.glyph-highlight {
+  text-shadow: 0 0 1px currentColor;
+}
+
+/* 미세 차이 안내 배너 */
+.glyph-diff-banner {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border: 1px solid #f59e0b;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  color: #92400e;
+}
+
+.dark .glyph-diff-banner {
+  background: linear-gradient(135deg, #78350f 0%, #451a03 100%);
+  border-color: #b45309;
+  color: #fcd34d;
 }
 
 .dark {

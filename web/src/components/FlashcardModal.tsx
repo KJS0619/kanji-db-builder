@@ -2,6 +2,12 @@
 
 import { useEffect, useCallback, useState, useMemo } from "react";
 import { Kanji, JLPT_COLORS } from "@/types/kanji";
+import { useKanjiTTS, getTTSAutoPlaySetting, setTTSAutoPlaySetting } from "@/hooks/useKanjiTTS";
+import { SpeakerButton, TTSAutoPlayToggle } from "@/components/SpeakerButton";
+import {
+  GenericFlashcardPrintModal,
+  PrintableCard,
+} from "@/components/GenericFlashcardPrintModal";
 import clsx from "clsx";
 
 interface FlashcardModalProps {
@@ -28,6 +34,24 @@ export function FlashcardModal({ kanjiList, onClose }: FlashcardModalProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [deck, setDeck] = useState<Kanji[]>([]);
+  const [showPrintModal, setShowPrintModal] = useState(false);
+
+  // TTS 훅
+  const { speak, speakSequence, stop, isSpeaking, isSupported } = useKanjiTTS();
+
+  // TTS 자동재생 설정
+  const [autoPlayEnabled, setAutoPlayEnabled] = useState(true);
+
+  // 초기 자동재생 설정 로드
+  useEffect(() => {
+    setAutoPlayEnabled(getTTSAutoPlaySetting());
+  }, []);
+
+  // 자동재생 설정 변경 핸들러
+  const handleAutoPlayChange = useCallback((enabled: boolean) => {
+    setAutoPlayEnabled(enabled);
+    setTTSAutoPlaySetting(enabled);
+  }, []);
 
   // 등급별 한자 필터링
   const filteredByLevel = useMemo(() => {
@@ -45,6 +69,22 @@ export function FlashcardModal({ kanjiList, onClose }: FlashcardModalProps) {
     return counts;
   }, [kanjiList]);
 
+  // 인쇄용 카드 데이터 변환
+  const printableCards: PrintableCard[] = useMemo(() => {
+    return deck.map((k) => ({
+      id: k.literal,
+      frontContent: {
+        main: k.literal,
+        sub: k.korean_hun_eum || "",
+      },
+      backContent: {
+        primary: k.ja_on.join(", ") || "-",
+        secondary: k.ja_kun.join(", ") || "-",
+        tertiary: k.meanings_en.slice(0, 3).join(", "),
+      },
+    }));
+  }, [deck]);
+
   // 초기 덱 셔플
   useEffect(() => {
     setDeck(shuffleArray(filteredByLevel));
@@ -52,38 +92,83 @@ export function FlashcardModal({ kanjiList, onClose }: FlashcardModalProps) {
     setIsFlipped(false);
   }, [filteredByLevel]);
 
+  // 컴포넌트 언마운트 시 TTS 정리
+  useEffect(() => {
+    return () => {
+      stop();
+    };
+  }, [stop]);
+
   // 덱 셔플
   const handleShuffle = useCallback(() => {
+    stop();
     setDeck(shuffleArray(filteredByLevel));
     setCurrentIndex(0);
     setIsFlipped(false);
-  }, [filteredByLevel]);
+  }, [filteredByLevel, stop]);
 
-  // 카드 뒤집기
+  const currentKanji = deck[currentIndex];
+
+  // 카드 뒤집기 (자동 발음 포함)
   const handleFlip = useCallback(() => {
-    setIsFlipped((prev) => !prev);
-  }, []);
+    const newFlipped = !isFlipped;
+    setIsFlipped(newFlipped);
+
+    // 자동재생: 뒷면으로 넘어갈 때 순차 재생
+    if (newFlipped && autoPlayEnabled && isSupported && currentKanji) {
+      const textsToSpeak: string[] = [];
+
+      // 음독이 있으면 추가
+      if (currentKanji.ja_on.length > 0) {
+        textsToSpeak.push(currentKanji.ja_on[0]);
+      }
+
+      // 훈독이 있으면 추가
+      if (currentKanji.ja_kun.length > 0) {
+        // 훈독에서 송독점(.) 제거하여 발음
+        const kunReading = currentKanji.ja_kun[0].replace(/\./g, "");
+        textsToSpeak.push(kunReading);
+      }
+
+      if (textsToSpeak.length > 0) {
+        speakSequence(textsToSpeak);
+      }
+    }
+  }, [isFlipped, autoPlayEnabled, isSupported, currentKanji, speakSequence]);
 
   // 다음 카드
   const handleNext = useCallback(() => {
     if (currentIndex < deck.length - 1) {
+      stop();
       setCurrentIndex((prev) => prev + 1);
       setIsFlipped(false);
     }
-  }, [currentIndex, deck.length]);
+  }, [currentIndex, deck.length, stop]);
 
   // 이전 카드
   const handlePrev = useCallback(() => {
     if (currentIndex > 0) {
+      stop();
       setCurrentIndex((prev) => prev - 1);
       setIsFlipped(false);
     }
-  }, [currentIndex]);
+  }, [currentIndex, stop]);
 
   // 등급 변경
   const handleLevelChange = useCallback((level: JlptTab) => {
+    stop();
     setSelectedLevel(level);
-  }, []);
+  }, [stop]);
+
+  // 개별 발음 재생
+  const handleSpeak = useCallback(
+    (text: string) => {
+      // 송독점 제거
+      const cleanText = text.replace(/\./g, "");
+      speak(cleanText);
+    },
+    [speak]
+  );
 
   // 키보드 단축키
   useEffect(() => {
@@ -107,11 +192,21 @@ export function FlashcardModal({ kanjiList, onClose }: FlashcardModalProps) {
         case "Escape":
           onClose();
           break;
+        // S 키로 현재 카드 발음 재생
+        case "s":
+        case "S":
+          if (currentKanji && isFlipped) {
+            const textsToSpeak: string[] = [];
+            if (currentKanji.ja_on.length > 0) textsToSpeak.push(currentKanji.ja_on[0]);
+            if (currentKanji.ja_kun.length > 0) textsToSpeak.push(currentKanji.ja_kun[0].replace(/\./g, ""));
+            if (textsToSpeak.length > 0) speakSequence(textsToSpeak);
+          }
+          break;
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [handleFlip, handlePrev, handleNext, handleShuffle, onClose]);
+  }, [handleFlip, handlePrev, handleNext, handleShuffle, onClose, currentKanji, isFlipped, speakSequence]);
 
   // 배경 클릭으로 닫기
   const handleBackdropClick = useCallback(
@@ -120,8 +215,6 @@ export function FlashcardModal({ kanjiList, onClose }: FlashcardModalProps) {
     },
     [onClose]
   );
-
-  const currentKanji = deck[currentIndex];
 
   return (
     <div
@@ -142,24 +235,47 @@ export function FlashcardModal({ kanjiList, onClose }: FlashcardModalProps) {
             <span>🎴</span>
             플래시카드
           </h2>
-          <button
-            onClick={onClose}
-            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-          >
-            <svg
-              className="w-5 h-5 text-gray-600 dark:text-gray-300"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          <div className="flex items-center gap-3">
+            {/* TTS 자동재생 토글 */}
+            <TTSAutoPlayToggle
+              enabled={autoPlayEnabled}
+              onChange={handleAutoPlayChange}
+              isSupported={isSupported}
+            />
+            {/* 인쇄 버튼 */}
+            <button
+              onClick={() => setShowPrintModal(true)}
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              title="플래시카드 인쇄"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
+              <svg
+                className="w-5 h-5 text-gray-600 dark:text-gray-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+              </svg>
+            </button>
+            <button
+              onClick={onClose}
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            >
+              <svg
+                className="w-5 h-5 text-gray-600 dark:text-gray-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* JLPT 등급 탭 */}
@@ -290,25 +406,39 @@ export function FlashcardModal({ kanjiList, onClose }: FlashcardModalProps) {
                   <div className="w-full space-y-2 text-sm">
                     {/* 음독 */}
                     {currentKanji.ja_on.length > 0 && (
-                      <div className="flex items-start gap-2">
+                      <div className="flex items-center gap-2">
                         <span className="flex-shrink-0 w-14 font-medium text-gray-500 dark:text-gray-400">
                           音読み
                         </span>
-                        <span className="text-gray-800 dark:text-gray-200">
+                        <span className="flex-1 text-gray-800 dark:text-gray-200">
                           {currentKanji.ja_on.join(", ")}
                         </span>
+                        <SpeakerButton
+                          text={currentKanji.ja_on[0]}
+                          onSpeak={handleSpeak}
+                          isSpeaking={isSpeaking}
+                          size="sm"
+                          title="음독 발음 듣기"
+                        />
                       </div>
                     )}
 
                     {/* 훈독 */}
                     {currentKanji.ja_kun.length > 0 && (
-                      <div className="flex items-start gap-2">
+                      <div className="flex items-center gap-2">
                         <span className="flex-shrink-0 w-14 font-medium text-gray-500 dark:text-gray-400">
                           訓読み
                         </span>
-                        <span className="text-gray-800 dark:text-gray-200">
+                        <span className="flex-1 text-gray-800 dark:text-gray-200">
                           {currentKanji.ja_kun.join(", ")}
                         </span>
+                        <SpeakerButton
+                          text={currentKanji.ja_kun[0]}
+                          onSpeak={handleSpeak}
+                          isSpeaking={isSpeaking}
+                          size="sm"
+                          title="훈독 발음 듣기"
+                        />
                       </div>
                     )}
 
@@ -397,13 +527,23 @@ export function FlashcardModal({ kanjiList, onClose }: FlashcardModalProps) {
         {/* 단축키 안내 */}
         <div className="px-6 pb-4 text-center">
           <p className="text-xs text-gray-400 dark:text-gray-500">
-            단축키: <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 rounded">Space</kbd> 뒤집기 ·
+            <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 rounded">Space</kbd> 뒤집기 ·
             <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 rounded mx-1">←→</kbd> 이전/다음 ·
             <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 rounded">R</kbd> 섞기 ·
+            <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 rounded">S</kbd> 발음 ·
             <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 rounded">ESC</kbd> 닫기
           </p>
         </div>
       </div>
+
+      {/* 인쇄 모달 */}
+      {showPrintModal && (
+        <GenericFlashcardPrintModal
+          title={`JLPT ${selectedLevel} 한자`}
+          cards={printableCards}
+          onClose={() => setShowPrintModal(false)}
+        />
+      )}
     </div>
   );
 }

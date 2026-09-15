@@ -8,9 +8,15 @@ interface HeaderProps {
   onOpenWordFlashcard: () => void;
   onOpenMyVocab: () => void;
   onOpenJlptExplainer: () => void;
+  onOpenTopicKanji: () => void;
+  onOpenRadical: () => void;
+  onOpenRadicalKanji: () => void;
+  onOpenKanjiDiff: () => void;
+  onOpenKokuji: () => void;
+  onOpenReviewTest: () => void;
 }
 
-export function Header({ totalCount, isDarkMode, onToggleDarkMode, onOpenFlashcard, onOpenWordFlashcard, onOpenMyVocab, onOpenJlptExplainer }: HeaderProps) {
+export function Header({ totalCount, isDarkMode, onToggleDarkMode, onOpenFlashcard, onOpenWordFlashcard, onOpenMyVocab, onOpenJlptExplainer, onOpenTopicKanji, onOpenRadical, onOpenRadicalKanji, onOpenKanjiDiff, onOpenKokuji, onOpenReviewTest }: HeaderProps) {
   return (
     <header className="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -24,7 +30,85 @@ export function Header({ totalCount, isDarkMode, onToggleDarkMode, onOpenFlashca
           </span>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap justify-end">
+          {/* 주제별 한자 버튼 */}
+          <button
+            onClick={onOpenTopicKanji}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg transition-all shadow-md hover:shadow-lg"
+            style={{
+              background: "linear-gradient(to right, #dc2626, #ea580c)",
+              color: "#ffffff",
+            }}
+          >
+            <span>📚</span>
+            <span className="hidden sm:inline">주제별</span>
+          </button>
+
+          {/* 부수 익히기 버튼 */}
+          <button
+            onClick={onOpenRadical}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg transition-all shadow-md hover:shadow-lg"
+            style={{
+              background: "linear-gradient(to right, #7c3aed, #a855f7)",
+              color: "#ffffff",
+            }}
+          >
+            <span>🀄</span>
+            <span className="hidden sm:inline">부수 214</span>
+          </button>
+
+          {/* 부수별 한자 버튼 */}
+          <button
+            onClick={onOpenRadicalKanji}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg transition-all shadow-md hover:shadow-lg"
+            style={{
+              background: "linear-gradient(to right, #0d9488, #14b8a6)",
+              color: "#ffffff",
+            }}
+          >
+            <span>🔤</span>
+            <span className="hidden sm:inline">부수별</span>
+          </button>
+
+          {/* 한·일 차이 버튼 */}
+          <button
+            onClick={onOpenKanjiDiff}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg transition-all shadow-md hover:shadow-lg"
+            style={{
+              background: "linear-gradient(to right, #3b82f6, #8b5cf6)",
+              color: "#ffffff",
+            }}
+          >
+            <span>🔄</span>
+            <span className="hidden sm:inline">한·일차이</span>
+          </button>
+
+          {/* 국자 버튼 */}
+          <button
+            onClick={onOpenKokuji}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg transition-all shadow-md hover:shadow-lg"
+            style={{
+              background: "linear-gradient(to right, #ef4444, #f97316)",
+              color: "#ffffff",
+            }}
+          >
+            <span>🇯🇵</span>
+            <span className="hidden sm:inline">국자</span>
+          </button>
+
+          {/* 복습 테스트 버튼 */}
+          <button
+            onClick={onOpenReviewTest}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg transition-all shadow-md hover:shadow-lg"
+            style={{
+              background: "linear-gradient(to right, #10b981, #059669)",
+              color: "#ffffff",
+            }}
+          >
+            <span>🧠</span>
+            <span className="hidden sm:inline">복습 테스트</span>
+          </button>
+
           {/* JLPT 해설 생성기 버튼 */}
           <button
             onClick={onOpenJlptExplainer}

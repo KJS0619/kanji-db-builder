@@ -1,0 +1,747 @@
+{
+  "version": "1.0.0",
+  "total_count": 1838,
+  "description": "한국인을 위한 핵심한자 1~12탄 (한자능력검정시험 + JLPT 연계)",
+  "series": [
+    {
+      "id": 1,
+      "name": "1탄",
+      "count": 190,
+      "description": "기초 한자 190자",
+      "topics": [
+        {
+          "name": "자연",
+          "kanji": [
+            {"literal": "天", "korean_hun_eum": "하늘 천", "ja_on": "てん", "kr_word": "天國(천국)", "jp_word": "天国(てんごく)"},
+            {"literal": "地", "korean_hun_eum": "땅 지", "ja_on": "ち", "kr_word": "地球(지구)", "jp_word": "地球(ちきゅう)"},
+            {"literal": "山", "korean_hun_eum": "메 산", "ja_on": "さん", "kr_word": "山脈(산맥)", "jp_word": "山脈(さんみゃく)"},
+            {"literal": "川", "korean_hun_eum": "내 천", "ja_on": "せん", "kr_word": "河川(하천)", "jp_word": "河川(かせん)"},
+            {"literal": "水", "korean_hun_eum": "물 수", "ja_on": "すい", "kr_word": "水道(수도)", "jp_word": "水道(すいどう)"},
+            {"literal": "火", "korean_hun_eum": "불 화", "ja_on": "か", "kr_word": "火災(화재)", "jp_word": "火災(かさい)"},
+            {"literal": "木", "korean_hun_eum": "나무 목", "ja_on": "もく", "kr_word": "木材(목재)", "jp_word": "木材(もくざい)"},
+            {"literal": "金", "korean_hun_eum": "쇠 금", "ja_on": "きん", "kr_word": "金額(금액)", "jp_word": "金額(きんがく)"},
+            {"literal": "土", "korean_hun_eum": "흙 토", "ja_on": "ど", "kr_word": "土地(토지)", "jp_word": "土地(とち)"},
+            {"literal": "日", "korean_hun_eum": "날 일", "ja_on": "にち", "kr_word": "日記(일기)", "jp_word": "日記(にっき)"},
+            {"literal": "月", "korean_hun_eum": "달 월", "ja_on": "げつ", "kr_word": "月給(월급)", "jp_word": "月給(げっきゅう)"},
+            {"literal": "星", "korean_hun_eum": "별 성", "ja_on": "せい", "kr_word": "星座(성좌)", "jp_word": "星座(せいざ)"},
+            {"literal": "雨", "korean_hun_eum": "비 우", "ja_on": "う", "kr_word": "雨季(우기)", "jp_word": "雨季(うき)"},
+            {"literal": "雪", "korean_hun_eum": "눈 설", "ja_on": "せつ", "kr_word": "雪景(설경)", "jp_word": "雪景(せっけい)"},
+            {"literal": "風", "korean_hun_eum": "바람 풍", "ja_on": "ふう", "kr_word": "風景(풍경)", "jp_word": "風景(ふうけい)"},
+            {"literal": "雲", "korean_hun_eum": "구름 운", "ja_on": "うん", "kr_word": "雲海(운해)", "jp_word": "雲海(うんかい)"},
+            {"literal": "花", "korean_hun_eum": "꽃 화", "ja_on": "か", "kr_word": "花束(화속)", "jp_word": "花束(はなたば)"},
+            {"literal": "草", "korean_hun_eum": "풀 초", "ja_on": "そう", "kr_word": "草原(초원)", "jp_word": "草原(そうげん)"},
+            {"literal": "森", "korean_hun_eum": "숲 삼", "ja_on": "しん", "kr_word": "森林(삼림)", "jp_word": "森林(しんりん)"},
+            {"literal": "林", "korean_hun_eum": "수풀 림", "ja_on": "りん", "kr_word": "林業(임업)", "jp_word": "林業(りんぎょう)"}
+          ]
+        },
+        {
+          "name": "신체",
+          "kanji": [
+            {"literal": "人", "korean_hun_eum": "사람 인", "ja_on": "じん", "kr_word": "人間(인간)", "jp_word": "人間(にんげん)"},
+            {"literal": "口", "korean_hun_eum": "입 구", "ja_on": "こう", "kr_word": "人口(인구)", "jp_word": "人口(じんこう)"},
+            {"literal": "目", "korean_hun_eum": "눈 목", "ja_on": "もく", "kr_word": "目的(목적)", "jp_word": "目的(もくてき)"},
+            {"literal": "耳", "korean_hun_eum": "귀 이", "ja_on": "じ", "kr_word": "耳鼻(이비)", "jp_word": "耳鼻(じび)"},
+            {"literal": "手", "korean_hun_eum": "손 수", "ja_on": "しゅ", "kr_word": "手術(수술)", "jp_word": "手術(しゅじゅつ)"},
+            {"literal": "足", "korean_hun_eum": "발 족", "ja_on": "そく", "kr_word": "足跡(족적)", "jp_word": "足跡(そくせき)"},
+            {"literal": "心", "korean_hun_eum": "마음 심", "ja_on": "しん", "kr_word": "心理(심리)", "jp_word": "心理(しんり)"},
+            {"literal": "頭", "korean_hun_eum": "머리 두", "ja_on": "とう", "kr_word": "頭腦(두뇌)", "jp_word": "頭脳(ずのう)"},
+            {"literal": "身", "korean_hun_eum": "몸 신", "ja_on": "しん", "kr_word": "身體(신체)", "jp_word": "身体(しんたい)"},
+            {"literal": "骨", "korean_hun_eum": "뼈 골", "ja_on": "こつ", "kr_word": "骨格(골격)", "jp_word": "骨格(こっかく)"},
+            {"literal": "肉", "korean_hun_eum": "고기 육", "ja_on": "にく", "kr_word": "肉體(육체)", "jp_word": "肉体(にくたい)"},
+            {"literal": "血", "korean_hun_eum": "피 혈", "ja_on": "けつ", "kr_word": "血液(혈액)", "jp_word": "血液(けつえき)"},
+            {"literal": "面", "korean_hun_eum": "얼굴 면", "ja_on": "めん", "kr_word": "面接(면접)", "jp_word": "面接(めんせつ)"},
+            {"literal": "力", "korean_hun_eum": "힘 력", "ja_on": "りょく", "kr_word": "努力(노력)", "jp_word": "努力(どりょく)"},
+            {"literal": "氣", "korean_hun_eum": "기운 기", "ja_on": "き", "kr_word": "氣分(기분)", "jp_word": "気分(きぶん)"}
+          ]
+        },
+        {
+          "name": "숫자",
+          "kanji": [
+            {"literal": "一", "korean_hun_eum": "한 일", "ja_on": "いち", "kr_word": "一般(일반)", "jp_word": "一般(いっぱん)"},
+            {"literal": "二", "korean_hun_eum": "두 이", "ja_on": "に", "kr_word": "二重(이중)", "jp_word": "二重(にじゅう)"},
+            {"literal": "三", "korean_hun_eum": "석 삼", "ja_on": "さん", "kr_word": "三角(삼각)", "jp_word": "三角(さんかく)"},
+            {"literal": "四", "korean_hun_eum": "넉 사", "ja_on": "し", "kr_word": "四季(사계)", "jp_word": "四季(しき)"},
+            {"literal": "五", "korean_hun_eum": "다섯 오", "ja_on": "ご", "kr_word": "五感(오감)", "jp_word": "五感(ごかん)"},
+            {"literal": "六", "korean_hun_eum": "여섯 륙", "ja_on": "ろく", "kr_word": "六月(유월)", "jp_word": "六月(ろくがつ)"},
+            {"literal": "七", "korean_hun_eum": "일곱 칠", "ja_on": "しち", "kr_word": "七夕(칠석)", "jp_word": "七夕(たなばた)"},
+            {"literal": "八", "korean_hun_eum": "여덟 팔", "ja_on": "はち", "kr_word": "八月(팔월)", "jp_word": "八月(はちがつ)"},
+            {"literal": "九", "korean_hun_eum": "아홉 구", "ja_on": "きゅう", "kr_word": "九月(구월)", "jp_word": "九月(くがつ)"},
+            {"literal": "十", "korean_hun_eum": "열 십", "ja_on": "じゅう", "kr_word": "十分(십분)", "jp_word": "十分(じゅうぶん)"},
+            {"literal": "百", "korean_hun_eum": "일백 백", "ja_on": "ひゃく", "kr_word": "百科(백과)", "jp_word": "百科(ひゃっか)"},
+            {"literal": "千", "korean_hun_eum": "일천 천", "ja_on": "せん", "kr_word": "千年(천년)", "jp_word": "千年(せんねん)"},
+            {"literal": "萬", "korean_hun_eum": "일만 만", "ja_on": "まん", "kr_word": "萬物(만물)", "jp_word": "万物(ばんぶつ)"}
+          ]
+        },
+        {
+          "name": "가족",
+          "kanji": [
+            {"literal": "父", "korean_hun_eum": "아비 부", "ja_on": "ふ", "kr_word": "父母(부모)", "jp_word": "父母(ふぼ)"},
+            {"literal": "母", "korean_hun_eum": "어미 모", "ja_on": "ぼ", "kr_word": "母國(모국)", "jp_word": "母国(ぼこく)"},
+            {"literal": "兄", "korean_hun_eum": "맏 형", "ja_on": "けい", "kr_word": "兄弟(형제)", "jp_word": "兄弟(きょうだい)"},
+            {"literal": "弟", "korean_hun_eum": "아우 제", "ja_on": "てい", "kr_word": "弟子(제자)", "jp_word": "弟子(でし)"},
+            {"literal": "姉", "korean_hun_eum": "손윗누이 자", "ja_on": "し", "kr_word": "姉妹(자매)", "jp_word": "姉妹(しまい)"},
+            {"literal": "妹", "korean_hun_eum": "손아랫누이 매", "ja_on": "まい", "kr_word": "姉妹(자매)", "jp_word": "姉妹(しまい)"},
+            {"literal": "子", "korean_hun_eum": "아들 자", "ja_on": "し", "kr_word": "子女(자녀)", "jp_word": "子女(しじょ)"},
+            {"literal": "女", "korean_hun_eum": "계집 녀", "ja_on": "じょ", "kr_word": "女性(여성)", "jp_word": "女性(じょせい)"},
+            {"literal": "男", "korean_hun_eum": "사내 남", "ja_on": "だん", "kr_word": "男性(남성)", "jp_word": "男性(だんせい)"},
+            {"literal": "夫", "korean_hun_eum": "지아비 부", "ja_on": "ふ", "kr_word": "夫婦(부부)", "jp_word": "夫婦(ふうふ)"},
+            {"literal": "婦", "korean_hun_eum": "며느리 부", "ja_on": "ふ", "kr_word": "婦人(부인)", "jp_word": "婦人(ふじん)"},
+            {"literal": "親", "korean_hun_eum": "친할 친", "ja_on": "しん", "kr_word": "親切(친절)", "jp_word": "親切(しんせつ)"},
+            {"literal": "祖", "korean_hun_eum": "할아비 조", "ja_on": "そ", "kr_word": "祖先(조선)", "jp_word": "祖先(そせん)"},
+            {"literal": "孫", "korean_hun_eum": "손자 손", "ja_on": "そん", "kr_word": "子孫(자손)", "jp_word": "子孫(しそん)"}
+          ]
+        },
+        {
+          "name": "감정",
+          "kanji": [
+            {"literal": "愛", "korean_hun_eum": "사랑 애", "ja_on": "あい", "kr_word": "愛情(애정)", "jp_word": "愛情(あいじょう)"},
+            {"literal": "情", "korean_hun_eum": "뜻 정", "ja_on": "じょう", "kr_word": "感情(감정)", "jp_word": "感情(かんじょう)"},
+            {"literal": "感", "korean_hun_eum": "느낄 감", "ja_on": "かん", "kr_word": "感覺(감각)", "jp_word": "感覚(かんかく)"},
+            {"literal": "怒", "korean_hun_eum": "성낼 노", "ja_on": "ど", "kr_word": "怒氣(노기)", "jp_word": "怒気(どき)"},
+            {"literal": "喜", "korean_hun_eum": "기쁠 희", "ja_on": "き", "kr_word": "喜悅(희열)", "jp_word": "喜悦(きえつ)"},
+            {"literal": "悲", "korean_hun_eum": "슬플 비", "ja_on": "ひ", "kr_word": "悲劇(비극)", "jp_word": "悲劇(ひげき)"},
+            {"literal": "樂", "korean_hun_eum": "즐길 락", "ja_on": "らく", "kr_word": "快樂(쾌락)", "jp_word": "快楽(かいらく)"},
+            {"literal": "苦", "korean_hun_eum": "쓸 고", "ja_on": "く", "kr_word": "苦痛(고통)", "jp_word": "苦痛(くつう)"},
+            {"literal": "恐", "korean_hun_eum": "두려울 공", "ja_on": "きょう", "kr_word": "恐怖(공포)", "jp_word": "恐怖(きょうふ)"},
+            {"literal": "安", "korean_hun_eum": "편안 안", "ja_on": "あん", "kr_word": "安全(안전)", "jp_word": "安全(あんぜん)"}
+          ]
+        },
+        {
+          "name": "학문",
+          "kanji": [
+            {"literal": "學", "korean_hun_eum": "배울 학", "ja_on": "がく", "kr_word": "學校(학교)", "jp_word": "学校(がっこう)"},
+            {"literal": "校", "korean_hun_eum": "학교 교", "ja_on": "こう", "kr_word": "學校(학교)", "jp_word": "学校(がっこう)"},
+            {"literal": "敎", "korean_hun_eum": "가르칠 교", "ja_on": "きょう", "kr_word": "敎育(교육)", "jp_word": "教育(きょういく)"},
+            {"literal": "師", "korean_hun_eum": "스승 사", "ja_on": "し", "kr_word": "敎師(교사)", "jp_word": "教師(きょうし)"},
+            {"literal": "生", "korean_hun_eum": "날 생", "ja_on": "せい", "kr_word": "學生(학생)", "jp_word": "学生(がくせい)"},
+            {"literal": "書", "korean_hun_eum": "글 서", "ja_on": "しょ", "kr_word": "圖書(도서)", "jp_word": "図書(としょ)"},
+            {"literal": "讀", "korean_hun_eum": "읽을 독", "ja_on": "どく", "kr_word": "讀書(독서)", "jp_word": "読書(どくしょ)"},
+            {"literal": "文", "korean_hun_eum": "글월 문", "ja_on": "ぶん", "kr_word": "文化(문화)", "jp_word": "文化(ぶんか)"},
+            {"literal": "字", "korean_hun_eum": "글자 자", "ja_on": "じ", "kr_word": "文字(문자)", "jp_word": "文字(もじ)"},
+            {"literal": "語", "korean_hun_eum": "말씀 어", "ja_on": "ご", "kr_word": "言語(언어)", "jp_word": "言語(げんご)"},
+            {"literal": "言", "korean_hun_eum": "말씀 언", "ja_on": "げん", "kr_word": "言論(언론)", "jp_word": "言論(げんろん)"},
+            {"literal": "問", "korean_hun_eum": "물을 문", "ja_on": "もん", "kr_word": "質問(질문)", "jp_word": "質問(しつもん)"},
+            {"literal": "答", "korean_hun_eum": "대답 답", "ja_on": "とう", "kr_word": "答案(답안)", "jp_word": "答案(とうあん)"},
+            {"literal": "習", "korean_hun_eum": "익힐 습", "ja_on": "しゅう", "kr_word": "學習(학습)", "jp_word": "学習(がくしゅう)"},
+            {"literal": "試", "korean_hun_eum": "시험 시", "ja_on": "し", "kr_word": "試驗(시험)", "jp_word": "試験(しけん)"}
+          ]
+        },
+        {
+          "name": "경제",
+          "kanji": [
+            {"literal": "經", "korean_hun_eum": "지날 경", "ja_on": "けい", "kr_word": "經濟(경제)", "jp_word": "経済(けいざい)"},
+            {"literal": "濟", "korean_hun_eum": "건널 제", "ja_on": "ざい", "kr_word": "經濟(경제)", "jp_word": "経済(けいざい)"},
+            {"literal": "貿", "korean_hun_eum": "바꿀 무", "ja_on": "ぼう", "kr_word": "貿易(무역)", "jp_word": "貿易(ぼうえき)"},
+            {"literal": "易", "korean_hun_eum": "바꿀 역", "ja_on": "えき", "kr_word": "貿易(무역)", "jp_word": "貿易(ぼうえき)"},
+            {"literal": "賣", "korean_hun_eum": "팔 매", "ja_on": "ばい", "kr_word": "販賣(판매)", "jp_word": "販売(はんばい)"},
+            {"literal": "買", "korean_hun_eum": "살 매", "ja_on": "ばい", "kr_word": "購買(구매)", "jp_word": "購買(こうばい)"},
+            {"literal": "價", "korean_hun_eum": "값 가", "ja_on": "か", "kr_word": "價格(가격)", "jp_word": "価格(かかく)"},
+            {"literal": "格", "korean_hun_eum": "격식 격", "ja_on": "かく", "kr_word": "價格(가격)", "jp_word": "価格(かかく)"},
+            {"literal": "稅", "korean_hun_eum": "세금 세", "ja_on": "ぜい", "kr_word": "稅金(세금)", "jp_word": "税金(ぜいきん)"},
+            {"literal": "銀", "korean_hun_eum": "은 은", "ja_on": "ぎん", "kr_word": "銀行(은행)", "jp_word": "銀行(ぎんこう)"},
+            {"literal": "行", "korean_hun_eum": "다닐 행", "ja_on": "こう", "kr_word": "銀行(은행)", "jp_word": "銀行(ぎんこう)"},
+            {"literal": "業", "korean_hun_eum": "업 업", "ja_on": "ぎょう", "kr_word": "企業(기업)", "jp_word": "企業(きぎょう)"},
+            {"literal": "産", "korean_hun_eum": "낳을 산", "ja_on": "さん", "kr_word": "生産(생산)", "jp_word": "生産(せいさん)"},
+            {"literal": "物", "korean_hun_eum": "물건 물", "ja_on": "ぶつ", "kr_word": "物價(물가)", "jp_word": "物価(ぶっか)"},
+            {"literal": "品", "korean_hun_eum": "물건 품", "ja_on": "ひん", "kr_word": "商品(상품)", "jp_word": "商品(しょうひん)"}
+          ]
+        },
+        {
+          "name": "정치",
+          "kanji": [
+            {"literal": "政", "korean_hun_eum": "정사 정", "ja_on": "せい", "kr_word": "政治(정치)", "jp_word": "政治(せいじ)"},
+            {"literal": "治", "korean_hun_eum": "다스릴 치", "ja_on": "じ", "kr_word": "政治(정치)", "jp_word": "政治(せいじ)"},
+            {"literal": "國", "korean_hun_eum": "나라 국", "ja_on": "こく", "kr_word": "國家(국가)", "jp_word": "国家(こっか)"},
+            {"literal": "民", "korean_hun_eum": "백성 민", "ja_on": "みん", "kr_word": "國民(국민)", "jp_word": "国民(こくみん)"},
+            {"literal": "王", "korean_hun_eum": "임금 왕", "ja_on": "おう", "kr_word": "王國(왕국)", "jp_word": "王国(おうこく)"},
+            {"literal": "法", "korean_hun_eum": "법 법", "ja_on": "ほう", "kr_word": "法律(법률)", "jp_word": "法律(ほうりつ)"},
+            {"literal": "律", "korean_hun_eum": "법칙 률", "ja_on": "りつ", "kr_word": "法律(법률)", "jp_word": "法律(ほうりつ)"},
+            {"literal": "官", "korean_hun_eum": "벼슬 관", "ja_on": "かん", "kr_word": "官廳(관청)", "jp_word": "官庁(かんちょう)"},
+            {"literal": "軍", "korean_hun_eum": "군사 군", "ja_on": "ぐん", "kr_word": "軍隊(군대)", "jp_word": "軍隊(ぐんたい)"},
+            {"literal": "兵", "korean_hun_eum": "군사 병", "ja_on": "へい", "kr_word": "兵士(병사)", "jp_word": "兵士(へいし)"},
+            {"literal": "戰", "korean_hun_eum": "싸울 전", "ja_on": "せん", "kr_word": "戰爭(전쟁)", "jp_word": "戦争(せんそう)"},
+            {"literal": "爭", "korean_hun_eum": "다툴 쟁", "ja_on": "そう", "kr_word": "戰爭(전쟁)", "jp_word": "戦争(せんそう)"},
+            {"literal": "和", "korean_hun_eum": "화할 화", "ja_on": "わ", "kr_word": "平和(평화)", "jp_word": "平和(へいわ)"},
+            {"literal": "平", "korean_hun_eum": "평평할 평", "ja_on": "へい", "kr_word": "平和(평화)", "jp_word": "平和(へいわ)"},
+            {"literal": "選", "korean_hun_eum": "가릴 선", "ja_on": "せん", "kr_word": "選擧(선거)", "jp_word": "選挙(せんきょ)"}
+          ]
+        },
+        {
+          "name": "동물",
+          "kanji": [
+            {"literal": "犬", "korean_hun_eum": "개 견", "ja_on": "けん", "kr_word": "愛犬(애견)", "jp_word": "愛犬(あいけん)"},
+            {"literal": "馬", "korean_hun_eum": "말 마", "ja_on": "ば", "kr_word": "競馬(경마)", "jp_word": "競馬(けいば)"},
+            {"literal": "牛", "korean_hun_eum": "소 우", "ja_on": "ぎゅう", "kr_word": "牛乳(우유)", "jp_word": "牛乳(ぎゅうにゅう)"},
+            {"literal": "羊", "korean_hun_eum": "양 양", "ja_on": "よう", "kr_word": "羊毛(양모)", "jp_word": "羊毛(ようもう)"},
+            {"literal": "鳥", "korean_hun_eum": "새 조", "ja_on": "ちょう", "kr_word": "野鳥(야조)", "jp_word": "野鳥(やちょう)"},
+            {"literal": "魚", "korean_hun_eum": "물고기 어", "ja_on": "ぎょ", "kr_word": "魚類(어류)", "jp_word": "魚類(ぎょるい)"},
+            {"literal": "蟲", "korean_hun_eum": "벌레 충", "ja_on": "ちゅう", "kr_word": "昆蟲(곤충)", "jp_word": "昆虫(こんちゅう)"},
+            {"literal": "龍", "korean_hun_eum": "용 룡", "ja_on": "りゅう", "kr_word": "恐龍(공룡)", "jp_word": "恐竜(きょうりゅう)"},
+            {"literal": "虎", "korean_hun_eum": "범 호", "ja_on": "こ", "kr_word": "猛虎(맹호)", "jp_word": "猛虎(もうこ)"},
+            {"literal": "象", "korean_hun_eum": "코끼리 상", "ja_on": "しょう", "kr_word": "象徵(상징)", "jp_word": "象徴(しょうちょう)"}
+          ]
+        },
+        {
+          "name": "성질",
+          "kanji": [
+            {"literal": "大", "korean_hun_eum": "큰 대", "ja_on": "だい", "kr_word": "大學(대학)", "jp_word": "大学(だいがく)"},
+            {"literal": "小", "korean_hun_eum": "작을 소", "ja_on": "しょう", "kr_word": "小說(소설)", "jp_word": "小説(しょうせつ)"},
+            {"literal": "長", "korean_hun_eum": "길 장", "ja_on": "ちょう", "kr_word": "社長(사장)", "jp_word": "社長(しゃちょう)"},
+            {"literal": "短", "korean_hun_eum": "짧을 단", "ja_on": "たん", "kr_word": "短期(단기)", "jp_word": "短期(たんき)"},
+            {"literal": "高", "korean_hun_eum": "높을 고", "ja_on": "こう", "kr_word": "高級(고급)", "jp_word": "高級(こうきゅう)"},
+            {"literal": "低", "korean_hun_eum": "낮을 저", "ja_on": "てい", "kr_word": "低下(저하)", "jp_word": "低下(ていか)"},
+            {"literal": "新", "korean_hun_eum": "새 신", "ja_on": "しん", "kr_word": "新聞(신문)", "jp_word": "新聞(しんぶん)"},
+            {"literal": "舊", "korean_hun_eum": "예 구", "ja_on": "きゅう", "kr_word": "舊式(구식)", "jp_word": "旧式(きゅうしき)"},
+            {"literal": "强", "korean_hun_eum": "굳셀 강", "ja_on": "きょう", "kr_word": "强力(강력)", "jp_word": "強力(きょうりょく)"},
+            {"literal": "弱", "korean_hun_eum": "약할 약", "ja_on": "じゃく", "kr_word": "弱點(약점)", "jp_word": "弱点(じゃくてん)"},
+            {"literal": "美", "korean_hun_eum": "아름다울 미", "ja_on": "び", "kr_word": "美術(미술)", "jp_word": "美術(びじゅつ)"},
+            {"literal": "善", "korean_hun_eum": "착할 선", "ja_on": "ぜん", "kr_word": "善惡(선악)", "jp_word": "善悪(ぜんあく)"},
+            {"literal": "惡", "korean_hun_eum": "악할 악", "ja_on": "あく", "kr_word": "善惡(선악)", "jp_word": "善悪(ぜんあく)"},
+            {"literal": "白", "korean_hun_eum": "흰 백", "ja_on": "はく", "kr_word": "白色(백색)", "jp_word": "白色(はくしょく)"},
+            {"literal": "黑", "korean_hun_eum": "검을 흑", "ja_on": "こく", "kr_word": "黑色(흑색)", "jp_word": "黒色(こくしょく)"},
+            {"literal": "赤", "korean_hun_eum": "붉을 적", "ja_on": "せき", "kr_word": "赤色(적색)", "jp_word": "赤色(せきしょく)"},
+            {"literal": "靑", "korean_hun_eum": "푸를 청", "ja_on": "せい", "kr_word": "靑年(청년)", "jp_word": "青年(せいねん)"},
+            {"literal": "黃", "korean_hun_eum": "누를 황", "ja_on": "おう", "kr_word": "黃金(황금)", "jp_word": "黄金(おうごん)"}
+          ]
+        },
+        {
+          "name": "동작",
+          "kanji": [
+            {"literal": "見", "korean_hun_eum": "볼 견", "ja_on": "けん", "kr_word": "意見(의견)", "jp_word": "意見(いけん)"},
+            {"literal": "聞", "korean_hun_eum": "들을 문", "ja_on": "ぶん", "kr_word": "新聞(신문)", "jp_word": "新聞(しんぶん)"},
+            {"literal": "食", "korean_hun_eum": "먹을 식", "ja_on": "しょく", "kr_word": "食事(식사)", "jp_word": "食事(しょくじ)"},
+            {"literal": "飮", "korean_hun_eum": "마실 음", "ja_on": "いん", "kr_word": "飮料(음료)", "jp_word": "飲料(いんりょう)"},
+            {"literal": "走", "korean_hun_eum": "달릴 주", "ja_on": "そう", "kr_word": "走行(주행)", "jp_word": "走行(そうこう)"},
+            {"literal": "立", "korean_hun_eum": "설 립", "ja_on": "りつ", "kr_word": "獨立(독립)", "jp_word": "独立(どくりつ)"},
+            {"literal": "坐", "korean_hun_eum": "앉을 좌", "ja_on": "ざ", "kr_word": "坐席(좌석)", "jp_word": "座席(ざせき)"},
+            {"literal": "起", "korean_hun_eum": "일어날 기", "ja_on": "き", "kr_word": "起床(기상)", "jp_word": "起床(きしょう)"},
+            {"literal": "來", "korean_hun_eum": "올 래", "ja_on": "らい", "kr_word": "將來(장래)", "jp_word": "将来(しょうらい)"},
+            {"literal": "去", "korean_hun_eum": "갈 거", "ja_on": "きょ", "kr_word": "過去(과거)", "jp_word": "過去(かこ)"},
+            {"literal": "入", "korean_hun_eum": "들 입", "ja_on": "にゅう", "kr_word": "入學(입학)", "jp_word": "入学(にゅうがく)"},
+            {"literal": "出", "korean_hun_eum": "날 출", "ja_on": "しゅつ", "kr_word": "出發(출발)", "jp_word": "出発(しゅっぱつ)"},
+            {"literal": "開", "korean_hun_eum": "열 개", "ja_on": "かい", "kr_word": "開發(개발)", "jp_word": "開発(かいはつ)"},
+            {"literal": "閉", "korean_hun_eum": "닫을 폐", "ja_on": "へい", "kr_word": "閉店(폐점)", "jp_word": "閉店(へいてん)"},
+            {"literal": "作", "korean_hun_eum": "지을 작", "ja_on": "さく", "kr_word": "作品(작품)", "jp_word": "作品(さくひん)"},
+            {"literal": "使", "korean_hun_eum": "부릴 사", "ja_on": "し", "kr_word": "使用(사용)", "jp_word": "使用(しよう)"},
+            {"literal": "取", "korean_hun_eum": "가질 취", "ja_on": "しゅ", "kr_word": "取得(취득)", "jp_word": "取得(しゅとく)"},
+            {"literal": "持", "korean_hun_eum": "가질 지", "ja_on": "じ", "kr_word": "維持(유지)", "jp_word": "維持(いじ)"}
+          ]
+        },
+        {
+          "name": "국가",
+          "kanji": [
+            {"literal": "韓", "korean_hun_eum": "나라이름 한", "ja_on": "かん", "kr_word": "韓國(한국)", "jp_word": "韓国(かんこく)"},
+            {"literal": "中", "korean_hun_eum": "가운데 중", "ja_on": "ちゅう", "kr_word": "中國(중국)", "jp_word": "中国(ちゅうごく)"},
+            {"literal": "美", "korean_hun_eum": "아름다울 미", "ja_on": "び", "kr_word": "美國(미국)", "jp_word": "米国(べいこく)"},
+            {"literal": "英", "korean_hun_eum": "꽃부리 영", "ja_on": "えい", "kr_word": "英國(영국)", "jp_word": "英国(えいこく)"},
+            {"literal": "獨", "korean_hun_eum": "홀로 독", "ja_on": "どく", "kr_word": "獨逸(독일)", "jp_word": "独逸(ドイツ)"},
+            {"literal": "佛", "korean_hun_eum": "부처 불", "ja_on": "ふつ", "kr_word": "佛蘭西(프랑스)", "jp_word": "仏蘭西(フランス)"},
+            {"literal": "露", "korean_hun_eum": "이슬 로", "ja_on": "ろ", "kr_word": "露西亞(러시아)", "jp_word": "露西亜(ロシア)"},
+            {"literal": "東", "korean_hun_eum": "동녘 동", "ja_on": "とう", "kr_word": "東洋(동양)", "jp_word": "東洋(とうよう)"},
+            {"literal": "西", "korean_hun_eum": "서녘 서", "ja_on": "せい", "kr_word": "西洋(서양)", "jp_word": "西洋(せいよう)"},
+            {"literal": "南", "korean_hun_eum": "남녘 남", "ja_on": "なん", "kr_word": "南北(남북)", "jp_word": "南北(なんぼく)"},
+            {"literal": "北", "korean_hun_eum": "북녘 북", "ja_on": "ほく", "kr_word": "南北(남북)", "jp_word": "南北(なんぼく)"},
+            {"literal": "洋", "korean_hun_eum": "바다 양", "ja_on": "よう", "kr_word": "太平洋(태평양)", "jp_word": "太平洋(たいへいよう)"},
+            {"literal": "海", "korean_hun_eum": "바다 해", "ja_on": "かい", "kr_word": "海外(해외)", "jp_word": "海外(かいがい)"},
+            {"literal": "島", "korean_hun_eum": "섬 도", "ja_on": "とう", "kr_word": "半島(반도)", "jp_word": "半島(はんとう)"},
+            {"literal": "陸", "korean_hun_eum": "뭍 륙", "ja_on": "りく", "kr_word": "大陸(대륙)", "jp_word": "大陸(たいりく)"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "2탄",
+      "count": 164,
+      "description": "생활 한자 164자",
+      "topics": [
+        {
+          "name": "교통",
+          "kanji": [
+            {"literal": "車", "korean_hun_eum": "수레 차", "ja_on": "しゃ", "kr_word": "自動車(자동차)", "jp_word": "自動車(じどうしゃ)"},
+            {"literal": "道", "korean_hun_eum": "길 도", "ja_on": "どう", "kr_word": "道路(도로)", "jp_word": "道路(どうろ)"},
+            {"literal": "路", "korean_hun_eum": "길 로", "ja_on": "ろ", "kr_word": "道路(도로)", "jp_word": "道路(どうろ)"},
+            {"literal": "驛", "korean_hun_eum": "역 역", "ja_on": "えき", "kr_word": "驛前(역전)", "jp_word": "駅前(えきまえ)"},
+            {"literal": "船", "korean_hun_eum": "배 선", "ja_on": "せん", "kr_word": "船舶(선박)", "jp_word": "船舶(せんぱく)"},
+            {"literal": "飛", "korean_hun_eum": "날 비", "ja_on": "ひ", "kr_word": "飛行(비행)", "jp_word": "飛行(ひこう)"},
+            {"literal": "機", "korean_hun_eum": "틀 기", "ja_on": "き", "kr_word": "飛行機(비행기)", "jp_word": "飛行機(ひこうき)"},
+            {"literal": "港", "korean_hun_eum": "항구 항", "ja_on": "こう", "kr_word": "港口(항구)", "jp_word": "港(みなと)"},
+            {"literal": "空", "korean_hun_eum": "빌 공", "ja_on": "くう", "kr_word": "空港(공항)", "jp_word": "空港(くうこう)"},
+            {"literal": "鐵", "korean_hun_eum": "쇠 철", "ja_on": "てつ", "kr_word": "地下鐵(지하철)", "jp_word": "地下鉄(ちかてつ)"}
+          ]
+        },
+        {
+          "name": "건축",
+          "kanji": [
+            {"literal": "家", "korean_hun_eum": "집 가", "ja_on": "か", "kr_word": "家族(가족)", "jp_word": "家族(かぞく)"},
+            {"literal": "屋", "korean_hun_eum": "집 옥", "ja_on": "おく", "kr_word": "屋上(옥상)", "jp_word": "屋上(おくじょう)"},
+            {"literal": "室", "korean_hun_eum": "집 실", "ja_on": "しつ", "kr_word": "敎室(교실)", "jp_word": "教室(きょうしつ)"},
+            {"literal": "堂", "korean_hun_eum": "집 당", "ja_on": "どう", "kr_word": "食堂(식당)", "jp_word": "食堂(しょくどう)"},
+            {"literal": "館", "korean_hun_eum": "집 관", "ja_on": "かん", "kr_word": "圖書館(도서관)", "jp_word": "図書館(としょかん)"},
+            {"literal": "店", "korean_hun_eum": "가게 점", "ja_on": "てん", "kr_word": "商店(상점)", "jp_word": "商店(しょうてん)"},
+            {"literal": "建", "korean_hun_eum": "세울 건", "ja_on": "けん", "kr_word": "建築(건축)", "jp_word": "建築(けんちく)"},
+            {"literal": "築", "korean_hun_eum": "쌓을 축", "ja_on": "ちく", "kr_word": "建築(건축)", "jp_word": "建築(けんちく)"},
+            {"literal": "門", "korean_hun_eum": "문 문", "ja_on": "もん", "kr_word": "正門(정문)", "jp_word": "正門(せいもん)"},
+            {"literal": "窓", "korean_hun_eum": "창 창", "ja_on": "そう", "kr_word": "窓門(창문)", "jp_word": "窓(まど)"}
+          ]
+        },
+        {
+          "name": "의료",
+          "kanji": [
+            {"literal": "醫", "korean_hun_eum": "의원 의", "ja_on": "い", "kr_word": "醫師(의사)", "jp_word": "医師(いし)"},
+            {"literal": "病", "korean_hun_eum": "병 병", "ja_on": "びょう", "kr_word": "病院(병원)", "jp_word": "病院(びょういん)"},
+            {"literal": "院", "korean_hun_eum": "집 원", "ja_on": "いん", "kr_word": "病院(병원)", "jp_word": "病院(びょういん)"},
+            {"literal": "藥", "korean_hun_eum": "약 약", "ja_on": "やく", "kr_word": "藥局(약국)", "jp_word": "薬局(やっきょく)"},
+            {"literal": "療", "korean_hun_eum": "고칠 료", "ja_on": "りょう", "kr_word": "治療(치료)", "jp_word": "治療(ちりょう)"},
+            {"literal": "患", "korean_hun_eum": "근심 환", "ja_on": "かん", "kr_word": "患者(환자)", "jp_word": "患者(かんじゃ)"},
+            {"literal": "者", "korean_hun_eum": "놈 자", "ja_on": "しゃ", "kr_word": "患者(환자)", "jp_word": "患者(かんじゃ)"},
+            {"literal": "症", "korean_hun_eum": "병 증", "ja_on": "しょう", "kr_word": "症狀(증상)", "jp_word": "症状(しょうじょう)"},
+            {"literal": "熱", "korean_hun_eum": "더울 열", "ja_on": "ねつ", "kr_word": "發熱(발열)", "jp_word": "発熱(はつねつ)"},
+            {"literal": "痛", "korean_hun_eum": "아플 통", "ja_on": "つう", "kr_word": "痛症(통증)", "jp_word": "痛み(いたみ)"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "3탄",
+      "count": 110,
+      "description": "JLPT N5 보강 110자",
+      "topics": [
+        {
+          "name": "시간",
+          "kanji": [
+            {"literal": "時", "korean_hun_eum": "때 시", "ja_on": "じ", "kr_word": "時間(시간)", "jp_word": "時間(じかん)"},
+            {"literal": "間", "korean_hun_eum": "사이 간", "ja_on": "かん", "kr_word": "時間(시간)", "jp_word": "時間(じかん)"},
+            {"literal": "分", "korean_hun_eum": "나눌 분", "ja_on": "ふん", "kr_word": "分(분)", "jp_word": "分(ふん)"},
+            {"literal": "秒", "korean_hun_eum": "초 초", "ja_on": "びょう", "kr_word": "秒(초)", "jp_word": "秒(びょう)"},
+            {"literal": "年", "korean_hun_eum": "해 년", "ja_on": "ねん", "kr_word": "年(년)", "jp_word": "年(ねん)"},
+            {"literal": "週", "korean_hun_eum": "주일 주", "ja_on": "しゅう", "kr_word": "週末(주말)", "jp_word": "週末(しゅうまつ)"},
+            {"literal": "曜", "korean_hun_eum": "빛날 요", "ja_on": "よう", "kr_word": "曜日(요일)", "jp_word": "曜日(ようび)"},
+            {"literal": "朝", "korean_hun_eum": "아침 조", "ja_on": "ちょう", "kr_word": "朝食(조식)", "jp_word": "朝食(ちょうしょく)"},
+            {"literal": "晝", "korean_hun_eum": "낮 주", "ja_on": "ちゅう", "kr_word": "晝食(주식)", "jp_word": "昼食(ちゅうしょく)"},
+            {"literal": "夜", "korean_hun_eum": "밤 야", "ja_on": "や", "kr_word": "夜間(야간)", "jp_word": "夜間(やかん)"},
+            {"literal": "春", "korean_hun_eum": "봄 춘", "ja_on": "しゅん", "kr_word": "春(봄)", "jp_word": "春(はる)"},
+            {"literal": "夏", "korean_hun_eum": "여름 하", "ja_on": "か", "kr_word": "夏(여름)", "jp_word": "夏(なつ)"},
+            {"literal": "秋", "korean_hun_eum": "가을 추", "ja_on": "しゅう", "kr_word": "秋(가을)", "jp_word": "秋(あき)"},
+            {"literal": "冬", "korean_hun_eum": "겨울 동", "ja_on": "とう", "kr_word": "冬(겨울)", "jp_word": "冬(ふゆ)"}
+          ]
+        },
+        {
+          "name": "장소",
+          "kanji": [
+            {"literal": "場", "korean_hun_eum": "터 장", "ja_on": "じょう", "kr_word": "場所(장소)", "jp_word": "場所(ばしょ)"},
+            {"literal": "所", "korean_hun_eum": "바 소", "ja_on": "しょ", "kr_word": "場所(장소)", "jp_word": "場所(ばしょ)"},
+            {"literal": "內", "korean_hun_eum": "안 내", "ja_on": "ない", "kr_word": "內部(내부)", "jp_word": "内部(ないぶ)"},
+            {"literal": "外", "korean_hun_eum": "바깥 외", "ja_on": "がい", "kr_word": "外部(외부)", "jp_word": "外部(がいぶ)"},
+            {"literal": "上", "korean_hun_eum": "위 상", "ja_on": "じょう", "kr_word": "上(위)", "jp_word": "上(うえ)"},
+            {"literal": "下", "korean_hun_eum": "아래 하", "ja_on": "か", "kr_word": "下(아래)", "jp_word": "下(した)"},
+            {"literal": "左", "korean_hun_eum": "왼 좌", "ja_on": "さ", "kr_word": "左(왼쪽)", "jp_word": "左(ひだり)"},
+            {"literal": "右", "korean_hun_eum": "오른 우", "ja_on": "う", "kr_word": "右(오른쪽)", "jp_word": "右(みぎ)"},
+            {"literal": "前", "korean_hun_eum": "앞 전", "ja_on": "ぜん", "kr_word": "前(앞)", "jp_word": "前(まえ)"},
+            {"literal": "後", "korean_hun_eum": "뒤 후", "ja_on": "ご", "kr_word": "後(뒤)", "jp_word": "後(うしろ)"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "4탄",
+      "count": 95,
+      "description": "JLPT N5 보강 95자",
+      "topics": [
+        {
+          "name": "일상",
+          "kanji": [
+            {"literal": "每", "korean_hun_eum": "매양 매", "ja_on": "まい", "kr_word": "每日(매일)", "jp_word": "毎日(まいにち)"},
+            {"literal": "今", "korean_hun_eum": "이제 금", "ja_on": "こん", "kr_word": "今日(금일)", "jp_word": "今日(きょう)"},
+            {"literal": "明", "korean_hun_eum": "밝을 명", "ja_on": "めい", "kr_word": "明日(명일)", "jp_word": "明日(あした)"},
+            {"literal": "昨", "korean_hun_eum": "어제 작", "ja_on": "さく", "kr_word": "昨日(작일)", "jp_word": "昨日(きのう)"},
+            {"literal": "先", "korean_hun_eum": "먼저 선", "ja_on": "せん", "kr_word": "先生(선생)", "jp_word": "先生(せんせい)"},
+            {"literal": "次", "korean_hun_eum": "버금 차", "ja_on": "じ", "kr_word": "次(다음)", "jp_word": "次(つぎ)"},
+            {"literal": "名", "korean_hun_eum": "이름 명", "ja_on": "めい", "kr_word": "名前(명전)", "jp_word": "名前(なまえ)"},
+            {"literal": "何", "korean_hun_eum": "어찌 하", "ja_on": "か", "kr_word": "何(무엇)", "jp_word": "何(なに)"},
+            {"literal": "誰", "korean_hun_eum": "누구 수", "ja_on": "すい", "kr_word": "誰(누구)", "jp_word": "誰(だれ)"},
+            {"literal": "友", "korean_hun_eum": "벗 우", "ja_on": "ゆう", "kr_word": "友達(우달)", "jp_word": "友達(ともだち)"}
+          ]
+        },
+        {
+          "name": "음식",
+          "kanji": [
+            {"literal": "食", "korean_hun_eum": "먹을 식", "ja_on": "しょく", "kr_word": "食事(식사)", "jp_word": "食事(しょくじ)"},
+            {"literal": "飯", "korean_hun_eum": "밥 반", "ja_on": "はん", "kr_word": "御飯(어반)", "jp_word": "ご飯(ごはん)"},
+            {"literal": "茶", "korean_hun_eum": "차 다", "ja_on": "ちゃ", "kr_word": "茶(차)", "jp_word": "お茶(おちゃ)"},
+            {"literal": "酒", "korean_hun_eum": "술 주", "ja_on": "しゅ", "kr_word": "酒(술)", "jp_word": "お酒(おさけ)"},
+            {"literal": "肉", "korean_hun_eum": "고기 육", "ja_on": "にく", "kr_word": "肉(고기)", "jp_word": "肉(にく)"},
+            {"literal": "野", "korean_hun_eum": "들 야", "ja_on": "や", "kr_word": "野菜(야채)", "jp_word": "野菜(やさい)"},
+            {"literal": "菜", "korean_hun_eum": "나물 채", "ja_on": "さい", "kr_word": "野菜(야채)", "jp_word": "野菜(やさい)"},
+            {"literal": "果", "korean_hun_eum": "실과 과", "ja_on": "か", "kr_word": "果物(과물)", "jp_word": "果物(くだもの)"},
+            {"literal": "味", "korean_hun_eum": "맛 미", "ja_on": "み", "kr_word": "味(맛)", "jp_word": "味(あじ)"},
+            {"literal": "甘", "korean_hun_eum": "달 감", "ja_on": "かん", "kr_word": "甘味(감미)", "jp_word": "甘い(あまい)"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "5탄",
+      "count": 100,
+      "description": "JLPT N4 보강 100자",
+      "topics": [
+        {
+          "name": "사회",
+          "kanji": [
+            {"literal": "社", "korean_hun_eum": "모일 사", "ja_on": "しゃ", "kr_word": "社會(사회)", "jp_word": "社会(しゃかい)"},
+            {"literal": "會", "korean_hun_eum": "모일 회", "ja_on": "かい", "kr_word": "社會(사회)", "jp_word": "社会(しゃかい)"},
+            {"literal": "員", "korean_hun_eum": "인원 원", "ja_on": "いん", "kr_word": "會員(회원)", "jp_word": "会員(かいいん)"},
+            {"literal": "組", "korean_hun_eum": "짤 조", "ja_on": "そ", "kr_word": "組織(조직)", "jp_word": "組織(そしき)"},
+            {"literal": "織", "korean_hun_eum": "짤 직", "ja_on": "しき", "kr_word": "組織(조직)", "jp_word": "組織(そしき)"},
+            {"literal": "團", "korean_hun_eum": "둥글 단", "ja_on": "だん", "kr_word": "團體(단체)", "jp_word": "団体(だんたい)"},
+            {"literal": "體", "korean_hun_eum": "몸 체", "ja_on": "たい", "kr_word": "團體(단체)", "jp_word": "団体(だんたい)"},
+            {"literal": "制", "korean_hun_eum": "지을 제", "ja_on": "せい", "kr_word": "制度(제도)", "jp_word": "制度(せいど)"},
+            {"literal": "度", "korean_hun_eum": "법도 도", "ja_on": "ど", "kr_word": "制度(제도)", "jp_word": "制度(せいど)"},
+            {"literal": "規", "korean_hun_eum": "법 규", "ja_on": "き", "kr_word": "規則(규칙)", "jp_word": "規則(きそく)"}
+          ]
+        },
+        {
+          "name": "직업",
+          "kanji": [
+            {"literal": "仕", "korean_hun_eum": "섬길 사", "ja_on": "し", "kr_word": "仕事(사사)", "jp_word": "仕事(しごと)"},
+            {"literal": "事", "korean_hun_eum": "일 사", "ja_on": "じ", "kr_word": "仕事(사사)", "jp_word": "仕事(しごと)"},
+            {"literal": "職", "korean_hun_eum": "직분 직", "ja_on": "しょく", "kr_word": "職業(직업)", "jp_word": "職業(しょくぎょう)"},
+            {"literal": "務", "korean_hun_eum": "힘쓸 무", "ja_on": "む", "kr_word": "事務(사무)", "jp_word": "事務(じむ)"},
+            {"literal": "働", "korean_hun_eum": "일할 동", "ja_on": "どう", "kr_word": "勞働(노동)", "jp_word": "働く(はたらく)"},
+            {"literal": "給", "korean_hun_eum": "줄 급", "ja_on": "きゅう", "kr_word": "給料(급료)", "jp_word": "給料(きゅうりょう)"},
+            {"literal": "料", "korean_hun_eum": "헤아릴 료", "ja_on": "りょう", "kr_word": "給料(급료)", "jp_word": "給料(きゅうりょう)"},
+            {"literal": "休", "korean_hun_eum": "쉴 휴", "ja_on": "きゅう", "kr_word": "休日(휴일)", "jp_word": "休日(きゅうじつ)"},
+            {"literal": "退", "korean_hun_eum": "물러날 퇴", "ja_on": "たい", "kr_word": "退社(퇴사)", "jp_word": "退社(たいしゃ)"},
+            {"literal": "勤", "korean_hun_eum": "부지런할 근", "ja_on": "きん", "kr_word": "勤務(근무)", "jp_word": "勤務(きんむ)"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "6탄",
+      "count": 100,
+      "description": "JLPT N4 보강 100자",
+      "topics": [
+        {
+          "name": "감각",
+          "kanji": [
+            {"literal": "色", "korean_hun_eum": "빛 색", "ja_on": "しょく", "kr_word": "色彩(색채)", "jp_word": "色(いろ)"},
+            {"literal": "光", "korean_hun_eum": "빛 광", "ja_on": "こう", "kr_word": "光線(광선)", "jp_word": "光(ひかり)"},
+            {"literal": "暗", "korean_hun_eum": "어두울 암", "ja_on": "あん", "kr_word": "暗記(암기)", "jp_word": "暗い(くらい)"},
+            {"literal": "音", "korean_hun_eum": "소리 음", "ja_on": "おん", "kr_word": "音樂(음악)", "jp_word": "音楽(おんがく)"},
+            {"literal": "聲", "korean_hun_eum": "소리 성", "ja_on": "せい", "kr_word": "聲音(성음)", "jp_word": "声(こえ)"},
+            {"literal": "香", "korean_hun_eum": "향기 향", "ja_on": "こう", "kr_word": "香水(향수)", "jp_word": "香り(かおり)"},
+            {"literal": "臭", "korean_hun_eum": "냄새 취", "ja_on": "しゅう", "kr_word": "臭氣(취기)", "jp_word": "臭い(くさい)"},
+            {"literal": "軟", "korean_hun_eum": "연할 연", "ja_on": "なん", "kr_word": "軟弱(연약)", "jp_word": "軟らかい(やわらかい)"},
+            {"literal": "硬", "korean_hun_eum": "굳을 경", "ja_on": "こう", "kr_word": "硬直(경직)", "jp_word": "硬い(かたい)"},
+            {"literal": "冷", "korean_hun_eum": "찰 랭", "ja_on": "れい", "kr_word": "冷房(냉방)", "jp_word": "冷たい(つめたい)"}
+          ]
+        },
+        {
+          "name": "상태",
+          "kanji": [
+            {"literal": "重", "korean_hun_eum": "무거울 중", "ja_on": "じゅう", "kr_word": "重要(중요)", "jp_word": "重い(おもい)"},
+            {"literal": "輕", "korean_hun_eum": "가벼울 경", "ja_on": "けい", "kr_word": "輕快(경쾌)", "jp_word": "軽い(かるい)"},
+            {"literal": "速", "korean_hun_eum": "빠를 속", "ja_on": "そく", "kr_word": "速度(속도)", "jp_word": "速い(はやい)"},
+            {"literal": "遲", "korean_hun_eum": "늦을 지", "ja_on": "ち", "kr_word": "遲延(지연)", "jp_word": "遅い(おそい)"},
+            {"literal": "早", "korean_hun_eum": "이를 조", "ja_on": "そう", "kr_word": "早朝(조조)", "jp_word": "早い(はやい)"},
+            {"literal": "遠", "korean_hun_eum": "멀 원", "ja_on": "えん", "kr_word": "遠距離(원거리)", "jp_word": "遠い(とおい)"},
+            {"literal": "近", "korean_hun_eum": "가까울 근", "ja_on": "きん", "kr_word": "近距離(근거리)", "jp_word": "近い(ちかい)"},
+            {"literal": "深", "korean_hun_eum": "깊을 심", "ja_on": "しん", "kr_word": "深夜(심야)", "jp_word": "深い(ふかい)"},
+            {"literal": "淺", "korean_hun_eum": "얕을 천", "ja_on": "せん", "kr_word": "淺薄(천박)", "jp_word": "浅い(あさい)"},
+            {"literal": "廣", "korean_hun_eum": "넓을 광", "ja_on": "こう", "kr_word": "廣場(광장)", "jp_word": "広い(ひろい)"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "7탄",
+      "count": 90,
+      "description": "JLPT N3 보강 90자",
+      "topics": [
+        {
+          "name": "추상",
+          "kanji": [
+            {"literal": "意", "korean_hun_eum": "뜻 의", "ja_on": "い", "kr_word": "意味(의미)", "jp_word": "意味(いみ)"},
+            {"literal": "味", "korean_hun_eum": "맛 미", "ja_on": "み", "kr_word": "意味(의미)", "jp_word": "意味(いみ)"},
+            {"literal": "理", "korean_hun_eum": "다스릴 리", "ja_on": "り", "kr_word": "理由(이유)", "jp_word": "理由(りゆう)"},
+            {"literal": "由", "korean_hun_eum": "말미암을 유", "ja_on": "ゆう", "kr_word": "理由(이유)", "jp_word": "理由(りゆう)"},
+            {"literal": "原", "korean_hun_eum": "언덕 원", "ja_on": "げん", "kr_word": "原因(원인)", "jp_word": "原因(げんいん)"},
+            {"literal": "因", "korean_hun_eum": "인할 인", "ja_on": "いん", "kr_word": "原因(원인)", "jp_word": "原因(げんいん)"},
+            {"literal": "結", "korean_hun_eum": "맺을 결", "ja_on": "けつ", "kr_word": "結果(결과)", "jp_word": "結果(けっか)"},
+            {"literal": "關", "korean_hun_eum": "관계할 관", "ja_on": "かん", "kr_word": "關係(관계)", "jp_word": "関係(かんけい)"},
+            {"literal": "係", "korean_hun_eum": "맬 계", "ja_on": "けい", "kr_word": "關係(관계)", "jp_word": "関係(かんけい)"},
+            {"literal": "點", "korean_hun_eum": "점 점", "ja_on": "てん", "kr_word": "問題點(문제점)", "jp_word": "点(てん)"}
+          ]
+        },
+        {
+          "name": "행위",
+          "kanji": [
+            {"literal": "決", "korean_hun_eum": "결정할 결", "ja_on": "けつ", "kr_word": "決定(결정)", "jp_word": "決定(けってい)"},
+            {"literal": "定", "korean_hun_eum": "정할 정", "ja_on": "てい", "kr_word": "決定(결정)", "jp_word": "決定(けってい)"},
+            {"literal": "變", "korean_hun_eum": "변할 변", "ja_on": "へん", "kr_word": "變化(변화)", "jp_word": "変化(へんか)"},
+            {"literal": "化", "korean_hun_eum": "될 화", "ja_on": "か", "kr_word": "變化(변화)", "jp_word": "変化(へんか)"},
+            {"literal": "增", "korean_hun_eum": "더할 증", "ja_on": "ぞう", "kr_word": "增加(증가)", "jp_word": "増加(ぞうか)"},
+            {"literal": "減", "korean_hun_eum": "덜 감", "ja_on": "げん", "kr_word": "減少(감소)", "jp_word": "減少(げんしょう)"},
+            {"literal": "加", "korean_hun_eum": "더할 가", "ja_on": "か", "kr_word": "增加(증가)", "jp_word": "増加(ぞうか)"},
+            {"literal": "少", "korean_hun_eum": "적을 소", "ja_on": "しょう", "kr_word": "減少(감소)", "jp_word": "減少(げんしょう)"},
+            {"literal": "比", "korean_hun_eum": "견줄 비", "ja_on": "ひ", "kr_word": "比較(비교)", "jp_word": "比較(ひかく)"},
+            {"literal": "較", "korean_hun_eum": "견줄 교", "ja_on": "かく", "kr_word": "比較(비교)", "jp_word": "比較(ひかく)"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "8탄",
+      "count": 161,
+      "description": "한자능력검정 8급~4급II 161자",
+      "topics": [
+        {
+          "name": "8급~7급",
+          "kanji": [
+            {"literal": "寸", "korean_hun_eum": "마디 촌", "ja_on": "すん", "kr_word": "寸法(촌법)", "jp_word": "寸法(すんぽう)"},
+            {"literal": "農", "korean_hun_eum": "농사 농", "ja_on": "のう", "kr_word": "農業(농업)", "jp_word": "農業(のうぎょう)"},
+            {"literal": "姓", "korean_hun_eum": "성씨 성", "ja_on": "せい", "kr_word": "姓名(성명)", "jp_word": "姓名(せいめい)"},
+            {"literal": "旗", "korean_hun_eum": "기 기", "ja_on": "き", "kr_word": "國旗(국기)", "jp_word": "国旗(こっき)"},
+            {"literal": "植", "korean_hun_eum": "심을 식", "ja_on": "しょく", "kr_word": "植物(식물)", "jp_word": "植物(しょくぶつ)"},
+            {"literal": "邑", "korean_hun_eum": "고을 읍", "ja_on": "ゆう", "kr_word": "邑里(읍리)", "jp_word": "邑(むら)"},
+            {"literal": "村", "korean_hun_eum": "마을 촌", "ja_on": "そん", "kr_word": "農村(농촌)", "jp_word": "村(むら)"}
+          ]
+        },
+        {
+          "name": "6급II~6급",
+          "kanji": [
+            {"literal": "童", "korean_hun_eum": "아이 동", "ja_on": "どう", "kr_word": "兒童(아동)", "jp_word": "児童(じどう)"},
+            {"literal": "班", "korean_hun_eum": "나눌 반", "ja_on": "はん", "kr_word": "班(반)", "jp_word": "班(はん)"},
+            {"literal": "省", "korean_hun_eum": "살필 성", "ja_on": "せい", "kr_word": "反省(반성)", "jp_word": "反省(はんせい)"},
+            {"literal": "勇", "korean_hun_eum": "날랠 용", "ja_on": "ゆう", "kr_word": "勇氣(용기)", "jp_word": "勇気(ゆうき)"},
+            {"literal": "第", "korean_hun_eum": "차례 제", "ja_on": "だい", "kr_word": "第一(제일)", "jp_word": "第一(だいいち)"},
+            {"literal": "淸", "korean_hun_eum": "맑을 청", "ja_on": "せい", "kr_word": "淸潔(청결)", "jp_word": "清潔(せいけつ)"},
+            {"literal": "強", "korean_hun_eum": "강할 강", "ja_on": "きょう", "kr_word": "強力(강력)", "jp_word": "強力(きょうりょく)"},
+            {"literal": "區", "korean_hun_eum": "구역 구", "ja_on": "く", "kr_word": "區域(구역)", "jp_word": "区域(くいき)"},
+            {"literal": "綠", "korean_hun_eum": "푸를 록", "ja_on": "りょく", "kr_word": "綠色(녹색)", "jp_word": "緑色(みどりいろ)"},
+            {"literal": "李", "korean_hun_eum": "오얏 이", "ja_on": "り", "kr_word": "李(이)", "jp_word": "李(すもも)"}
+          ]
+        },
+        {
+          "name": "5급II~5급",
+          "kanji": [
+            {"literal": "朴", "korean_hun_eum": "순박할 박", "ja_on": "ぼく", "kr_word": "朴(박)", "jp_word": "朴(ほお)"},
+            {"literal": "孫", "korean_hun_eum": "손자 손", "ja_on": "そん", "kr_word": "子孫(자손)", "jp_word": "子孫(しそん)"},
+            {"literal": "樹", "korean_hun_eum": "나무 수", "ja_on": "じゅ", "kr_word": "樹木(수목)", "jp_word": "樹木(じゅもく)"},
+            {"literal": "訓", "korean_hun_eum": "가르칠 훈", "ja_on": "くん", "kr_word": "訓練(훈련)", "jp_word": "訓練(くんれん)"},
+            {"literal": "練", "korean_hun_eum": "익힐 련", "ja_on": "れん", "kr_word": "訓練(훈련)", "jp_word": "訓練(くんれん)"},
+            {"literal": "係", "korean_hun_eum": "맬 계", "ja_on": "けい", "kr_word": "關係(관계)", "jp_word": "関係(かんけい)"},
+            {"literal": "祭", "korean_hun_eum": "제사 제", "ja_on": "さい", "kr_word": "祭日(제일)", "jp_word": "祭日(さいじつ)"},
+            {"literal": "察", "korean_hun_eum": "살필 찰", "ja_on": "さつ", "kr_word": "觀察(관찰)", "jp_word": "観察(かんさつ)"},
+            {"literal": "觀", "korean_hun_eum": "볼 관", "ja_on": "かん", "kr_word": "觀察(관찰)", "jp_word": "観察(かんさつ)"},
+            {"literal": "許", "korean_hun_eum": "허락할 허", "ja_on": "きょ", "kr_word": "許可(허가)", "jp_word": "許可(きょか)"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "9탄",
+      "count": 149,
+      "description": "한자능력검정 4급 149자",
+      "topics": [
+        {
+          "name": "4급 ①~③",
+          "kanji": [
+            {"literal": "暇", "korean_hun_eum": "틈 가", "ja_on": "か", "kr_word": "餘暇(여가)", "jp_word": "余暇(よか)"},
+            {"literal": "簡", "korean_hun_eum": "간략할 간", "ja_on": "かん", "kr_word": "簡單(간단)", "jp_word": "簡単(かんたん)"},
+            {"literal": "看", "korean_hun_eum": "볼 간", "ja_on": "かん", "kr_word": "看護(간호)", "jp_word": "看護(かんご)"},
+            {"literal": "康", "korean_hun_eum": "편안할 강", "ja_on": "こう", "kr_word": "健康(건강)", "jp_word": "健康(けんこう)"},
+            {"literal": "健", "korean_hun_eum": "굳셀 건", "ja_on": "けん", "kr_word": "健康(건강)", "jp_word": "健康(けんこう)"},
+            {"literal": "據", "korean_hun_eum": "의거할 거", "ja_on": "きょ", "kr_word": "根據(근거)", "jp_word": "根拠(こんきょ)"},
+            {"literal": "根", "korean_hun_eum": "뿌리 근", "ja_on": "こん", "kr_word": "根據(근거)", "jp_word": "根拠(こんきょ)"},
+            {"literal": "擊", "korean_hun_eum": "칠 격", "ja_on": "げき", "kr_word": "攻擊(공격)", "jp_word": "攻撃(こうげき)"},
+            {"literal": "攻", "korean_hun_eum": "칠 공", "ja_on": "こう", "kr_word": "攻擊(공격)", "jp_word": "攻撃(こうげき)"},
+            {"literal": "景", "korean_hun_eum": "볕 경", "ja_on": "けい", "kr_word": "風景(풍경)", "jp_word": "風景(ふうけい)"}
+          ]
+        },
+        {
+          "name": "4급 ④~⑥",
+          "kanji": [
+            {"literal": "境", "korean_hun_eum": "지경 경", "ja_on": "きょう", "kr_word": "環境(환경)", "jp_word": "環境(かんきょう)"},
+            {"literal": "環", "korean_hun_eum": "고리 환", "ja_on": "かん", "kr_word": "環境(환경)", "jp_word": "環境(かんきょう)"},
+            {"literal": "競", "korean_hun_eum": "다툴 경", "ja_on": "きょう", "kr_word": "競爭(경쟁)", "jp_word": "競争(きょうそう)"},
+            {"literal": "故", "korean_hun_eum": "연고 고", "ja_on": "こ", "kr_word": "事故(사고)", "jp_word": "事故(じこ)"},
+            {"literal": "苦", "korean_hun_eum": "쓸 고", "ja_on": "く", "kr_word": "苦痛(고통)", "jp_word": "苦痛(くつう)"},
+            {"literal": "供", "korean_hun_eum": "이바지할 공", "ja_on": "きょう", "kr_word": "提供(제공)", "jp_word": "提供(ていきょう)"},
+            {"literal": "提", "korean_hun_eum": "끌 제", "ja_on": "てい", "kr_word": "提供(제공)", "jp_word": "提供(ていきょう)"},
+            {"literal": "構", "korean_hun_eum": "얽을 구", "ja_on": "こう", "kr_word": "構造(구조)", "jp_word": "構造(こうぞう)"},
+            {"literal": "造", "korean_hun_eum": "지을 조", "ja_on": "ぞう", "kr_word": "構造(구조)", "jp_word": "構造(こうぞう)"},
+            {"literal": "權", "korean_hun_eum": "권세 권", "ja_on": "けん", "kr_word": "權利(권리)", "jp_word": "権利(けんり)"}
+          ]
+        },
+        {
+          "name": "4급 ⑦~⑩",
+          "kanji": [
+            {"literal": "利", "korean_hun_eum": "이로울 리", "ja_on": "り", "kr_word": "權利(권리)", "jp_word": "権利(けんり)"},
+            {"literal": "均", "korean_hun_eum": "고를 균", "ja_on": "きん", "kr_word": "平均(평균)", "jp_word": "平均(へいきん)"},
+            {"literal": "極", "korean_hun_eum": "다할 극", "ja_on": "きょく", "kr_word": "積極(적극)", "jp_word": "積極(せっきょく)"},
+            {"literal": "積", "korean_hun_eum": "쌓을 적", "ja_on": "せき", "kr_word": "積極(적극)", "jp_word": "積極(せっきょく)"},
+            {"literal": "急", "korean_hun_eum": "급할 급", "ja_on": "きゅう", "kr_word": "緊急(긴급)", "jp_word": "緊急(きんきゅう)"},
+            {"literal": "緊", "korean_hun_eum": "긴할 긴", "ja_on": "きん", "kr_word": "緊急(긴급)", "jp_word": "緊急(きんきゅう)"},
+            {"literal": "基", "korean_hun_eum": "터 기", "ja_on": "き", "kr_word": "基本(기본)", "jp_word": "基本(きほん)"},
+            {"literal": "本", "korean_hun_eum": "근본 본", "ja_on": "ほん", "kr_word": "基本(기본)", "jp_word": "基本(きほん)"},
+            {"literal": "技", "korean_hun_eum": "재주 기", "ja_on": "ぎ", "kr_word": "技術(기술)", "jp_word": "技術(ぎじゅつ)"},
+            {"literal": "術", "korean_hun_eum": "재주 술", "ja_on": "じゅつ", "kr_word": "技術(기술)", "jp_word": "技術(ぎじゅつ)"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "10탄",
+      "count": 203,
+      "description": "한자능력검정 3급II 전반 203자",
+      "topics": [
+        {
+          "name": "3급II ①~⑤",
+          "kanji": [
+            {"literal": "佳", "korean_hun_eum": "아름다울 가", "ja_on": "か", "kr_word": "佳作(가작)", "jp_word": "佳作(かさく)"},
+            {"literal": "架", "korean_hun_eum": "시렁 가", "ja_on": "か", "kr_word": "架空(가공)", "jp_word": "架空(かくう)"},
+            {"literal": "脚", "korean_hun_eum": "다리 각", "ja_on": "きゃく", "kr_word": "脚本(각본)", "jp_word": "脚本(きゃくほん)"},
+            {"literal": "刻", "korean_hun_eum": "새길 각", "ja_on": "こく", "kr_word": "時刻(시각)", "jp_word": "時刻(じこく)"},
+            {"literal": "幹", "korean_hun_eum": "줄기 간", "ja_on": "かん", "kr_word": "幹部(간부)", "jp_word": "幹部(かんぶ)"},
+            {"literal": "渴", "korean_hun_eum": "목마를 갈", "ja_on": "かつ", "kr_word": "渴望(갈망)", "jp_word": "渇望(かつぼう)"},
+            {"literal": "鑑", "korean_hun_eum": "거울 감", "ja_on": "かん", "kr_word": "鑑賞(감상)", "jp_word": "鑑賞(かんしょう)"},
+            {"literal": "甲", "korean_hun_eum": "갑옷 갑", "ja_on": "こう", "kr_word": "甲乙(갑을)", "jp_word": "甲乙(こうおつ)"},
+            {"literal": "慨", "korean_hun_eum": "분개할 개", "ja_on": "がい", "kr_word": "慨嘆(개탄)", "jp_word": "慨嘆(がいたん)"},
+            {"literal": "蓋", "korean_hun_eum": "덮을 개", "ja_on": "がい", "kr_word": "蓋然(개연)", "jp_word": "蓋然(がいぜん)"}
+          ]
+        },
+        {
+          "name": "3급II ⑥~⑩",
+          "kanji": [
+            {"literal": "巨", "korean_hun_eum": "클 거", "ja_on": "きょ", "kr_word": "巨大(거대)", "jp_word": "巨大(きょだい)"},
+            {"literal": "拒", "korean_hun_eum": "막을 거", "ja_on": "きょ", "kr_word": "拒否(거부)", "jp_word": "拒否(きょひ)"},
+            {"literal": "虛", "korean_hun_eum": "빌 허", "ja_on": "きょ", "kr_word": "虛僞(허위)", "jp_word": "虚偽(きょぎ)"},
+            {"literal": "乾", "korean_hun_eum": "마를 건", "ja_on": "かん", "kr_word": "乾燥(건조)", "jp_word": "乾燥(かんそう)"},
+            {"literal": "劍", "korean_hun_eum": "칼 검", "ja_on": "けん", "kr_word": "劍道(검도)", "jp_word": "剣道(けんどう)"},
+            {"literal": "儉", "korean_hun_eum": "검소할 검", "ja_on": "けん", "kr_word": "儉素(검소)", "jp_word": "倹素(けんそ)"},
+            {"literal": "激", "korean_hun_eum": "격할 격", "ja_on": "げき", "kr_word": "激動(격동)", "jp_word": "激動(げきどう)"},
+            {"literal": "堅", "korean_hun_eum": "굳을 견", "ja_on": "けん", "kr_word": "堅固(견고)", "jp_word": "堅固(けんご)"},
+            {"literal": "繭", "korean_hun_eum": "고치 견", "ja_on": "けん", "kr_word": "繭(견)", "jp_word": "繭(まゆ)"},
+            {"literal": "謙", "korean_hun_eum": "겸손할 겸", "ja_on": "けん", "kr_word": "謙遜(겸손)", "jp_word": "謙遜(けんそん)"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "11탄",
+      "count": 203,
+      "description": "한자능력검정 3급II 후반 203자",
+      "topics": [
+        {
+          "name": "3급II ⑪~⑮",
+          "kanji": [
+            {"literal": "需", "korean_hun_eum": "쓰일 수", "ja_on": "じゅ", "kr_word": "需要(수요)", "jp_word": "需要(じゅよう)"},
+            {"literal": "垂", "korean_hun_eum": "드리울 수", "ja_on": "すい", "kr_word": "垂直(수직)", "jp_word": "垂直(すいちょく)"},
+            {"literal": "獸", "korean_hun_eum": "짐승 수", "ja_on": "じゅう", "kr_word": "野獸(야수)", "jp_word": "野獣(やじゅう)"},
+            {"literal": "壽", "korean_hun_eum": "목숨 수", "ja_on": "じゅ", "kr_word": "長壽(장수)", "jp_word": "長寿(ちょうじゅ)"},
+            {"literal": "叔", "korean_hun_eum": "아재비 숙", "ja_on": "しゅく", "kr_word": "叔父(숙부)", "jp_word": "叔父(しゅくふ)"},
+            {"literal": "淑", "korean_hun_eum": "맑을 숙", "ja_on": "しゅく", "kr_word": "淑女(숙녀)", "jp_word": "淑女(しゅくじょ)"},
+            {"literal": "塾", "korean_hun_eum": "글방 숙", "ja_on": "じゅく", "kr_word": "學塾(학숙)", "jp_word": "塾(じゅく)"},
+            {"literal": "熟", "korean_hun_eum": "익을 숙", "ja_on": "じゅく", "kr_word": "熟練(숙련)", "jp_word": "熟練(じゅくれん)"},
+            {"literal": "循", "korean_hun_eum": "따를 순", "ja_on": "じゅん", "kr_word": "循環(순환)", "jp_word": "循環(じゅんかん)"},
+            {"literal": "盾", "korean_hun_eum": "방패 순", "ja_on": "じゅん", "kr_word": "矛盾(모순)", "jp_word": "矛盾(むじゅん)"}
+          ]
+        },
+        {
+          "name": "3급II ⑯~⑳",
+          "kanji": [
+            {"literal": "瞬", "korean_hun_eum": "눈깜짝일 순", "ja_on": "しゅん", "kr_word": "瞬間(순간)", "jp_word": "瞬間(しゅんかん)"},
+            {"literal": "崇", "korean_hun_eum": "높을 숭", "ja_on": "すう", "kr_word": "崇拜(숭배)", "jp_word": "崇拝(すうはい)"},
+            {"literal": "濕", "korean_hun_eum": "젖을 습", "ja_on": "しつ", "kr_word": "濕氣(습기)", "jp_word": "湿気(しっけ)"},
+            {"literal": "承", "korean_hun_eum": "이을 승", "ja_on": "しょう", "kr_word": "承認(승인)", "jp_word": "承認(しょうにん)"},
+            {"literal": "昇", "korean_hun_eum": "오를 승", "ja_on": "しょう", "kr_word": "上昇(상승)", "jp_word": "上昇(じょうしょう)"},
+            {"literal": "乘", "korean_hun_eum": "탈 승", "ja_on": "じょう", "kr_word": "乘車(승차)", "jp_word": "乗車(じょうしゃ)"},
+            {"literal": "侍", "korean_hun_eum": "모실 시", "ja_on": "じ", "kr_word": "侍從(시종)", "jp_word": "侍(さむらい)"},
+            {"literal": "施", "korean_hun_eum": "베풀 시", "ja_on": "し", "kr_word": "施設(시설)", "jp_word": "施設(しせつ)"},
+            {"literal": "視", "korean_hun_eum": "볼 시", "ja_on": "し", "kr_word": "視力(시력)", "jp_word": "視力(しりょく)"},
+            {"literal": "飾", "korean_hun_eum": "꾸밀 식", "ja_on": "しょく", "kr_word": "裝飾(장식)", "jp_word": "装飾(そうしょく)"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "12탄",
+      "count": 287,
+      "description": "한자능력검정 3급 최종 287자 - 1800자 완주",
+      "topics": [
+        {
+          "name": "3급 ①~⑤",
+          "kanji": [
+            {"literal": "却", "korean_hun_eum": "물리칠 각", "ja_on": "きゃく", "kr_word": "却下(각하)", "jp_word": "却下(きゃっか)"},
+            {"literal": "姦", "korean_hun_eum": "간사할 간", "ja_on": "かん", "kr_word": "姦惡(간악)", "jp_word": "姦悪(かんあく)"},
+            {"literal": "渴", "korean_hun_eum": "목마를 갈", "ja_on": "かつ", "kr_word": "渴望(갈망)", "jp_word": "渇望(かつぼう)"},
+            {"literal": "竭", "korean_hun_eum": "다할 갈", "ja_on": "けつ", "kr_word": "竭力(갈력)", "jp_word": "力を尽くす"},
+            {"literal": "柑", "korean_hun_eum": "귤 감", "ja_on": "かん", "kr_word": "柑橘(감귤)", "jp_word": "柑橘(かんきつ)"},
+            {"literal": "敢", "korean_hun_eum": "감히 감", "ja_on": "かん", "kr_word": "敢行(감행)", "jp_word": "敢行(かんこう)"},
+            {"literal": "憾", "korean_hun_eum": "섭섭할 감", "ja_on": "かん", "kr_word": "遺憾(유감)", "jp_word": "遺憾(いかん)"},
+            {"literal": "鉗", "korean_hun_eum": "집게 겸", "ja_on": "かん", "kr_word": "鉗子(겸자)", "jp_word": "鉗子(かんし)"},
+            {"literal": "疆", "korean_hun_eum": "지경 강", "ja_on": "きょう", "kr_word": "疆界(강계)", "jp_word": "疆界(きょうかい)"},
+            {"literal": "綱", "korean_hun_eum": "벼리 강", "ja_on": "こう", "kr_word": "綱領(강령)", "jp_word": "綱領(こうりょう)"}
+          ]
+        },
+        {
+          "name": "3급 ⑥~⑩",
+          "kanji": [
+            {"literal": "蓋", "korean_hun_eum": "덮을 개", "ja_on": "がい", "kr_word": "蓋然(개연)", "jp_word": "蓋然(がいぜん)"},
+            {"literal": "慨", "korean_hun_eum": "분개할 개", "ja_on": "がい", "kr_word": "感慨(감개)", "jp_word": "感慨(かんがい)"},
+            {"literal": "坑", "korean_hun_eum": "구덩이 갱", "ja_on": "こう", "kr_word": "坑道(갱도)", "jp_word": "坑道(こうどう)"},
+            {"literal": "倨", "korean_hun_eum": "거만할 거", "ja_on": "きょ", "kr_word": "倨傲(거오)", "jp_word": "倨傲(きょごう)"},
+            {"literal": "渠", "korean_hun_eum": "도랑 거", "ja_on": "きょ", "kr_word": "渠(거)", "jp_word": "渠(みぞ)"},
+            {"literal": "遽", "korean_hun_eum": "급할 거", "ja_on": "きょ", "kr_word": "遽急(거급)", "jp_word": "遽(にわか)"},
+            {"literal": "據", "korean_hun_eum": "의거할 거", "ja_on": "きょ", "kr_word": "根據(근거)", "jp_word": "根拠(こんきょ)"},
+            {"literal": "乾", "korean_hun_eum": "하늘 건", "ja_on": "けん", "kr_word": "乾坤(건곤)", "jp_word": "乾坤(けんこん)"},
+            {"literal": "虔", "korean_hun_eum": "공경할 건", "ja_on": "けん", "kr_word": "虔敬(건경)", "jp_word": "虔敬(けんけい)"},
+            {"literal": "鍵", "korean_hun_eum": "열쇠 건", "ja_on": "けん", "kr_word": "鍵盤(건반)", "jp_word": "鍵盤(けんばん)"}
+          ]
+        },
+        {
+          "name": "3급 ⑪~⑮",
+          "kanji": [
+            {"literal": "訣", "korean_hun_eum": "결별할 결", "ja_on": "けつ", "kr_word": "訣別(결별)", "jp_word": "訣別(けつべつ)"},
+            {"literal": "欠", "korean_hun_eum": "이지러질 결", "ja_on": "けつ", "kr_word": "缺席(결석)", "jp_word": "欠席(けっせき)"},
+            {"literal": "兼", "korean_hun_eum": "겸할 겸", "ja_on": "けん", "kr_word": "兼任(겸임)", "jp_word": "兼任(けんにん)"},
+            {"literal": "謙", "korean_hun_eum": "겸손할 겸", "ja_on": "けん", "kr_word": "謙遜(겸손)", "jp_word": "謙遜(けんそん)"},
+            {"literal": "傾", "korean_hun_eum": "기울 경", "ja_on": "けい", "kr_word": "傾向(경향)", "jp_word": "傾向(けいこう)"},
+            {"literal": "頃", "korean_hun_eum": "이랑 경", "ja_on": "けい", "kr_word": "頃(경)", "jp_word": "頃(ころ)"},
+            {"literal": "莖", "korean_hun_eum": "줄기 경", "ja_on": "けい", "kr_word": "莖(경)", "jp_word": "茎(くき)"},
+            {"literal": "痙", "korean_hun_eum": "경련할 경", "ja_on": "けい", "kr_word": "痙攣(경련)", "jp_word": "痙攣(けいれん)"},
+            {"literal": "繫", "korean_hun_eum": "맬 계", "ja_on": "けい", "kr_word": "繫留(계류)", "jp_word": "繋留(けいりゅう)"},
+            {"literal": "髻", "korean_hun_eum": "상투 계", "ja_on": "けい", "kr_word": "髻(계)", "jp_word": "髻(もとどり)"}
+          ]
+        },
+        {
+          "name": "3급 ⑯~⑳",
+          "kanji": [
+            {"literal": "稀", "korean_hun_eum": "드물 희", "ja_on": "き", "kr_word": "稀少(희소)", "jp_word": "稀少(きしょう)"},
+            {"literal": "犧", "korean_hun_eum": "희생 희", "ja_on": "ぎ", "kr_word": "犧牲(희생)", "jp_word": "犠牲(ぎせい)"},
+            {"literal": "曦", "korean_hun_eum": "해빛 희", "ja_on": "き", "kr_word": "曦光(희광)", "jp_word": "曦(あさひ)"},
+            {"literal": "熙", "korean_hun_eum": "빛날 희", "ja_on": "き", "kr_word": "熙熙(희희)", "jp_word": "熙(かがや)く"},
+            {"literal": "囍", "korean_hun_eum": "쌍기쁨 희", "ja_on": "き", "kr_word": "囍(희)", "jp_word": "囍(き)"},
+            {"literal": "黑", "korean_hun_eum": "검을 흑", "ja_on": "こく", "kr_word": "黑白(흑백)", "jp_word": "黒白(こくはく)"},
+            {"literal": "欣", "korean_hun_eum": "기쁠 흔", "ja_on": "きん", "kr_word": "欣快(흔쾌)", "jp_word": "欣快(きんかい)"},
+            {"literal": "昕", "korean_hun_eum": "밝을 흔", "ja_on": "きん", "kr_word": "昕(흔)", "jp_word": "昕(あさ)"},
+            {"literal": "吃", "korean_hun_eum": "말더듬을 흘", "ja_on": "きつ", "kr_word": "吃驚(흘경)", "jp_word": "吃驚(きっきょう)"},
+            {"literal": "訖", "korean_hun_eum": "마칠 흘", "ja_on": "きつ", "kr_word": "訖(흘)", "jp_word": "訖(おわ)る"}
+          ]
+        }
+      ]
+    }
+  ]
+}

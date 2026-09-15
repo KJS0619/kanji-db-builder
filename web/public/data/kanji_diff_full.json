@@ -1,0 +1,2816 @@
+{
+  "version": "1.0.0",
+  "description": "한국 정자체(正字體) ↔ 일본 신자체(新字體) 차이 한자 목록",
+  "total_count": 312,
+  "source": "일본 상용한자표(常用漢字表) 신구자체 대조",
+  "kanji": [
+    {
+      "id": "001",
+      "krTraditional": "亞",
+      "jpShinjitai": "亜",
+      "krSound": "버금 아",
+      "jpOn": "ア",
+      "jpKun": "つ.ぐ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "002",
+      "krTraditional": "惡",
+      "jpShinjitai": "悪",
+      "krSound": "악할 악",
+      "jpOn": "アク, オ",
+      "jpKun": "わる.い, わる-, あ.し, にく.い, -にく.い, ああ, いずくに, いずくんぞ, にく.む",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "003",
+      "krTraditional": "壓",
+      "jpShinjitai": "圧",
+      "krSound": "누를 압",
+      "jpOn": "アツ, エン, オウ",
+      "jpKun": "お.す, へ.す, おさ.える, お.さえる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "004",
+      "krTraditional": "圍",
+      "jpShinjitai": "囲",
+      "krSound": "에워쌀 위",
+      "jpOn": "イ",
+      "jpKun": "かこ.む, かこ.う, かこ.い",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "005",
+      "krTraditional": "醫",
+      "jpShinjitai": "医",
+      "krSound": "의원 의",
+      "jpOn": "イ",
+      "jpKun": "い.やす, い.する, くすし",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "006",
+      "krTraditional": "爲",
+      "jpShinjitai": "為",
+      "krSound": "할 위",
+      "jpOn": "イ",
+      "jpKun": "ため, な.る, な.す, す.る, たり, つく.る, なり",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "007",
+      "krTraditional": "壹",
+      "jpShinjitai": "壱",
+      "krSound": "하나 일",
+      "jpOn": "イチ, イツ",
+      "jpKun": "ひとつ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "008",
+      "krTraditional": "隱",
+      "jpShinjitai": "隠",
+      "krSound": "숨길 은",
+      "jpOn": "イン, オン",
+      "jpKun": "かく.す, かく.し, かく.れる, よ.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "009",
+      "krTraditional": "營",
+      "jpShinjitai": "営",
+      "krSound": "경영할 영",
+      "jpOn": "エイ",
+      "jpKun": "いとな.む, いとな.み",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "010",
+      "krTraditional": "榮",
+      "jpShinjitai": "栄",
+      "krSound": "영화 영",
+      "jpOn": "エイ, ヨウ",
+      "jpKun": "さか.える, は.え, -ば.え, は.える, え",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "011",
+      "krTraditional": "衞",
+      "jpShinjitai": "衛",
+      "krSound": "지킬 위",
+      "jpOn": "エイ, エ",
+      "jpKun": "",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "012",
+      "krTraditional": "驛",
+      "jpShinjitai": "駅",
+      "krSound": "역 역",
+      "jpOn": "エキ",
+      "jpKun": "",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "013",
+      "krTraditional": "圓",
+      "jpShinjitai": "円",
+      "krSound": "둥글 원",
+      "jpOn": "エン",
+      "jpKun": "まる.い, まる, まど, まど.か, まろ.やか",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "014",
+      "krTraditional": "鹽",
+      "jpShinjitai": "塩",
+      "krSound": "소금 염",
+      "jpOn": "エン",
+      "jpKun": "しお",
+      "diffCategory": "부분 간략화"
+    },
+    {
+      "id": "015",
+      "krTraditional": "緣",
+      "jpShinjitai": "縁",
+      "krSound": "인연 연",
+      "jpOn": "エン, -ネン",
+      "jpKun": "ふち, ふち.どる, ゆかり, よすが, へり, えにし",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "016",
+      "krTraditional": "艷",
+      "jpShinjitai": "艶",
+      "krSound": "고울 염",
+      "jpOn": "エン",
+      "jpKun": "つや, なま.めかしい, あで.やか, つや.めく, なま.めく",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "017",
+      "krTraditional": "應",
+      "jpShinjitai": "応",
+      "krSound": "응할 응",
+      "jpOn": "オウ, ヨウ, -ノウ",
+      "jpKun": "あた.る, まさに, こた.える",
+      "diffCategory": "내부 간략화"
+    },
+    {
+      "id": "018",
+      "krTraditional": "歐",
+      "jpShinjitai": "欧",
+      "krSound": "구라파 구",
+      "jpOn": "オウ",
+      "jpKun": "うた.う, は.く",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "019",
+      "krTraditional": "毆",
+      "jpShinjitai": "殴",
+      "krSound": "때릴 구",
+      "jpOn": "オウ",
+      "jpKun": "なぐ.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "020",
+      "krTraditional": "櫻",
+      "jpShinjitai": "桜",
+      "krSound": "벚나무 앵",
+      "jpOn": "オウ, ヨウ",
+      "jpKun": "さくら",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "021",
+      "krTraditional": "奧",
+      "jpShinjitai": "奥",
+      "krSound": "깊을 오",
+      "jpOn": "オウ",
+      "jpKun": "おく, おく.まる, くま",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "022",
+      "krTraditional": "橫",
+      "jpShinjitai": "横",
+      "krSound": "가로 횡",
+      "jpOn": "オウ",
+      "jpKun": "よこ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "023",
+      "krTraditional": "溫",
+      "jpShinjitai": "温",
+      "krSound": "따뜻할 온",
+      "jpOn": "オン",
+      "jpKun": "あたた.か, あたた.かい, あたた.まる, あたた.める, ぬく",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "024",
+      "krTraditional": "穩",
+      "jpShinjitai": "穏",
+      "krSound": "온화할 온",
+      "jpOn": "オン",
+      "jpKun": "おだ.やか",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "025",
+      "krTraditional": "假",
+      "jpShinjitai": "仮",
+      "krSound": "거짓 가",
+      "jpOn": "カ, ケ",
+      "jpKun": "かり, かり-",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "026",
+      "krTraditional": "價",
+      "jpShinjitai": "価",
+      "krSound": "값 가",
+      "jpOn": "カ, ケ",
+      "jpKun": "あたい",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "027",
+      "krTraditional": "畫",
+      "jpShinjitai": "画",
+      "krSound": "그림 화",
+      "jpOn": "ガ, カク, エ, カイ",
+      "jpKun": "えが.く, かく.する, かぎ.る, はかりごと, はか.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "028",
+      "krTraditional": "會",
+      "jpShinjitai": "会",
+      "krSound": "모일 회",
+      "jpOn": "カイ, エ",
+      "jpKun": "あ.う, あ.わせる, あつ.まる",
+      "diffCategory": "내부 생략"
+    },
+    {
+      "id": "029",
+      "krTraditional": "繪",
+      "jpShinjitai": "絵",
+      "krSound": "그림 회",
+      "jpOn": "カイ, エ",
+      "jpKun": "",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "030",
+      "krTraditional": "壞",
+      "jpShinjitai": "壊",
+      "krSound": "무너질 괴",
+      "jpOn": "カイ, エ",
+      "jpKun": "こわ.す, こわ.れる, やぶ.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "031",
+      "krTraditional": "懷",
+      "jpShinjitai": "懐",
+      "krSound": "품을 회",
+      "jpOn": "カイ, エ",
+      "jpKun": "ふところ, なつ.かしい, なつ.かしむ, なつ.く, なつ.ける, なず.ける, いだ.く, おも.う",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "032",
+      "krTraditional": "覺",
+      "jpShinjitai": "覚",
+      "krSound": "깨달을 각",
+      "jpOn": "カク",
+      "jpKun": "おぼ.える, さ.ます, さ.める, さと.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "033",
+      "krTraditional": "學",
+      "jpShinjitai": "学",
+      "krSound": "배울 학",
+      "jpOn": "ガク",
+      "jpKun": "まな.ぶ",
+      "diffCategory": "내부 간략화"
+    },
+    {
+      "id": "034",
+      "krTraditional": "嶽",
+      "jpShinjitai": "岳",
+      "krSound": "큰산 악",
+      "jpOn": "ガク",
+      "jpKun": "たけ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "035",
+      "krTraditional": "樂",
+      "jpShinjitai": "楽",
+      "krSound": "즐길 락",
+      "jpOn": "ガク, ラク, ゴウ",
+      "jpKun": "たの.しい, たの.しむ, この.む",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "036",
+      "krTraditional": "渴",
+      "jpShinjitai": "渇",
+      "krSound": "목마를 갈",
+      "jpOn": "カツ",
+      "jpKun": "かわ.く",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "037",
+      "krTraditional": "鐮",
+      "jpShinjitai": "鎌",
+      "krSound": "낫 겸",
+      "jpOn": "レン, ケン",
+      "jpKun": "かま",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "038",
+      "krTraditional": "卷",
+      "jpShinjitai": "巻",
+      "krSound": "두루마리 권",
+      "jpOn": "カン, ケン",
+      "jpKun": "ま.く, まき, ま.き",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "039",
+      "krTraditional": "陷",
+      "jpShinjitai": "陥",
+      "krSound": "빠질 함",
+      "jpOn": "カン",
+      "jpKun": "おちい.る, おとしい.れる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "040",
+      "krTraditional": "勸",
+      "jpShinjitai": "勧",
+      "krSound": "권할 권",
+      "jpOn": "カン, ケン",
+      "jpKun": "すす.める",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "041",
+      "krTraditional": "寬",
+      "jpShinjitai": "寛",
+      "krSound": "너그러울 관",
+      "jpOn": "カン",
+      "jpKun": "くつろ.ぐ, ひろ.い, ゆる.やか",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "042",
+      "krTraditional": "關",
+      "jpShinjitai": "関",
+      "krSound": "빗장 관",
+      "jpOn": "カン",
+      "jpKun": "せき, -ぜき, かか.わる, からくり, かんぬき",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "043",
+      "krTraditional": "歡",
+      "jpShinjitai": "歓",
+      "krSound": "기쁠 환",
+      "jpOn": "カン",
+      "jpKun": "よろこ.ぶ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "044",
+      "krTraditional": "觀",
+      "jpShinjitai": "観",
+      "krSound": "볼 관",
+      "jpOn": "カン",
+      "jpKun": "み.る, しめ.す",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "045",
+      "krTraditional": "氣",
+      "jpShinjitai": "気",
+      "krSound": "기운 기",
+      "jpOn": "キ, ケ",
+      "jpKun": "いき, き",
+      "diffCategory": "내부 생략 (米→〆)"
+    },
+    {
+      "id": "046",
+      "krTraditional": "歸",
+      "jpShinjitai": "帰",
+      "krSound": "돌아갈 귀",
+      "jpOn": "キ",
+      "jpKun": "かえ.る, かえ.す, おく.る, とつ.ぐ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "047",
+      "krTraditional": "龜",
+      "jpShinjitai": "亀",
+      "krSound": "거북 귀",
+      "jpOn": "キ, キュウ, キン",
+      "jpKun": "かめ",
+      "diffCategory": "전체 간략화 (亀)"
+    },
+    {
+      "id": "048",
+      "krTraditional": "舊",
+      "jpShinjitai": "旧",
+      "krSound": "옛 구",
+      "jpOn": "キュウ",
+      "jpKun": "ふる.い, もと",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "049",
+      "krTraditional": "據",
+      "jpShinjitai": "拠",
+      "krSound": "의지할 거",
+      "jpOn": "キョ, コ",
+      "jpKun": "よ.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "050",
+      "krTraditional": "擧",
+      "jpShinjitai": "挙",
+      "krSound": "들 거",
+      "jpOn": "キョ",
+      "jpKun": "あ.げる, あ.がる, こぞ.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "051",
+      "krTraditional": "虛",
+      "jpShinjitai": "虚",
+      "krSound": "빌 허",
+      "jpOn": "キョ, コ",
+      "jpKun": "むな.しい, うつ.ろ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "052",
+      "krTraditional": "峽",
+      "jpShinjitai": "峡",
+      "krSound": "골짜기 협",
+      "jpOn": "キョウ, コウ",
+      "jpKun": "はざま",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "053",
+      "krTraditional": "挾",
+      "jpShinjitai": "挟",
+      "krSound": "낄 협",
+      "jpOn": "キョウ, ショウ",
+      "jpKun": "はさ.む, はさ.まる, わきばさ.む, さしはさ.む",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "054",
+      "krTraditional": "狹",
+      "jpShinjitai": "狭",
+      "krSound": "좁을 협",
+      "jpOn": "キョウ, コウ",
+      "jpKun": "せま.い, せば.める, せば.まる, さ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "055",
+      "krTraditional": "鄕",
+      "jpShinjitai": "郷",
+      "krSound": "시골 향",
+      "jpOn": "キョウ, ゴウ",
+      "jpKun": "さと",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "056",
+      "krTraditional": "曉",
+      "jpShinjitai": "暁",
+      "krSound": "새벽 효",
+      "jpOn": "ギョウ, キョウ",
+      "jpKun": "あかつき, さと.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "057",
+      "krTraditional": "區",
+      "jpShinjitai": "区",
+      "krSound": "구역 구",
+      "jpOn": "ク, オウ, コウ",
+      "jpKun": "",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "058",
+      "krTraditional": "驅",
+      "jpShinjitai": "駆",
+      "krSound": "몰 구",
+      "jpOn": "ク",
+      "jpKun": "か.ける, か.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "059",
+      "krTraditional": "勳",
+      "jpShinjitai": "勲",
+      "krSound": "공 훈",
+      "jpOn": "クン",
+      "jpKun": "いさお",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "060",
+      "krTraditional": "薰",
+      "jpShinjitai": "薫",
+      "krSound": "향기 훈",
+      "jpOn": "クン",
+      "jpKun": "かお.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "061",
+      "krTraditional": "徑",
+      "jpShinjitai": "径",
+      "krSound": "지름길 경",
+      "jpOn": "ケイ",
+      "jpKun": "みち, こみち, さしわたし, ただちに",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "062",
+      "krTraditional": "莖",
+      "jpShinjitai": "茎",
+      "krSound": "줄기 경",
+      "jpOn": "ケイ, キョウ",
+      "jpKun": "くき",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "063",
+      "krTraditional": "惠",
+      "jpShinjitai": "恵",
+      "krSound": "은혜 혜",
+      "jpOn": "ケイ, エ",
+      "jpKun": "めぐ.む, めぐ.み",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "064",
+      "krTraditional": "揭",
+      "jpShinjitai": "掲",
+      "krSound": "걸 게",
+      "jpOn": "ケイ",
+      "jpKun": "かか.げる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "065",
+      "krTraditional": "溪",
+      "jpShinjitai": "渓",
+      "krSound": "시내 계",
+      "jpOn": "ケイ",
+      "jpKun": "たに, たにがわ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "066",
+      "krTraditional": "經",
+      "jpShinjitai": "経",
+      "krSound": "지날 경",
+      "jpOn": "ケイ, キョウ, キン",
+      "jpKun": "へ.る, た.つ, たていと, はか.る, のり",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "067",
+      "krTraditional": "繼",
+      "jpShinjitai": "継",
+      "krSound": "이을 계",
+      "jpOn": "ケイ",
+      "jpKun": "つ.ぐ, まま-",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "068",
+      "krTraditional": "螢",
+      "jpShinjitai": "蛍",
+      "krSound": "반딧불 형",
+      "jpOn": "ケイ",
+      "jpKun": "ほたる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "069",
+      "krTraditional": "輕",
+      "jpShinjitai": "軽",
+      "krSound": "가벼울 경",
+      "jpOn": "ケイ, キョウ, キン",
+      "jpKun": "かる.い, かろ.やか, かろ.んじる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "070",
+      "krTraditional": "鷄",
+      "jpShinjitai": "鶏",
+      "krSound": "닭 계",
+      "jpOn": "ケイ",
+      "jpKun": "にわとり, とり",
+      "diffCategory": "부분 간략화"
+    },
+    {
+      "id": "071",
+      "krTraditional": "藝",
+      "jpShinjitai": "芸",
+      "krSound": "심을 예",
+      "jpOn": "ゲイ, ウン",
+      "jpKun": "う.える, のり, わざ",
+      "diffCategory": "부분 생략 (芸)"
+    },
+    {
+      "id": "072",
+      "krTraditional": "擊",
+      "jpShinjitai": "撃",
+      "krSound": "칠 격",
+      "jpOn": "ゲキ",
+      "jpKun": "う.つ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "073",
+      "krTraditional": "缺",
+      "jpShinjitai": "欠",
+      "krSound": "하품 흠",
+      "jpOn": "ケツ, ケン",
+      "jpKun": "か.ける, か.く",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "074",
+      "krTraditional": "儉",
+      "jpShinjitai": "倹",
+      "krSound": "검소할 검",
+      "jpOn": "ケン",
+      "jpKun": "つま.しい, つづまやか",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "075",
+      "krTraditional": "劍",
+      "jpShinjitai": "剣",
+      "krSound": "칼 검",
+      "jpOn": "ケン",
+      "jpKun": "つるぎ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "076",
+      "krTraditional": "圈",
+      "jpShinjitai": "圏",
+      "krSound": "울타리 권",
+      "jpOn": "ケン",
+      "jpKun": "かこ.い",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "077",
+      "krTraditional": "檢",
+      "jpShinjitai": "検",
+      "krSound": "검사할 검",
+      "jpOn": "ケン",
+      "jpKun": "しら.べる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "078",
+      "krTraditional": "權",
+      "jpShinjitai": "権",
+      "krSound": "권세 권",
+      "jpOn": "ケン, ゴン",
+      "jpKun": "おもり, かり, はか.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "079",
+      "krTraditional": "獻",
+      "jpShinjitai": "献",
+      "krSound": "드릴 헌",
+      "jpOn": "ケン, コン",
+      "jpKun": "たてまつ.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "080",
+      "krTraditional": "縣",
+      "jpShinjitai": "県",
+      "krSound": "고을 현",
+      "jpOn": "ケン",
+      "jpKun": "か.ける",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "081",
+      "krTraditional": "險",
+      "jpShinjitai": "険",
+      "krSound": "험할 험",
+      "jpOn": "ケン",
+      "jpKun": "けわ.しい",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "082",
+      "krTraditional": "顯",
+      "jpShinjitai": "顕",
+      "krSound": "나타날 현",
+      "jpOn": "ケン",
+      "jpKun": "あきらか, あらわ.れる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "083",
+      "krTraditional": "驗",
+      "jpShinjitai": "験",
+      "krSound": "시험할 험",
+      "jpOn": "ケン, ゲン",
+      "jpKun": "あかし, しるし, ため.す, ためし",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "084",
+      "krTraditional": "嚴",
+      "jpShinjitai": "厳",
+      "krSound": "엄할 엄",
+      "jpOn": "ゲン, ゴン",
+      "jpKun": "おごそ.か, きび.しい, いか.めしい, いつくし",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "085",
+      "krTraditional": "效",
+      "jpShinjitai": "効",
+      "krSound": "효험 효",
+      "jpOn": "コウ",
+      "jpKun": "き.く, ききめ, なら.う",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "086",
+      "krTraditional": "廣",
+      "jpShinjitai": "広",
+      "krSound": "넓을 광",
+      "jpOn": "コウ",
+      "jpKun": "ひろ.い, ひろ.まる, ひろ.める, ひろ.がる, ひろ.げる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "087",
+      "krTraditional": "恆",
+      "jpShinjitai": "恒",
+      "krSound": "항상 항",
+      "jpOn": "コウ",
+      "jpKun": "つね, つねに",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "088",
+      "krTraditional": "鑛",
+      "jpShinjitai": "鉱",
+      "krSound": "쇳돌 광",
+      "jpOn": "コウ",
+      "jpKun": "あらがね",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "089",
+      "krTraditional": "號",
+      "jpShinjitai": "号",
+      "krSound": "부르짖을 호",
+      "jpOn": "ゴウ",
+      "jpKun": "さけ.ぶ, よびな",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "090",
+      "krTraditional": "國",
+      "jpShinjitai": "国",
+      "krSound": "나라 국",
+      "jpOn": "コク",
+      "jpKun": "くに",
+      "diffCategory": "내부 생략 (或→玉)"
+    },
+    {
+      "id": "091",
+      "krTraditional": "黑",
+      "jpShinjitai": "黒",
+      "krSound": "검을 흑",
+      "jpOn": "コク",
+      "jpKun": "くろ, くろ.ずむ, くろ.い",
+      "diffCategory": "부분 간략화"
+    },
+    {
+      "id": "092",
+      "krTraditional": "濟",
+      "jpShinjitai": "済",
+      "krSound": "건널 제",
+      "jpOn": "サイ, セイ",
+      "jpKun": "す.む, -ず.み, -ずみ, す.まない, す.ます, -す.ます, すく.う, な.す, わたし, わた.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "093",
+      "krTraditional": "碎",
+      "jpShinjitai": "砕",
+      "krSound": "부술 쇄",
+      "jpOn": "サイ",
+      "jpKun": "くだ.く, くだ.ける",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "094",
+      "krTraditional": "齋",
+      "jpShinjitai": "斎",
+      "krSound": "재계할 재",
+      "jpOn": "サイ",
+      "jpKun": "とき, つつし.む, ものいみ, い.む, いわ.う, いつ.く",
+      "diffCategory": "하부 생략"
+    },
+    {
+      "id": "095",
+      "krTraditional": "劑",
+      "jpShinjitai": "剤",
+      "krSound": "약제 제",
+      "jpOn": "ザイ, スイ, セイ",
+      "jpKun": "かる, けず.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "096",
+      "krTraditional": "雜",
+      "jpShinjitai": "雑",
+      "krSound": "섞일 잡",
+      "jpOn": "ザツ, ゾウ",
+      "jpKun": "まじ.える, まじ.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "097",
+      "krTraditional": "參",
+      "jpShinjitai": "参",
+      "krSound": "참여할 참",
+      "jpOn": "サン, シン",
+      "jpKun": "まい.る, まい-, まじわる, みつ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "098",
+      "krTraditional": "棧",
+      "jpShinjitai": "桟",
+      "krSound": "나무다리 잔",
+      "jpOn": "サン, セン",
+      "jpKun": "かけはし",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "099",
+      "krTraditional": "蠶",
+      "jpShinjitai": "蚕",
+      "krSound": "누에 잠",
+      "jpOn": "サン, テン",
+      "jpKun": "かいこ, こ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "100",
+      "krTraditional": "殘",
+      "jpShinjitai": "残",
+      "krSound": "남을 잔",
+      "jpOn": "ザン, サン",
+      "jpKun": "のこ.る, のこ.す, そこな.う, のこ.り",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "101",
+      "krTraditional": "慘",
+      "jpShinjitai": "惨",
+      "krSound": "참혹할 참",
+      "jpOn": "サン, ザン",
+      "jpKun": "みじ.め, いた.む, むご.い",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "102",
+      "krTraditional": "贊",
+      "jpShinjitai": "賛",
+      "krSound": "도울 찬",
+      "jpOn": "サン",
+      "jpKun": "たす.ける, たた.える",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "103",
+      "krTraditional": "絲",
+      "jpShinjitai": "糸",
+      "krSound": "실 사",
+      "jpOn": "シ",
+      "jpKun": "いと",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "104",
+      "krTraditional": "姊",
+      "jpShinjitai": "姉",
+      "krSound": "언니 자",
+      "jpOn": "シ",
+      "jpKun": "あね, はは",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "105",
+      "krTraditional": "齒",
+      "jpShinjitai": "歯",
+      "krSound": "이 치",
+      "jpOn": "シ",
+      "jpKun": "よわい, は, よわ.い, よわい.する",
+      "diffCategory": "하부 생략"
+    },
+    {
+      "id": "106",
+      "krTraditional": "兒",
+      "jpShinjitai": "児",
+      "krSound": "아이 아",
+      "jpOn": "ジ, ニ, ゲイ",
+      "jpKun": "こ, -こ, -っこ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "107",
+      "krTraditional": "辭",
+      "jpShinjitai": "辞",
+      "krSound": "말씀 사",
+      "jpOn": "ジ",
+      "jpKun": "や.める, いな.む",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "108",
+      "krTraditional": "濕",
+      "jpShinjitai": "湿",
+      "krSound": "젖을 습",
+      "jpOn": "シツ, シュウ",
+      "jpKun": "しめ.る, しめ.す, うるお.う, うるお.す",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "109",
+      "krTraditional": "實",
+      "jpShinjitai": "実",
+      "krSound": "열매 실",
+      "jpOn": "ジツ, シツ",
+      "jpKun": "み, みの.る, まこと, みの, みち.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "110",
+      "krTraditional": "寫",
+      "jpShinjitai": "写",
+      "krSound": "베낄 사",
+      "jpOn": "シャ, ジャ",
+      "jpKun": "うつ.す, うつ.る, うつ-, うつ.し",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "111",
+      "krTraditional": "釋",
+      "jpShinjitai": "釈",
+      "krSound": "풀 석",
+      "jpOn": "シャク, セキ",
+      "jpKun": "とく, す.てる, ゆる.す",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "112",
+      "krTraditional": "壽",
+      "jpShinjitai": "寿",
+      "krSound": "목숨 수",
+      "jpOn": "ジュ, ス, シュウ",
+      "jpKun": "ことぶき, ことぶ.く, ことほ.ぐ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "113",
+      "krTraditional": "收",
+      "jpShinjitai": "収",
+      "krSound": "거둘 수",
+      "jpOn": "シュウ",
+      "jpKun": "おさ.める, おさ.まる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "114",
+      "krTraditional": "從",
+      "jpShinjitai": "従",
+      "krSound": "좇을 종",
+      "jpOn": "ジュウ, ショウ, ジュ",
+      "jpKun": "したが.う, したが.える, より",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "115",
+      "krTraditional": "澁",
+      "jpShinjitai": "渋",
+      "krSound": "떫을 삽",
+      "jpOn": "ジュウ, シュウ",
+      "jpKun": "しぶ, しぶ.い, しぶ.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "116",
+      "krTraditional": "獸",
+      "jpShinjitai": "獣",
+      "krSound": "짐승 수",
+      "jpOn": "ジュウ",
+      "jpKun": "けもの, けだもの",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "117",
+      "krTraditional": "縱",
+      "jpShinjitai": "縦",
+      "krSound": "세로 종",
+      "jpOn": "ジュウ",
+      "jpKun": "たて",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "118",
+      "krTraditional": "肅",
+      "jpShinjitai": "粛",
+      "krSound": "엄숙할 숙",
+      "jpOn": "シュク, スク",
+      "jpKun": "つつし.む",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "119",
+      "krTraditional": "處",
+      "jpShinjitai": "処",
+      "krSound": "곳 처",
+      "jpOn": "ショ",
+      "jpKun": "ところ, -こ, お.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "120",
+      "krTraditional": "緖",
+      "jpShinjitai": "緒",
+      "krSound": "실마리 서",
+      "jpOn": "ショ, チョ",
+      "jpKun": "お, いとぐち",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "121",
+      "krTraditional": "敍",
+      "jpShinjitai": "叙",
+      "krSound": "베풀 서",
+      "jpOn": "ジョ",
+      "jpKun": "つい.ず, ついで",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "122",
+      "krTraditional": "尙",
+      "jpShinjitai": "尚",
+      "krSound": "오히려 상",
+      "jpOn": "ショウ",
+      "jpKun": "なお",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "123",
+      "krTraditional": "奬",
+      "jpShinjitai": "奨",
+      "krSound": "권할 장",
+      "jpOn": "ショウ, ソウ",
+      "jpKun": "すす.める",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "124",
+      "krTraditional": "將",
+      "jpShinjitai": "将",
+      "krSound": "장수 장",
+      "jpOn": "ショウ, ソウ",
+      "jpKun": "まさ.に, はた, まさ, ひきい.る, もって",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "125",
+      "krTraditional": "燒",
+      "jpShinjitai": "焼",
+      "krSound": "불사를 소",
+      "jpOn": "ショウ",
+      "jpKun": "や.く, や.き, や.き-, -や.き, や.ける",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "126",
+      "krTraditional": "稱",
+      "jpShinjitai": "称",
+      "krSound": "일컬을 칭",
+      "jpOn": "ショウ",
+      "jpKun": "たた.える, とな.える, あ.げる, かな.う, はか.り, はか.る, ほめ.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "127",
+      "krTraditional": "證",
+      "jpShinjitai": "証",
+      "krSound": "증거 증",
+      "jpOn": "ショウ",
+      "jpKun": "あかし",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "128",
+      "krTraditional": "乘",
+      "jpShinjitai": "乗",
+      "krSound": "탈 승",
+      "jpOn": "ジョウ, ショウ",
+      "jpKun": "の.る, -の.り, の.せる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "129",
+      "krTraditional": "剩",
+      "jpShinjitai": "剰",
+      "krSound": "남을 잉",
+      "jpOn": "ジョウ",
+      "jpKun": "あまつさえ, あま.り, あま.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "130",
+      "krTraditional": "壤",
+      "jpShinjitai": "壌",
+      "krSound": "땅 양",
+      "jpOn": "ジョウ",
+      "jpKun": "つち",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "131",
+      "krTraditional": "囑",
+      "jpShinjitai": "嘱",
+      "krSound": "부탁할 촉",
+      "jpOn": "ショク",
+      "jpKun": "しょく.する, たの.む",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "132",
+      "krTraditional": "觸",
+      "jpShinjitai": "触",
+      "krSound": "닿을 촉",
+      "jpOn": "ショク",
+      "jpKun": "ふ.れる, さわ.る, さわ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "133",
+      "krTraditional": "寢",
+      "jpShinjitai": "寝",
+      "krSound": "잘 침",
+      "jpOn": "シン",
+      "jpKun": "ね.る, ね.かす, い.ぬ, みたまや, や.める",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "134",
+      "krTraditional": "愼",
+      "jpShinjitai": "慎",
+      "krSound": "삼갈 신",
+      "jpOn": "シン",
+      "jpKun": "つつし.む, つつ.ましい, つつし, つつし.み",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "135",
+      "krTraditional": "眞",
+      "jpShinjitai": "真",
+      "krSound": "참 진",
+      "jpOn": "シン",
+      "jpKun": "ま, ま-, まこと",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "136",
+      "krTraditional": "盡",
+      "jpShinjitai": "尽",
+      "krSound": "다할 진",
+      "jpOn": "ジン, サン",
+      "jpKun": "つ.きる, つ.くす, つ.かす, -づ.く, -ず.く, ことごと.く",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "137",
+      "krTraditional": "圖",
+      "jpShinjitai": "図",
+      "krSound": "그림 도",
+      "jpOn": "ズ, ト",
+      "jpKun": "え, はか.る",
+      "diffCategory": "내부 생략"
+    },
+    {
+      "id": "138",
+      "krTraditional": "粹",
+      "jpShinjitai": "粋",
+      "krSound": "순수할 수",
+      "jpOn": "スイ",
+      "jpKun": "いき",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "139",
+      "krTraditional": "醉",
+      "jpShinjitai": "酔",
+      "krSound": "취할 취",
+      "jpOn": "スイ",
+      "jpKun": "よ.う, よ.い, よ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "140",
+      "krTraditional": "穗",
+      "jpShinjitai": "穂",
+      "krSound": "이삭 수",
+      "jpOn": "スイ",
+      "jpKun": "ほ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "141",
+      "krTraditional": "隨",
+      "jpShinjitai": "随",
+      "krSound": "따를 수",
+      "jpOn": "ズイ",
+      "jpKun": "まにま.に, したが.う",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "142",
+      "krTraditional": "髓",
+      "jpShinjitai": "髄",
+      "krSound": "골수 수",
+      "jpOn": "ズイ",
+      "jpKun": "",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "143",
+      "krTraditional": "樞",
+      "jpShinjitai": "枢",
+      "krSound": "지도리 추",
+      "jpOn": "スウ, シュ",
+      "jpKun": "とぼそ, からくり",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "144",
+      "krTraditional": "數",
+      "jpShinjitai": "数",
+      "krSound": "셀 수",
+      "jpOn": "スウ, ス, サク, ソク, シュ",
+      "jpKun": "かず, かぞ.える, しばしば, せ.める, わずらわ.しい",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "145",
+      "krTraditional": "瀨",
+      "jpShinjitai": "瀬",
+      "krSound": "여울 뢰",
+      "jpOn": "ライ",
+      "jpKun": "せ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "146",
+      "krTraditional": "聲",
+      "jpShinjitai": "声",
+      "krSound": "소리 성",
+      "jpOn": "セイ, ショウ",
+      "jpKun": "こえ, こわ-",
+      "diffCategory": "부분 생략"
+    },
+    {
+      "id": "147",
+      "krTraditional": "靜",
+      "jpShinjitai": "静",
+      "krSound": "고요할 정",
+      "jpOn": "セイ, ジョウ",
+      "jpKun": "しず-, しず.か, しず.まる, しず.める",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "148",
+      "krTraditional": "齊",
+      "jpShinjitai": "斉",
+      "krSound": "가지런할 제",
+      "jpOn": "セイ, サイ",
+      "jpKun": "そろ.う, ひと.しい, ひと.しく, あたる, はやい",
+      "diffCategory": "하부 생략"
+    },
+    {
+      "id": "149",
+      "krTraditional": "攝",
+      "jpShinjitai": "摂",
+      "krSound": "섭취할 섭",
+      "jpOn": "セツ, ショウ",
+      "jpKun": "おさ.める, かね.る, と.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "150",
+      "krTraditional": "竊",
+      "jpShinjitai": "窃",
+      "krSound": "훔칠 절",
+      "jpOn": "セツ",
+      "jpKun": "ぬす.む, ひそ.か",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "151",
+      "krTraditional": "專",
+      "jpShinjitai": "専",
+      "krSound": "오로지 전",
+      "jpOn": "セン",
+      "jpKun": "もっぱ.ら",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "152",
+      "krTraditional": "淺",
+      "jpShinjitai": "浅",
+      "krSound": "얕을 천",
+      "jpOn": "セン",
+      "jpKun": "あさ.い",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "153",
+      "krTraditional": "戰",
+      "jpShinjitai": "戦",
+      "krSound": "싸울 전",
+      "jpOn": "セン",
+      "jpKun": "いくさ, たたか.う, おのの.く, そよ.ぐ, わなな.く",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "154",
+      "krTraditional": "踐",
+      "jpShinjitai": "践",
+      "krSound": "밟을 천",
+      "jpOn": "セン",
+      "jpKun": "ふ.む",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "155",
+      "krTraditional": "錢",
+      "jpShinjitai": "銭",
+      "krSound": "돈 전",
+      "jpOn": "セン, ゼン",
+      "jpKun": "ぜに, すき",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "156",
+      "krTraditional": "潛",
+      "jpShinjitai": "潜",
+      "krSound": "잠길 잠",
+      "jpOn": "セン",
+      "jpKun": "ひそ.む, もぐ.る, かく.れる, くぐ.る, ひそ.める",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "157",
+      "krTraditional": "纖",
+      "jpShinjitai": "繊",
+      "krSound": "가늘 섬",
+      "jpOn": "セン",
+      "jpKun": "",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "158",
+      "krTraditional": "禪",
+      "jpShinjitai": "禅",
+      "krSound": "선 선",
+      "jpOn": "ゼン, セン",
+      "jpKun": "しずか, ゆず.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "159",
+      "krTraditional": "雙",
+      "jpShinjitai": "双",
+      "krSound": "쌍 쌍",
+      "jpOn": "ソウ",
+      "jpKun": "ふた, たぐい, ならぶ, ふたつ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "160",
+      "krTraditional": "壯",
+      "jpShinjitai": "壮",
+      "krSound": "씩씩할 장",
+      "jpOn": "ソウ",
+      "jpKun": "さかん",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "161",
+      "krTraditional": "爭",
+      "jpShinjitai": "争",
+      "krSound": "다툴 쟁",
+      "jpOn": "ソウ",
+      "jpKun": "あらそ.う, いか.でか",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "162",
+      "krTraditional": "莊",
+      "jpShinjitai": "荘",
+      "krSound": "장엄할 장",
+      "jpOn": "ソウ, ショウ, チャン",
+      "jpKun": "ほうき, おごそ.か",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "163",
+      "krTraditional": "搜",
+      "jpShinjitai": "捜",
+      "krSound": "찾을 수",
+      "jpOn": "ソウ, シュ, シュウ",
+      "jpKun": "さが.す",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "164",
+      "krTraditional": "插",
+      "jpShinjitai": "挿",
+      "krSound": "꽂을 삽",
+      "jpOn": "ソウ",
+      "jpKun": "さ.す, はさ.む",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "165",
+      "krTraditional": "巢",
+      "jpShinjitai": "巣",
+      "krSound": "둥지 소",
+      "jpOn": "ソウ",
+      "jpKun": "す, す.くう",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "166",
+      "krTraditional": "曾",
+      "jpShinjitai": "曽",
+      "krSound": "일찍 증",
+      "jpOn": "ソウ, ソ, ゾウ",
+      "jpKun": "かつ, かつて, すなわち",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "167",
+      "krTraditional": "瘦",
+      "jpShinjitai": "痩",
+      "krSound": "여윌 수",
+      "jpOn": "ソウ, チュウ, シュウ, シュ",
+      "jpKun": "や.せる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "168",
+      "krTraditional": "總",
+      "jpShinjitai": "総",
+      "krSound": "모을 총",
+      "jpOn": "ソウ",
+      "jpKun": "す.べて, すべ.て, ふさ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "169",
+      "krTraditional": "騷",
+      "jpShinjitai": "騒",
+      "krSound": "떠들 소",
+      "jpOn": "ソウ",
+      "jpKun": "さわ.ぐ, うれい, さわ.がしい",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "170",
+      "krTraditional": "增",
+      "jpShinjitai": "増",
+      "krSound": "더할 증",
+      "jpOn": "ゾウ",
+      "jpKun": "ま.す, ま.し, ふ.える, ふ.やす",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "171",
+      "krTraditional": "藏",
+      "jpShinjitai": "蔵",
+      "krSound": "감출 장",
+      "jpOn": "ゾウ, ソウ",
+      "jpKun": "くら, おさ.める, かく.れる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "172",
+      "krTraditional": "臟",
+      "jpShinjitai": "臓",
+      "krSound": "오장 장",
+      "jpOn": "ゾウ",
+      "jpKun": "はらわた",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "173",
+      "krTraditional": "卽",
+      "jpShinjitai": "即",
+      "krSound": "곧 즉",
+      "jpOn": "ソク",
+      "jpKun": "つ.く, つ.ける, すなわ.ち",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "174",
+      "krTraditional": "屬",
+      "jpShinjitai": "属",
+      "krSound": "붙을 속",
+      "jpOn": "ゾク, ショク",
+      "jpKun": "さかん, つく, やから",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "175",
+      "krTraditional": "續",
+      "jpShinjitai": "続",
+      "krSound": "이을 속",
+      "jpOn": "ゾク, ショク, コウ, キョウ",
+      "jpKun": "つづ.く, つづ.ける, つぐ.ない",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "176",
+      "krTraditional": "墮",
+      "jpShinjitai": "堕",
+      "krSound": "떨어질 타",
+      "jpOn": "ダ",
+      "jpKun": "お.ちる, くず.す, くず.れる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "177",
+      "krTraditional": "對",
+      "jpShinjitai": "対",
+      "krSound": "대할 대",
+      "jpOn": "タイ, ツイ",
+      "jpKun": "あいて, こた.える, そろ.い, つれあ.い, なら.ぶ, むか.う",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "178",
+      "krTraditional": "滯",
+      "jpShinjitai": "滞",
+      "krSound": "머무를 체",
+      "jpOn": "タイ, テイ",
+      "jpKun": "とどこお.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "179",
+      "krTraditional": "臺",
+      "jpShinjitai": "台",
+      "krSound": "대 대",
+      "jpOn": "ダイ, タイ",
+      "jpKun": "うてな, われ, つかさ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "180",
+      "krTraditional": "瀧",
+      "jpShinjitai": "滝",
+      "krSound": "폭포 롱",
+      "jpOn": "ロウ, ソウ",
+      "jpKun": "たき",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "181",
+      "krTraditional": "擇",
+      "jpShinjitai": "択",
+      "krSound": "가릴 택",
+      "jpOn": "タク",
+      "jpKun": "えら.ぶ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "182",
+      "krTraditional": "澤",
+      "jpShinjitai": "沢",
+      "krSound": "못 택",
+      "jpOn": "タク",
+      "jpKun": "さわ, うるお.い, うるお.す, つや",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "183",
+      "krTraditional": "單",
+      "jpShinjitai": "単",
+      "krSound": "홑 단",
+      "jpOn": "タン",
+      "jpKun": "ひとえ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "184",
+      "krTraditional": "擔",
+      "jpShinjitai": "担",
+      "krSound": "멜 담",
+      "jpOn": "タン",
+      "jpKun": "かつ.ぐ, にな.う",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "185",
+      "krTraditional": "膽",
+      "jpShinjitai": "胆",
+      "krSound": "쓸개 담",
+      "jpOn": "タン",
+      "jpKun": "きも",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "186",
+      "krTraditional": "團",
+      "jpShinjitai": "団",
+      "krSound": "둥글 단",
+      "jpOn": "ダン, トン",
+      "jpKun": "かたまり, まる.い",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "187",
+      "krTraditional": "彈",
+      "jpShinjitai": "弾",
+      "krSound": "탄알 탄",
+      "jpOn": "ダン, タン",
+      "jpKun": "ひ.く, -ひ.き, はず.む, たま, はじ.く, はじ.ける, ただ.す, はじ.きゆみ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "188",
+      "krTraditional": "斷",
+      "jpShinjitai": "断",
+      "krSound": "끊을 단",
+      "jpOn": "ダン",
+      "jpKun": "た.つ, ことわ.る, さだ.める",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "189",
+      "krTraditional": "癡",
+      "jpShinjitai": "痴",
+      "krSound": "어리석을 치",
+      "jpOn": "チ",
+      "jpKun": "し.れる, おろか",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "190",
+      "krTraditional": "遲",
+      "jpShinjitai": "遅",
+      "krSound": "더딜 지",
+      "jpOn": "チ",
+      "jpKun": "おく.れる, おく.らす, おそ.い",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "191",
+      "krTraditional": "晝",
+      "jpShinjitai": "昼",
+      "krSound": "낮 주",
+      "jpOn": "チュウ",
+      "jpKun": "ひる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "192",
+      "krTraditional": "蟲",
+      "jpShinjitai": "虫",
+      "krSound": "벌레 충",
+      "jpOn": "チュウ, キ",
+      "jpKun": "むし",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "193",
+      "krTraditional": "鑄",
+      "jpShinjitai": "鋳",
+      "krSound": "부을 주",
+      "jpOn": "チュウ, イ, シュ, シュウ",
+      "jpKun": "い.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "194",
+      "krTraditional": "廳",
+      "jpShinjitai": "庁",
+      "krSound": "마루 청",
+      "jpOn": "チョウ, テイ",
+      "jpKun": "やくしょ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "195",
+      "krTraditional": "徵",
+      "jpShinjitai": "徴",
+      "krSound": "부를 징",
+      "jpOn": "チョウ, チ",
+      "jpKun": "しるし",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "196",
+      "krTraditional": "聽",
+      "jpShinjitai": "聴",
+      "krSound": "들을 청",
+      "jpOn": "チョウ, テイ",
+      "jpKun": "き.く, ゆる.す",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "197",
+      "krTraditional": "敕",
+      "jpShinjitai": "勅",
+      "krSound": "칙서 칙",
+      "jpOn": "チョク",
+      "jpKun": "いまし.める, みことのり",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "198",
+      "krTraditional": "鎭",
+      "jpShinjitai": "鎮",
+      "krSound": "누를 진",
+      "jpOn": "チン",
+      "jpKun": "しず.める, しず.まる, おさえ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "199",
+      "krTraditional": "遞",
+      "jpShinjitai": "逓",
+      "krSound": "차례로 체",
+      "jpOn": "テイ",
+      "jpKun": "かわ.る, たがいに",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "200",
+      "krTraditional": "鐵",
+      "jpShinjitai": "鉄",
+      "krSound": "쇠 철",
+      "jpOn": "テツ",
+      "jpKun": "くろがね",
+      "diffCategory": "내부 간략화"
+    },
+    {
+      "id": "201",
+      "krTraditional": "點",
+      "jpShinjitai": "点",
+      "krSound": "점 점",
+      "jpOn": "テン",
+      "jpKun": "つ.ける, つ.く, た.てる, さ.す, とぼ.す, とも.す, ぼち",
+      "diffCategory": "내부 간략화 (占→卜)"
+    },
+    {
+      "id": "202",
+      "krTraditional": "轉",
+      "jpShinjitai": "転",
+      "krSound": "구를 전",
+      "jpOn": "テン",
+      "jpKun": "ころ.がる, ころ.げる, ころ.がす, ころ.ぶ, まろ.ぶ, うたた, うつ.る, くる.めく",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "203",
+      "krTraditional": "傳",
+      "jpShinjitai": "伝",
+      "krSound": "전할 전",
+      "jpOn": "デン, テン",
+      "jpKun": "つた.わる, つた.える, つた.う, つだ.う, -づた.い, つて",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "204",
+      "krTraditional": "燈",
+      "jpShinjitai": "灯",
+      "krSound": "등불 등",
+      "jpOn": "トウ",
+      "jpKun": "ひ, ほ-, ともしび, とも.す, あかり",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "205",
+      "krTraditional": "當",
+      "jpShinjitai": "当",
+      "krSound": "마땅 당",
+      "jpOn": "トウ",
+      "jpKun": "あ.たる, あ.たり, あ.てる, あ.て, まさ.に, まさ.にべし",
+      "diffCategory": "내부 간략화"
+    },
+    {
+      "id": "206",
+      "krTraditional": "黨",
+      "jpShinjitai": "党",
+      "krSound": "무리 당",
+      "jpOn": "トウ",
+      "jpKun": "なかま, むら",
+      "diffCategory": "부분 간략화"
+    },
+    {
+      "id": "207",
+      "krTraditional": "盜",
+      "jpShinjitai": "盗",
+      "krSound": "도둑 도",
+      "jpOn": "トウ",
+      "jpKun": "ぬす.む, ぬす.み",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "208",
+      "krTraditional": "稻",
+      "jpShinjitai": "稲",
+      "krSound": "벼 도",
+      "jpOn": "トウ, テ",
+      "jpKun": "いね, いな-",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "209",
+      "krTraditional": "鬪",
+      "jpShinjitai": "闘",
+      "krSound": "싸울 투",
+      "jpOn": "トウ",
+      "jpKun": "たたか.う, あらそ.う",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "210",
+      "krTraditional": "德",
+      "jpShinjitai": "徳",
+      "krSound": "덕 덕",
+      "jpOn": "トク",
+      "jpKun": "",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "211",
+      "krTraditional": "獨",
+      "jpShinjitai": "独",
+      "krSound": "홀로 독",
+      "jpOn": "ドク, トク",
+      "jpKun": "ひと.り",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "212",
+      "krTraditional": "讀",
+      "jpShinjitai": "読",
+      "krSound": "읽을 독",
+      "jpOn": "ドク, トク, トウ",
+      "jpKun": "よ.む, -よ.み",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "213",
+      "krTraditional": "屆",
+      "jpShinjitai": "届",
+      "krSound": "이를 届",
+      "jpOn": "カイ",
+      "jpKun": "とど.ける, -とど.け, とど.く",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "214",
+      "krTraditional": "貳",
+      "jpShinjitai": "弐",
+      "krSound": "둘 이",
+      "jpOn": "ニ, ジ",
+      "jpKun": "ふた.つ, そえ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "215",
+      "krTraditional": "惱",
+      "jpShinjitai": "悩",
+      "krSound": "괴로워할 뇌",
+      "jpOn": "ノウ",
+      "jpKun": "なや.む, なや.ます, なや.ましい, なやみ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "216",
+      "krTraditional": "腦",
+      "jpShinjitai": "脳",
+      "krSound": "뇌 뇌",
+      "jpOn": "ノウ, ドウ",
+      "jpKun": "のうずる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "217",
+      "krTraditional": "霸",
+      "jpShinjitai": "覇",
+      "krSound": "으뜸 패",
+      "jpOn": "ハ, ハク",
+      "jpKun": "はたがしら",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "218",
+      "krTraditional": "廢",
+      "jpShinjitai": "廃",
+      "krSound": "폐할 폐",
+      "jpOn": "ハイ",
+      "jpKun": "すた.れる, すた.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "219",
+      "krTraditional": "拜",
+      "jpShinjitai": "拝",
+      "krSound": "절할 배",
+      "jpOn": "ハイ",
+      "jpKun": "おが.む, おろが.む",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "220",
+      "krTraditional": "賣",
+      "jpShinjitai": "売",
+      "krSound": "팔 매",
+      "jpOn": "バイ",
+      "jpKun": "う.る, う.れる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "221",
+      "krTraditional": "麥",
+      "jpShinjitai": "麦",
+      "krSound": "보리 맥",
+      "jpOn": "バク",
+      "jpKun": "むぎ",
+      "diffCategory": "부분 간략화"
+    },
+    {
+      "id": "222",
+      "krTraditional": "發",
+      "jpShinjitai": "発",
+      "krSound": "필 발",
+      "jpOn": "ハツ, ホツ",
+      "jpKun": "た.つ, あば.く, おこ.る, つか.わす, はな.つ",
+      "diffCategory": "내부 간략화"
+    },
+    {
+      "id": "223",
+      "krTraditional": "髮",
+      "jpShinjitai": "髪",
+      "krSound": "터럭 발",
+      "jpOn": "ハツ",
+      "jpKun": "かみ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "224",
+      "krTraditional": "拔",
+      "jpShinjitai": "抜",
+      "krSound": "뺄 발",
+      "jpOn": "バツ, ハツ, ハイ",
+      "jpKun": "ぬ.く, -ぬ.く, ぬ.き, ぬ.ける, ぬ.かす, ぬ.かる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "225",
+      "krTraditional": "晚",
+      "jpShinjitai": "晩",
+      "krSound": "저물 만",
+      "jpOn": "バン",
+      "jpKun": "",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "226",
+      "krTraditional": "蠻",
+      "jpShinjitai": "蛮",
+      "krSound": "오랑캐 만",
+      "jpOn": "バン",
+      "jpKun": "えびす",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "227",
+      "krTraditional": "祕",
+      "jpShinjitai": "秘",
+      "krSound": "숨길 비",
+      "jpOn": "ヒ",
+      "jpKun": "ひ.める, ひそ.か, かく.す",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "228",
+      "krTraditional": "濱",
+      "jpShinjitai": "浜",
+      "krSound": "물가 빈",
+      "jpOn": "ヒン",
+      "jpKun": "はま",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "229",
+      "krTraditional": "甁",
+      "jpShinjitai": "瓶",
+      "krSound": "병 병",
+      "jpOn": "ビン, ヘイ",
+      "jpKun": "かめ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "230",
+      "krTraditional": "拂",
+      "jpShinjitai": "払",
+      "krSound": "떨칠 불",
+      "jpOn": "フツ, ヒツ, ホツ",
+      "jpKun": "はら.う, -はら.い, -ばら.い",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "231",
+      "krTraditional": "佛",
+      "jpShinjitai": "仏",
+      "krSound": "부처 불",
+      "jpOn": "ブツ, フツ",
+      "jpKun": "ほとけ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "232",
+      "krTraditional": "倂",
+      "jpShinjitai": "併",
+      "krSound": "아우를 병",
+      "jpOn": "ヘイ",
+      "jpKun": "あわ.せる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "233",
+      "krTraditional": "竝",
+      "jpShinjitai": "並",
+      "krSound": "나란히 병",
+      "jpOn": "ヘイ, ホウ",
+      "jpKun": "な.み, なみ, なら.べる, なら.ぶ, なら.びに",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "234",
+      "krTraditional": "變",
+      "jpShinjitai": "変",
+      "krSound": "변할 변",
+      "jpOn": "ヘン",
+      "jpKun": "か.わる, か.わり, か.える",
+      "diffCategory": "내부 간략화"
+    },
+    {
+      "id": "235",
+      "krTraditional": "邊",
+      "jpShinjitai": "辺",
+      "krSound": "가 변",
+      "jpOn": "ヘン",
+      "jpKun": "あた.り, ほと.り, -べ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "236",
+      "krTraditional": "辯",
+      "jpShinjitai": "弁",
+      "krSound": "말씀 변",
+      "jpOn": "ベン, ヘン",
+      "jpKun": "かんむり, わきま.える, わ.ける, はなびら, あらそ.う",
+      "diffCategory": "통합 (辯/瓣/辨→弁)"
+    },
+    {
+      "id": "237",
+      "krTraditional": "瓣",
+      "jpShinjitai": "弁",
+      "krSound": "말씀 변",
+      "jpOn": "ベン, ヘン",
+      "jpKun": "かんむり, わきま.える, わ.ける, はなびら, あらそ.う",
+      "diffCategory": "통합 (辯/瓣/辨→弁)"
+    },
+    {
+      "id": "238",
+      "krTraditional": "辨",
+      "jpShinjitai": "弁",
+      "krSound": "말씀 변",
+      "jpOn": "ベン, ヘン",
+      "jpKun": "かんむり, わきま.える, わ.ける, はなびら, あらそ.う",
+      "diffCategory": "통합 (辯/瓣/辨→弁)"
+    },
+    {
+      "id": "239",
+      "krTraditional": "舖",
+      "jpShinjitai": "舗",
+      "krSound": "가게 포",
+      "jpOn": "ホ",
+      "jpKun": "",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "240",
+      "krTraditional": "步",
+      "jpShinjitai": "歩",
+      "krSound": "걸음 보",
+      "jpOn": "ホ, ブ, フ",
+      "jpKun": "ある.く, あゆ.む",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "241",
+      "krTraditional": "寶",
+      "jpShinjitai": "宝",
+      "krSound": "보배 보",
+      "jpOn": "ホウ",
+      "jpKun": "たから",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "242",
+      "krTraditional": "襃",
+      "jpShinjitai": "褒",
+      "krSound": "기릴 포",
+      "jpOn": "ホウ",
+      "jpKun": "ほ.める",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "243",
+      "krTraditional": "豐",
+      "jpShinjitai": "豊",
+      "krSound": "풍년 풍",
+      "jpOn": "ホウ, ブ",
+      "jpKun": "ゆた.か, とよ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "244",
+      "krTraditional": "沒",
+      "jpShinjitai": "没",
+      "krSound": "빠질 몰",
+      "jpOn": "ボツ, モツ",
+      "jpKun": "おぼ.れる, しず.む, ない",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "245",
+      "krTraditional": "飜",
+      "jpShinjitai": "翻",
+      "krSound": "뒤집을 번",
+      "jpOn": "ホン, ハン",
+      "jpKun": "ひるがえ.る, ひるがえ.す",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "246",
+      "krTraditional": "每",
+      "jpShinjitai": "毎",
+      "krSound": "매양 매",
+      "jpOn": "マイ",
+      "jpKun": "ごと, -ごと.に",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "247",
+      "krTraditional": "萬",
+      "jpShinjitai": "万",
+      "krSound": "일만 만",
+      "jpOn": "マン, バン",
+      "jpKun": "よろず",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "248",
+      "krTraditional": "滿",
+      "jpShinjitai": "満",
+      "krSound": "찰 만",
+      "jpOn": "マン, バン",
+      "jpKun": "み.ちる, み.つ, み.たす",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "249",
+      "krTraditional": "麵",
+      "jpShinjitai": "麺",
+      "krSound": "국수 면",
+      "jpOn": "メン, ベン",
+      "jpKun": "むぎこ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "250",
+      "krTraditional": "默",
+      "jpShinjitai": "黙",
+      "krSound": "잠잠할 묵",
+      "jpOn": "モク, ボク",
+      "jpKun": "だま.る, もだ.す",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "251",
+      "krTraditional": "彌",
+      "jpShinjitai": "弥",
+      "krSound": "두루 미",
+      "jpOn": "ミ, ビ",
+      "jpKun": "や, いや, いよ.いよ, わた.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "252",
+      "krTraditional": "譯",
+      "jpShinjitai": "訳",
+      "krSound": "번역할 역",
+      "jpOn": "ヤク",
+      "jpKun": "わけ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "253",
+      "krTraditional": "藥",
+      "jpShinjitai": "薬",
+      "krSound": "약 약",
+      "jpOn": "ヤク",
+      "jpKun": "くすり",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "254",
+      "krTraditional": "與",
+      "jpShinjitai": "与",
+      "krSound": "줄 여",
+      "jpOn": "ヨ",
+      "jpKun": "あた.える, あずか.る, くみ.する, ともに",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "255",
+      "krTraditional": "豫",
+      "jpShinjitai": "予",
+      "krSound": "미리 여",
+      "jpOn": "ヨ, シャ",
+      "jpKun": "あらかじ.め",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "256",
+      "krTraditional": "餘",
+      "jpShinjitai": "余",
+      "krSound": "나 여",
+      "jpOn": "ヨ",
+      "jpKun": "あま.る, あま.り, あま.す, あんま.り",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "257",
+      "krTraditional": "譽",
+      "jpShinjitai": "誉",
+      "krSound": "기릴 예",
+      "jpOn": "ヨ",
+      "jpKun": "ほま.れ, ほ.める",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "258",
+      "krTraditional": "搖",
+      "jpShinjitai": "揺",
+      "krSound": "흔들 요",
+      "jpOn": "ヨウ",
+      "jpKun": "ゆ.れる, ゆ.る, ゆ.らぐ, ゆ.るぐ, ゆ.する, ゆ.さぶる, ゆ.すぶる, うご.く",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "259",
+      "krTraditional": "樣",
+      "jpShinjitai": "様",
+      "krSound": "모양 양",
+      "jpOn": "ヨウ, ショウ",
+      "jpKun": "さま, さん",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "260",
+      "krTraditional": "謠",
+      "jpShinjitai": "謡",
+      "krSound": "노래 요",
+      "jpOn": "ヨウ",
+      "jpKun": "うた.い, うた.う",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "261",
+      "krTraditional": "來",
+      "jpShinjitai": "来",
+      "krSound": "올 래",
+      "jpOn": "ライ, タイ",
+      "jpKun": "く.る, きた.る, きた.す, き.たす, き.たる, き, こ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "262",
+      "krTraditional": "賴",
+      "jpShinjitai": "頼",
+      "krSound": "의지할 뢰",
+      "jpOn": "ライ",
+      "jpKun": "たの.む, たの.もしい, たよ.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "263",
+      "krTraditional": "亂",
+      "jpShinjitai": "乱",
+      "krSound": "어지러울 란",
+      "jpOn": "ラン, ロン",
+      "jpKun": "みだ.れる, みだ.る, みだ.す, みだ, おさ.める, わた.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "264",
+      "krTraditional": "覽",
+      "jpShinjitai": "覧",
+      "krSound": "볼 람",
+      "jpOn": "ラン",
+      "jpKun": "み.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "265",
+      "krTraditional": "龍",
+      "jpShinjitai": "竜",
+      "krSound": "용 룡",
+      "jpOn": "リュウ, リョウ, ロウ",
+      "jpKun": "たつ, いせ",
+      "diffCategory": "전체 간략화 (竜)"
+    },
+    {
+      "id": "266",
+      "krTraditional": "兩",
+      "jpShinjitai": "両",
+      "krSound": "두 량",
+      "jpOn": "リョウ",
+      "jpKun": "てる, ふたつ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "267",
+      "krTraditional": "獵",
+      "jpShinjitai": "猟",
+      "krSound": "사냥할 렵",
+      "jpOn": "リョウ",
+      "jpKun": "かり, か.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "268",
+      "krTraditional": "綠",
+      "jpShinjitai": "緑",
+      "krSound": "푸를 록",
+      "jpOn": "リョク, ロク",
+      "jpKun": "みどり",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "269",
+      "krTraditional": "鄰",
+      "jpShinjitai": "隣",
+      "krSound": "이웃 린",
+      "jpOn": "リン",
+      "jpKun": "とな.る, となり",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "270",
+      "krTraditional": "淚",
+      "jpShinjitai": "涙",
+      "krSound": "눈물 루",
+      "jpOn": "ルイ, レイ",
+      "jpKun": "なみだ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "271",
+      "krTraditional": "壘",
+      "jpShinjitai": "塁",
+      "krSound": "보루 루",
+      "jpOn": "ルイ, ライ, スイ",
+      "jpKun": "とりで",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "272",
+      "krTraditional": "勵",
+      "jpShinjitai": "励",
+      "krSound": "힘쓸 려",
+      "jpOn": "レイ",
+      "jpKun": "はげ.む, はげ.ます",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "273",
+      "krTraditional": "禮",
+      "jpShinjitai": "礼",
+      "krSound": "예도 례",
+      "jpOn": "レイ, ライ",
+      "jpKun": "",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "274",
+      "krTraditional": "隸",
+      "jpShinjitai": "隷",
+      "krSound": "종 례",
+      "jpOn": "レイ",
+      "jpKun": "したが.う, しもべ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "275",
+      "krTraditional": "靈",
+      "jpShinjitai": "霊",
+      "krSound": "신령 령",
+      "jpOn": "レイ, リョウ",
+      "jpKun": "たま",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "276",
+      "krTraditional": "齡",
+      "jpShinjitai": "齢",
+      "krSound": "나이 령",
+      "jpOn": "レイ",
+      "jpKun": "よわい, とし",
+      "diffCategory": "하부 생략"
+    },
+    {
+      "id": "277",
+      "krTraditional": "曆",
+      "jpShinjitai": "暦",
+      "krSound": "책력 력",
+      "jpOn": "レキ, リャク",
+      "jpKun": "こよみ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "278",
+      "krTraditional": "歷",
+      "jpShinjitai": "歴",
+      "krSound": "지낼 력",
+      "jpOn": "レキ, レッキ",
+      "jpKun": "",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "279",
+      "krTraditional": "戀",
+      "jpShinjitai": "恋",
+      "krSound": "사랑할 련",
+      "jpOn": "レン",
+      "jpKun": "こ.う, こい, こい.しい",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "280",
+      "krTraditional": "鍊",
+      "jpShinjitai": "錬",
+      "krSound": "불릴 련",
+      "jpOn": "レン",
+      "jpKun": "ね.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "281",
+      "krTraditional": "爐",
+      "jpShinjitai": "炉",
+      "krSound": "화로 로",
+      "jpOn": "ロ",
+      "jpKun": "いろり",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "282",
+      "krTraditional": "勞",
+      "jpShinjitai": "労",
+      "krSound": "일할 로",
+      "jpOn": "ロウ",
+      "jpKun": "ろう.する, いたわ.る, いた.ずき, ねぎら, つか.れる, ねぎら.う",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "283",
+      "krTraditional": "郞",
+      "jpShinjitai": "郎",
+      "krSound": "사내 랑",
+      "jpOn": "ロウ, リョウ",
+      "jpKun": "おとこ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "284",
+      "krTraditional": "樓",
+      "jpShinjitai": "楼",
+      "krSound": "다락 루",
+      "jpOn": "ロウ",
+      "jpKun": "たかどの",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "285",
+      "krTraditional": "錄",
+      "jpShinjitai": "録",
+      "krSound": "기록할 록",
+      "jpOn": "ロク",
+      "jpKun": "しる.す, と.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "286",
+      "krTraditional": "灣",
+      "jpShinjitai": "湾",
+      "krSound": "굽이 만",
+      "jpOn": "ワン",
+      "jpKun": "いりえ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "287",
+      "krTraditional": "僞",
+      "jpShinjitai": "偽",
+      "krSound": "거짓 위",
+      "jpOn": "ギ, カ",
+      "jpKun": "いつわ.る, にせ, いつわ.り",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "288",
+      "krTraditional": "吳",
+      "jpShinjitai": "呉",
+      "krSound": "오나라 오",
+      "jpOn": "ゴ",
+      "jpKun": "く.れる, くれ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "289",
+      "krTraditional": "帶",
+      "jpShinjitai": "帯",
+      "krSound": "띠 대",
+      "jpOn": "タイ",
+      "jpKun": "お.びる, おび",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "290",
+      "krTraditional": "戲",
+      "jpShinjitai": "戯",
+      "krSound": "희롱할 희",
+      "jpOn": "ギ, ゲ",
+      "jpKun": "たわむ.れる, ざ.れる, じゃ.れる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "291",
+      "krTraditional": "條",
+      "jpShinjitai": "条",
+      "krSound": "가지 조",
+      "jpOn": "ジョウ, チョウ, デキ",
+      "jpKun": "えだ, すじ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "292",
+      "krTraditional": "狀",
+      "jpShinjitai": "状",
+      "krSound": "형상 상",
+      "jpOn": "ジョウ",
+      "jpKun": "",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "293",
+      "krTraditional": "稅",
+      "jpShinjitai": "税",
+      "krSound": "세금 세",
+      "jpOn": "ゼイ",
+      "jpKun": "",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "294",
+      "krTraditional": "繩",
+      "jpShinjitai": "縄",
+      "krSound": "줄 승",
+      "jpOn": "ジョウ",
+      "jpKun": "なわ, ただ.す",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "295",
+      "krTraditional": "罐",
+      "jpShinjitai": "缶",
+      "krSound": "장군 부",
+      "jpOn": "カン",
+      "jpKun": "かま",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "296",
+      "krTraditional": "脫",
+      "jpShinjitai": "脱",
+      "krSound": "벗을 탈",
+      "jpOn": "ダツ",
+      "jpKun": "ぬ.ぐ, ぬ.げる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "297",
+      "krTraditional": "裝",
+      "jpShinjitai": "装",
+      "krSound": "꾸밀 장",
+      "jpOn": "ソウ, ショウ",
+      "jpKun": "よそお.う, よそお.い",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "298",
+      "krTraditional": "讓",
+      "jpShinjitai": "譲",
+      "krSound": "사양할 양",
+      "jpOn": "ジョウ",
+      "jpKun": "ゆず.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "299",
+      "krTraditional": "釀",
+      "jpShinjitai": "醸",
+      "krSound": "빚을 양",
+      "jpOn": "ジョウ",
+      "jpKun": "かも.す",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "300",
+      "krTraditional": "體",
+      "jpShinjitai": "体",
+      "krSound": "몸 체",
+      "jpOn": "タイ, テイ",
+      "jpKun": "からだ, かたち",
+      "diffCategory": "내부 간략화 (豊→本)"
+    },
+    {
+      "id": "301",
+      "krTraditional": "悅",
+      "jpShinjitai": "悦",
+      "krSound": "기쁠 열",
+      "jpOn": "エツ",
+      "jpKun": "よろこ.ぶ, よろこ.ばす",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "302",
+      "krTraditional": "敎",
+      "jpShinjitai": "教",
+      "krSound": "가르칠 교",
+      "jpOn": "キョウ",
+      "jpKun": "おし.える, おそ.わる",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "303",
+      "krTraditional": "槪",
+      "jpShinjitai": "概",
+      "krSound": "대략 개",
+      "jpOn": "ガイ",
+      "jpKun": "おおむ.ね",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "304",
+      "krTraditional": "涉",
+      "jpShinjitai": "渉",
+      "krSound": "건널 섭",
+      "jpOn": "ショウ",
+      "jpKun": "わた.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "305",
+      "krTraditional": "淨",
+      "jpShinjitai": "浄",
+      "krSound": "깨끗할 정",
+      "jpOn": "ジョウ, セイ",
+      "jpKun": "きよ.める, きよ.い",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "306",
+      "krTraditional": "淸",
+      "jpShinjitai": "清",
+      "krSound": "맑을 청",
+      "jpOn": "セイ, ショウ, シン",
+      "jpKun": "きよ.い, きよ.まる, きよ.める",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "307",
+      "krTraditional": "犧",
+      "jpShinjitai": "犠",
+      "krSound": "희생 희",
+      "jpOn": "ギ, キ",
+      "jpKun": "いけにえ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "308",
+      "krTraditional": "硏",
+      "jpShinjitai": "研",
+      "krSound": "갈 연",
+      "jpOn": "ケン",
+      "jpKun": "と.ぐ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "309",
+      "krTraditional": "絕",
+      "jpShinjitai": "絶",
+      "krSound": "끊을 절",
+      "jpOn": "ゼツ",
+      "jpKun": "た.える, た.やす, た.つ",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "310",
+      "krTraditional": "舍",
+      "jpShinjitai": "舎",
+      "krSound": "집 사",
+      "jpOn": "シャ, セキ",
+      "jpKun": "やど.る",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "311",
+      "krTraditional": "說",
+      "jpShinjitai": "説",
+      "krSound": "말씀 설",
+      "jpOn": "セツ, ゼイ",
+      "jpKun": "と.く",
+      "diffCategory": "획수 간략화"
+    },
+    {
+      "id": "312",
+      "krTraditional": "顏",
+      "jpShinjitai": "顔",
+      "krSound": "얼굴 안",
+      "jpOn": "ガン",
+      "jpKun": "かお",
+      "diffCategory": "획수 간략화"
+    }
+  ]
+}

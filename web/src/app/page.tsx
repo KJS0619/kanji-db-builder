@@ -10,6 +10,12 @@ import { FlashcardModal } from "@/components/FlashcardModal";
 import { WordFlashcardModal } from "@/components/WordFlashcardModal";
 import { MyVocabModal } from "@/components/MyVocabModal";
 import { JlptExplainerModal } from "@/components/JlptExplainerModal";
+import { TopicKanjiModal } from "@/components/TopicKanjiModal";
+import { RadicalModal } from "@/components/RadicalModal";
+import { RadicalKanjiModal } from "@/components/RadicalKanjiModal";
+import { KanjiDiffModal } from "@/components/KanjiDiffModal";
+import { KokujiModal } from "@/components/KokujiModal";
+import { ReviewTestModal } from "@/components/ReviewTestModal";
 
 export default function Home() {
   const [kanjiData, setKanjiData] = useState<Kanji[]>([]);
@@ -19,6 +25,12 @@ export default function Home() {
   const [showWordFlashcard, setShowWordFlashcard] = useState(false);
   const [showMyVocab, setShowMyVocab] = useState(false);
   const [showJlptExplainer, setShowJlptExplainer] = useState(false);
+  const [showTopicKanji, setShowTopicKanji] = useState(false);
+  const [showRadical, setShowRadical] = useState(false);
+  const [showRadicalKanji, setShowRadicalKanji] = useState(false);
+  const [showKanjiDiff, setShowKanjiDiff] = useState(false);
+  const [showKokuji, setShowKokuji] = useState(false);
+  const [showReviewTest, setShowReviewTest] = useState(false);
 
   // 필터 상태
   const [jlptFilter, setJlptFilter] = useState<JlptLevel>("all");
@@ -138,6 +150,12 @@ export default function Home() {
         onOpenWordFlashcard={() => setShowWordFlashcard(true)}
         onOpenMyVocab={() => setShowMyVocab(true)}
         onOpenJlptExplainer={() => setShowJlptExplainer(true)}
+        onOpenTopicKanji={() => setShowTopicKanji(true)}
+        onOpenRadical={() => setShowRadical(true)}
+        onOpenRadicalKanji={() => setShowRadicalKanji(true)}
+        onOpenKanjiDiff={() => setShowKanjiDiff(true)}
+        onOpenKokuji={() => setShowKokuji(true)}
+        onOpenReviewTest={() => setShowReviewTest(true)}
       />
 
       <FilterBar
@@ -200,6 +218,43 @@ export default function Home() {
       {showJlptExplainer && (
         <JlptExplainerModal
           onClose={() => setShowJlptExplainer(false)}
+        />
+      )}
+
+      {showTopicKanji && (
+        <TopicKanjiModal
+          onClose={() => setShowTopicKanji(false)}
+        />
+      )}
+
+      {showRadical && (
+        <RadicalModal
+          onClose={() => setShowRadical(false)}
+        />
+      )}
+
+      {showRadicalKanji && (
+        <RadicalKanjiModal
+          kanjiList={kanjiData}
+          onClose={() => setShowRadicalKanji(false)}
+        />
+      )}
+
+      {showKanjiDiff && (
+        <KanjiDiffModal
+          onClose={() => setShowKanjiDiff(false)}
+        />
+      )}
+
+      {showKokuji && (
+        <KokujiModal
+          onClose={() => setShowKokuji(false)}
+        />
+      )}
+
+      {showReviewTest && (
+        <ReviewTestModal
+          onClose={() => setShowReviewTest(false)}
         />
       )}
     </div>

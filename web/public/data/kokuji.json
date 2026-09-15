@@ -1,0 +1,314 @@
+{
+  "version": "1.0.0",
+  "description": "일본 국자(国字/和製漢字) - 일본에서 만든 한자",
+  "total_count": 20,
+  "note": "상용한자 중 국자와 대표적인 국자 포함",
+  "kanji": [
+    {
+      "id": "001",
+      "literal": "込",
+      "korean_reading": "들어갈 입",
+      "jpOn": "",
+      "jpKun": "こ.む, こ.める",
+      "meanings": ["들어가다", "넣다", "섞다"],
+      "stroke_count": 5,
+      "radical": "辶",
+      "examples": [
+        {"word": "込む", "reading": "こむ", "meaning": "붐비다, 복잡하다"},
+        {"word": "申し込む", "reading": "もうしこむ", "meaning": "신청하다"},
+        {"word": "振り込む", "reading": "ふりこむ", "meaning": "송금하다"}
+      ],
+      "etymology": "入(들어갈 입) + 辶(갈 착) → 안으로 들어가다"
+    },
+    {
+      "id": "002",
+      "literal": "畑",
+      "korean_reading": "밭 전",
+      "jpOn": "",
+      "jpKun": "はた, はたけ",
+      "meanings": ["밭", "전문 분야"],
+      "stroke_count": 9,
+      "radical": "田",
+      "examples": [
+        {"word": "畑", "reading": "はたけ", "meaning": "밭"},
+        {"word": "花畑", "reading": "はなばたけ", "meaning": "꽃밭"},
+        {"word": "畑違い", "reading": "はたけちがい", "meaning": "전문 분야가 다름"}
+      ],
+      "etymology": "火(불 화) + 田(밭 전) → 불을 놓아 개간한 밭 (화전)"
+    },
+    {
+      "id": "003",
+      "literal": "峠",
+      "korean_reading": "고개 령",
+      "jpOn": "",
+      "jpKun": "とうげ",
+      "meanings": ["고개", "정점", "고비"],
+      "stroke_count": 9,
+      "radical": "山",
+      "examples": [
+        {"word": "峠", "reading": "とうげ", "meaning": "고개"},
+        {"word": "峠道", "reading": "とうげみち", "meaning": "고갯길"},
+        {"word": "峠を越す", "reading": "とうげをこす", "meaning": "고비를 넘기다"}
+      ],
+      "etymology": "山(메 산) + 上(위 상) + 下(아래 하) → 산을 오르내리는 곳"
+    },
+    {
+      "id": "004",
+      "literal": "働",
+      "korean_reading": "일할 동",
+      "jpOn": "ドウ",
+      "jpKun": "はたら.く",
+      "meanings": ["일하다", "작용하다"],
+      "stroke_count": 13,
+      "radical": "亻",
+      "examples": [
+        {"word": "働く", "reading": "はたらく", "meaning": "일하다"},
+        {"word": "労働", "reading": "ろうどう", "meaning": "노동"},
+        {"word": "働き者", "reading": "はたらきもの", "meaning": "일꾼"}
+      ],
+      "etymology": "人(사람 인) + 動(움직일 동) → 사람이 움직이다 = 일하다"
+    },
+    {
+      "id": "005",
+      "literal": "枠",
+      "korean_reading": "틀 광",
+      "jpOn": "",
+      "jpKun": "わく",
+      "meanings": ["틀", "테두리", "범위"],
+      "stroke_count": 8,
+      "radical": "木",
+      "examples": [
+        {"word": "枠", "reading": "わく", "meaning": "틀, 프레임"},
+        {"word": "窓枠", "reading": "まどわく", "meaning": "창틀"},
+        {"word": "枠組み", "reading": "わくぐみ", "meaning": "체계, 골조"}
+      ],
+      "etymology": "木(나무 목) + 卆(졸) → 나무로 만든 틀"
+    },
+    {
+      "id": "006",
+      "literal": "塀",
+      "korean_reading": "담 병",
+      "jpOn": "ヘイ",
+      "jpKun": "",
+      "meanings": ["담", "울타리"],
+      "stroke_count": 12,
+      "radical": "土",
+      "examples": [
+        {"word": "塀", "reading": "へい", "meaning": "담"},
+        {"word": "板塀", "reading": "いたべい", "meaning": "판자 울타리"},
+        {"word": "石塀", "reading": "いしべい", "meaning": "돌담"}
+      ],
+      "etymology": "土(흙 토) + 屏(가릴 병) → 흙으로 만든 가림막"
+    },
+    {
+      "id": "007",
+      "literal": "匂",
+      "korean_reading": "냄새 비",
+      "jpOn": "",
+      "jpKun": "にお.う, におい",
+      "meanings": ["냄새", "향기"],
+      "stroke_count": 4,
+      "radical": "勹",
+      "examples": [
+        {"word": "匂い", "reading": "におい", "meaning": "냄새, 향기"},
+        {"word": "匂う", "reading": "におう", "meaning": "냄새가 나다"},
+        {"word": "花の匂い", "reading": "はなのにおい", "meaning": "꽃향기"}
+      ],
+      "etymology": "勹(쌀 포) 안에 点 → 감싸인 향기"
+    },
+    {
+      "id": "008",
+      "literal": "腺",
+      "korean_reading": "샘 선",
+      "jpOn": "セン",
+      "jpKun": "",
+      "meanings": ["샘", "분비선"],
+      "stroke_count": 13,
+      "radical": "月",
+      "examples": [
+        {"word": "腺", "reading": "せん", "meaning": "샘(분비기관)"},
+        {"word": "甲状腺", "reading": "こうじょうせん", "meaning": "갑상선"},
+        {"word": "唾液腺", "reading": "だえきせん", "meaning": "타액선"}
+      ],
+      "etymology": "月(육달월) + 泉(샘 천) → 몸속의 샘"
+    },
+    {
+      "id": "009",
+      "literal": "栃",
+      "korean_reading": "칠엽수 력",
+      "jpOn": "",
+      "jpKun": "とち",
+      "meanings": ["칠엽수", "도치기현"],
+      "stroke_count": 9,
+      "radical": "木",
+      "examples": [
+        {"word": "栃木", "reading": "とちぎ", "meaning": "도치기현"},
+        {"word": "栃の木", "reading": "とちのき", "meaning": "칠엽수"}
+      ],
+      "etymology": "木(나무 목) + 万(일만 만) → 칠엽수 나무"
+    },
+    {
+      "id": "010",
+      "literal": "榊",
+      "korean_reading": "신목 신",
+      "jpOn": "",
+      "jpKun": "さかき",
+      "meanings": ["비쭈기나무", "신목"],
+      "stroke_count": 14,
+      "radical": "木",
+      "examples": [
+        {"word": "榊", "reading": "さかき", "meaning": "사카키(신목)"}
+      ],
+      "etymology": "木(나무 목) + 神(귀신 신) → 신에게 바치는 나무"
+    },
+    {
+      "id": "011",
+      "literal": "辻",
+      "korean_reading": "네거리 십",
+      "jpOn": "",
+      "jpKun": "つじ",
+      "meanings": ["네거리", "교차로"],
+      "stroke_count": 6,
+      "radical": "辶",
+      "examples": [
+        {"word": "辻", "reading": "つじ", "meaning": "네거리"},
+        {"word": "辻斬り", "reading": "つじぎり", "meaning": "길가에서 베기 (무사)"}
+      ],
+      "etymology": "辶(갈 착) + 十(열 십) → 열 갈래 길 = 네거리"
+    },
+    {
+      "id": "012",
+      "literal": "凪",
+      "korean_reading": "바람잦을 정",
+      "jpOn": "",
+      "jpKun": "なぎ, な.ぐ",
+      "meanings": ["바람이 잦아듦", "고요함"],
+      "stroke_count": 6,
+      "radical": "几",
+      "examples": [
+        {"word": "凪", "reading": "なぎ", "meaning": "바람이 잦아듦"},
+        {"word": "夕凪", "reading": "ゆうなぎ", "meaning": "저녁 무풍"}
+      ],
+      "etymology": "几(안석 궤) + 止(그칠 지) → 바람이 그치다"
+    },
+    {
+      "id": "013",
+      "literal": "躾",
+      "korean_reading": "가르칠 교",
+      "jpOn": "",
+      "jpKun": "しつけ",
+      "meanings": ["훈육", "예절 교육", "시침질"],
+      "stroke_count": 16,
+      "radical": "身",
+      "examples": [
+        {"word": "躾", "reading": "しつけ", "meaning": "예절 교육"},
+        {"word": "躾糸", "reading": "しつけいと", "meaning": "시침실"}
+      ],
+      "etymology": "身(몸 신) + 美(아름다울 미) → 몸을 아름답게 하다 = 교육"
+    },
+    {
+      "id": "014",
+      "literal": "鑓",
+      "korean_reading": "창 창",
+      "jpOn": "",
+      "jpKun": "やり",
+      "meanings": ["창", "창술"],
+      "stroke_count": 24,
+      "radical": "金",
+      "examples": [
+        {"word": "鑓", "reading": "やり", "meaning": "창"}
+      ],
+      "etymology": "金(쇠 금) + 遣(보낼 견) → 쇠로 만든 무기"
+    },
+    {
+      "id": "015",
+      "literal": "笹",
+      "korean_reading": "조릿대 죽",
+      "jpOn": "",
+      "jpKun": "ささ",
+      "meanings": ["조릿대", "작은 대나무"],
+      "stroke_count": 11,
+      "radical": "竹",
+      "examples": [
+        {"word": "笹", "reading": "ささ", "meaning": "조릿대"},
+        {"word": "笹舟", "reading": "ささぶね", "meaning": "대나무잎 배"}
+      ],
+      "etymology": "竹(대나무 죽) + 世(세상 세) → 작은 대나무"
+    },
+    {
+      "id": "016",
+      "literal": "雫",
+      "korean_reading": "물방울 수",
+      "jpOn": "",
+      "jpKun": "しずく",
+      "meanings": ["물방울", "이슬방울"],
+      "stroke_count": 11,
+      "radical": "雨",
+      "examples": [
+        {"word": "雫", "reading": "しずく", "meaning": "물방울"},
+        {"word": "朝露の雫", "reading": "あさつゆのしずく", "meaning": "아침 이슬방울"}
+      ],
+      "etymology": "雨(비 우) + 下(아래 하) → 비가 떨어지다"
+    },
+    {
+      "id": "017",
+      "literal": "麿",
+      "korean_reading": "나 마",
+      "jpOn": "",
+      "jpKun": "まろ",
+      "meanings": ["나(자신)", "옛 귀족 이름 접미사"],
+      "stroke_count": 18,
+      "radical": "麻",
+      "examples": [
+        {"word": "麿", "reading": "まろ", "meaning": "나 (옛 귀족어)"},
+        {"word": "柿本人麿", "reading": "かきのもとのひとまろ", "meaning": "가키노모토노 히토마로"}
+      ],
+      "etymology": "麻(삼 마) + 呂(등뼈 려) → 옛 일본 귀족 자칭"
+    },
+    {
+      "id": "018",
+      "literal": "杣",
+      "korean_reading": "나무꾼 초",
+      "jpOn": "",
+      "jpKun": "そま",
+      "meanings": ["나무꾼", "벌목장"],
+      "stroke_count": 7,
+      "radical": "木",
+      "examples": [
+        {"word": "杣", "reading": "そま", "meaning": "벌목장, 나무꾼"},
+        {"word": "杣人", "reading": "そまびと", "meaning": "나무꾼"}
+      ],
+      "etymology": "木(나무 목) + 山(메 산) → 산에서 나무 베는 사람"
+    },
+    {
+      "id": "019",
+      "literal": "鰯",
+      "korean_reading": "정어리 약",
+      "jpOn": "",
+      "jpKun": "いわし",
+      "meanings": ["정어리"],
+      "stroke_count": 21,
+      "radical": "魚",
+      "examples": [
+        {"word": "鰯", "reading": "いわし", "meaning": "정어리"},
+        {"word": "鰯雲", "reading": "いわしぐも", "meaning": "정어리구름(비늘구름)"}
+      ],
+      "etymology": "魚(물고기 어) + 弱(약할 약) → 약한 물고기 = 정어리"
+    },
+    {
+      "id": "020",
+      "literal": "鱈",
+      "korean_reading": "대구 설",
+      "jpOn": "",
+      "jpKun": "たら",
+      "meanings": ["대구(생선)"],
+      "stroke_count": 22,
+      "radical": "魚",
+      "examples": [
+        {"word": "鱈", "reading": "たら", "meaning": "대구"},
+        {"word": "鱈子", "reading": "たらこ", "meaning": "명란"}
+      ],
+      "etymology": "魚(물고기 어) + 雪(눈 설) → 눈 올 때 잡히는 물고기"
+    }
+  ]
+}
