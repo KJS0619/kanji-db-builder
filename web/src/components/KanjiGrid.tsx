@@ -1,9 +1,15 @@
 "use client";
 
-import { useRef, useCallback, useState, useEffect } from "react";
+import { useRef, useCallback, useState, useEffect, useMemo } from "react";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { Kanji, JLPT_COLORS } from "@/types/kanji";
 import clsx from "clsx";
+
+interface KanjiDiffEntry {
+  krTraditional: string;
+  jpShinjitai: string;
+  krSound: string;
+}
 
 interface KanjiGridProps {
   kanjiList: Kanji[];
@@ -25,6 +31,7 @@ function getColumns(): number {
 export function KanjiGrid({ kanjiList, onKanjiClick }: KanjiGridProps) {
   const parentRef = useRef<HTMLDivElement>(null);
   const [columns, setColumns] = useState(5);
+  const [diffMap, setDiffMap] = useState<Map<string, string>>(new Map());
 
   // 클라이언트에서 열 수 계산
   useEffect(() => {
@@ -32,6 +39,21 @@ export function KanjiGrid({ kanjiList, onKanjiClick }: KanjiGridProps) {
     updateColumns();
     window.addEventListener("resize", updateColumns);
     return () => window.removeEventListener("resize", updateColumns);
+  }, []);
+
+  // 한·일 차이 한자 데이터 로드
+  useEffect(() => {
+    fetch("/data/kanji_diff_full.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const map = new Map<string, string>();
+        data.kanji.forEach((entry: KanjiDiffEntry) => {
+          // 일본 신자체 → 한국 정자 매핑
+          map.set(entry.jpShinjitai, entry.krTraditional);
+        });
+        setDiffMap(map);
+      })
+      .catch((err) => console.error("Failed to load kanji diff data:", err));
   }, []);
 
   const rowCount = Math.ceil(kanjiList.length / columns);
@@ -81,6 +103,7 @@ export function KanjiGrid({ kanjiList, onKanjiClick }: KanjiGridProps) {
                 <KanjiCard
                   key={kanji.unicode_hex}
                   kanji={kanji}
+                  koreanTraditional={diffMap.get(kanji.literal)}
                   onClick={() => onKanjiClick(kanji)}
                 />
               ))}
@@ -94,10 +117,13 @@ export function KanjiGrid({ kanjiList, onKanjiClick }: KanjiGridProps) {
 
 interface KanjiCardProps {
   kanji: Kanji;
+  koreanTraditional?: string; // 한국 정자 (차이가 있는 경우)
   onClick: () => void;
 }
 
-function KanjiCard({ kanji, onClick }: KanjiCardProps) {
+function KanjiCard({ kanji, koreanTraditional, onClick }: KanjiCardProps) {
+  const hasDiff = koreanTraditional && koreanTraditional !== kanji.literal;
+
   return (
     <button
       onClick={onClick}
@@ -107,7 +133,9 @@ function KanjiCard({ kanji, onClick }: KanjiCardProps) {
         "bg-white dark:bg-gray-800",
         "border border-gray-200 dark:border-gray-700",
         "hover:border-blue-400 dark:hover:border-blue-500",
-        "cursor-pointer transition-all"
+        "cursor-pointer transition-all",
+        // 차이가 있는 경우 왼쪽에 파란 선 표시
+        hasDiff && "border-l-2 border-l-blue-500"
       )}
     >
       {/* JLPT 배지 */}
@@ -119,6 +147,16 @@ function KanjiCard({ kanji, onClick }: KanjiCardProps) {
       >
         {kanji.jlpt_level}
       </span>
+
+      {/* 한국 정자 배지 (차이가 있는 경우) - 왼쪽 상단 */}
+      {hasDiff && (
+        <span
+          className="absolute top-0.5 left-0.5 px-1 py-0.5 text-[10px] sm:text-xs font-bold text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/50 rounded border border-blue-300 dark:border-blue-700"
+          title={`한국 정자: ${koreanTraditional}`}
+        >
+          {koreanTraditional}
+        </span>
+      )}
 
       {/* 한자 */}
       <span className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">

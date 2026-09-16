@@ -10,6 +10,13 @@ import {
 } from "@/components/GenericFlashcardPrintModal";
 import clsx from "clsx";
 
+// 한일 한자 차이 데이터 타입
+interface KanjiDiff {
+  krTraditional: string;  // 한국 정자체
+  jpShinjitai: string;    // 일본 신자체
+  krSound: string;        // 한국어 훈음
+}
+
 interface FlashcardModalProps {
   kanjiList: Kanji[];
   onClose: () => void;
@@ -36,6 +43,9 @@ export function FlashcardModal({ kanjiList, onClose }: FlashcardModalProps) {
   const [deck, setDeck] = useState<Kanji[]>([]);
   const [showPrintModal, setShowPrintModal] = useState(false);
 
+  // 한일 한자 차이 데이터 (일본 신자체 → 한국 정자체 매핑)
+  const [kanjiDiffMap, setKanjiDiffMap] = useState<Map<string, KanjiDiff>>(new Map());
+
   // TTS 훅
   const { speak, speakSequence, stop, isSpeaking, isSupported } = useKanjiTTS();
 
@@ -45,6 +55,25 @@ export function FlashcardModal({ kanjiList, onClose }: FlashcardModalProps) {
   // 초기 자동재생 설정 로드
   useEffect(() => {
     setAutoPlayEnabled(getTTSAutoPlaySetting());
+  }, []);
+
+  // 한일 한자 차이 데이터 로드
+  useEffect(() => {
+    fetch("/data/kanji_diff_full.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const map = new Map<string, KanjiDiff>();
+        data.kanji.forEach((k: KanjiDiff) => {
+          // 일본 신자체를 키로 사용하여 한국 정자체 매핑
+          map.set(k.jpShinjitai, {
+            krTraditional: k.krTraditional,
+            jpShinjitai: k.jpShinjitai,
+            krSound: k.krSound,
+          });
+        });
+        setKanjiDiffMap(map);
+      })
+      .catch(console.error);
   }, []);
 
   // 자동재생 설정 변경 핸들러
@@ -352,7 +381,7 @@ export function FlashcardModal({ kanjiList, onClose }: FlashcardModalProps) {
               onClick={handleFlip}
             >
               <div className={clsx("flashcard w-full h-full", isFlipped && "flipped")}>
-                {/* 앞면 - 한자 */}
+                {/* 앞면 - 한자 (한일 비교 포함) */}
                 <div
                   className={clsx(
                     "flashcard-face flex flex-col items-center justify-center",
@@ -361,14 +390,44 @@ export function FlashcardModal({ kanjiList, onClose }: FlashcardModalProps) {
                     "shadow-lg"
                   )}
                 >
-                  <span
-                    className={clsx(
-                      "text-8xl sm:text-9xl font-bold text-gray-900 dark:text-white",
-                      "select-none"
-                    )}
-                  >
-                    {currentKanji.literal}
-                  </span>
+                  {/* 한일 차이가 있는 경우 비교 표시 */}
+                  {kanjiDiffMap.has(currentKanji.literal) ? (
+                    <div className="flex flex-col items-center">
+                      {/* 한일 비교 표시 */}
+                      <div className="flex items-center gap-3">
+                        {/* 한국 정자체 */}
+                        <div className="flex flex-col items-center">
+                          <span className="text-xs font-medium text-red-500 dark:text-red-400 mb-1">韓</span>
+                          <span className="text-6xl sm:text-7xl font-bold text-red-600 dark:text-red-400 select-none">
+                            {kanjiDiffMap.get(currentKanji.literal)?.krTraditional}
+                          </span>
+                        </div>
+                        {/* 화살표 */}
+                        <span className="text-3xl text-gray-400 dark:text-gray-500">↔</span>
+                        {/* 일본 신자체 */}
+                        <div className="flex flex-col items-center">
+                          <span className="text-xs font-medium text-blue-500 dark:text-blue-400 mb-1">日</span>
+                          <span className="text-6xl sm:text-7xl font-bold text-blue-600 dark:text-blue-400 select-none">
+                            {currentKanji.literal}
+                          </span>
+                        </div>
+                      </div>
+                      {/* 한일 차이 라벨 */}
+                      <span className="mt-2 px-2 py-0.5 text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200 rounded">
+                        한일 자형 차이
+                      </span>
+                    </div>
+                  ) : (
+                    /* 차이 없는 경우 기존처럼 표시 */
+                    <span
+                      className={clsx(
+                        "text-8xl sm:text-9xl font-bold text-gray-900 dark:text-white",
+                        "select-none"
+                      )}
+                    >
+                      {currentKanji.literal}
+                    </span>
+                  )}
                   <div className="mt-4 flex items-center gap-2">
                     <span
                       className={clsx(
@@ -396,6 +455,22 @@ export function FlashcardModal({ kanjiList, onClose }: FlashcardModalProps) {
                     "shadow-lg"
                   )}
                 >
+                  {/* 한일 차이가 있는 경우 비교 정보 표시 */}
+                  {kanjiDiffMap.has(currentKanji.literal) && (
+                    <div className="flex items-center gap-2 mb-3 px-3 py-1.5 bg-amber-50 dark:bg-amber-900/30 rounded-lg border border-amber-200 dark:border-amber-800">
+                      <span className="text-2xl text-red-600 dark:text-red-400 font-bold">
+                        {kanjiDiffMap.get(currentKanji.literal)?.krTraditional}
+                      </span>
+                      <span className="text-gray-400">→</span>
+                      <span className="text-2xl text-blue-600 dark:text-blue-400 font-bold">
+                        {currentKanji.literal}
+                      </span>
+                      <span className="text-xs text-amber-700 dark:text-amber-300 ml-1">
+                        (정자→신자)
+                      </span>
+                    </div>
+                  )}
+
                   {/* 한국어 훈음 */}
                   {currentKanji.korean_hun_eum && (
                     <p className="text-2xl sm:text-3xl font-bold text-blue-600 dark:text-blue-400 mb-4">
